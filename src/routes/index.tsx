@@ -24,7 +24,7 @@ function WistiaPlayer() {
   }, []);
   return (
     <div
-      className="overflow-hidden rounded-2xl border border-ink/10 shadow-2xl bg-black"
+      className="overflow-hidden rounded-2xl border border-copper/30 shadow-2xl bg-copper"
       dangerouslySetInnerHTML={{
         __html: `<style>wistia-player[media-id='rng5l3y995']:not(:defined){background:center/contain no-repeat url('https://fast.wistia.com/embed/medias/rng5l3y995/swatch');display:block;filter:blur(5px);padding-top:56.25%;}</style><wistia-player media-id="rng5l3y995" aspect="1.7777777777777777"></wistia-player>`,
       }}
