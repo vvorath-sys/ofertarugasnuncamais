@@ -491,13 +491,9 @@ function Landing() {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
-              <Sparkles className="h-3 w-3" /> Oferta por tempo limitado
+              <Sparkles className="h-3 w-3" /> Esta oferta expira em
             </div>
-            <h2 className="font-display text-3xl leading-tight sm:text-4xl md:text-6xl">
-              Comece hoje por <em className="text-copper">apenas R$ 27</em>
-            </h2>
-            <div className="mt-6 flex flex-col items-center justify-center gap-2 text-sm text-white/70 sm:flex-row sm:gap-3">
-              <span>Esta oferta expira em:</span>
+            <div className="flex items-center justify-center">
               <Countdown />
             </div>
           </div>
@@ -506,23 +502,13 @@ function Landing() {
             <div className="grid md:grid-cols-[1.1fr_1fr]">
               <div className="p-8 md:p-12">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe</p>
-                <div className="mt-4">
-                  <div className="text-sm text-muted-foreground line-through">De R$ 197</div>
-                  <div className="mt-1 flex items-baseline gap-2">
-                    <span className="font-display text-6xl leading-none text-ink sm:text-7xl">R$ 27</span>
-                  </div>
-                  <p className="mt-2 text-sm text-ink/70">
-                    Pagamento único · acesso vitalício
-                  </p>
-                </div>
-                
 
-                <ul className="mt-8 space-y-3.5">
+                <ul className="mt-6 space-y-3.5">
                   {[
                     "Ebook completo Método Rugas Nunca Mais",
                     "Guia passo a passo de aplicação",
                     "Frequência ideal e erros a evitar",
-                    "BÔNUS: 5 hábitos que envelhecem a pele",
+                    "BÔNUS: Corpo dos sonhos",
                     "BÔNUS: Ritual anti-idade de 5 minutos ao acordar",
                     "Acesso vitalício + atualizações gratuitas",
                   ].map((t) => (
@@ -535,14 +521,31 @@ function Landing() {
                   ))}
                 </ul>
 
-                <div className="mt-8">
-                  <CTA block>QUERO ACESSAR AGORA</CTA>
+                <div className="mt-8 border-t border-border pt-6 text-center">
+                  <div className="text-sm text-muted-foreground line-through">De R$ 197</div>
+                  <div className="mt-1 flex items-baseline justify-center gap-2">
+                    <span className="font-display text-6xl leading-none text-ink sm:text-7xl">R$ 27</span>
+                  </div>
+                  <p className="mt-2 text-sm text-ink/70">
+                    Pagamento único · acesso vitalício
+                  </p>
+                </div>
+
+                <div className="mt-6">
+                  <a
+                    href={CHECKOUT}
+                    className="group relative flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-cta-gradient px-4 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)] animate-pulse-soft sm:text-sm"
+                  >
+                    <span>QUERO ACESSAR AGORA</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
                   <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
                     <span className="flex items-center gap-1"><Lock className="h-3 w-3" /> Compra 100% segura</span>
                     <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3" /> 30 dias de garantia</span>
                   </div>
                 </div>
               </div>
+
 
               <div className="relative flex flex-col gap-6 bg-cream p-8 md:p-12">
                 <div className="overflow-hidden rounded-2xl shadow-lg">
