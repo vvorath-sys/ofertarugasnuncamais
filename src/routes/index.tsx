@@ -420,8 +420,8 @@ function Landing() {
                 <div className="mt-4">
                   <div className="text-sm text-muted-foreground line-through">De R$ 297</div>
                   <div className="mt-1 flex items-baseline gap-2">
-                    <span className="text-xl text-ink">12x</span>
-                    <span className="font-display text-6xl leading-none text-ink md:text-7xl">R$ 15,31</span>
+                    <span className="text-lg text-ink sm:text-xl">12x</span>
+                    <span className="font-display text-5xl leading-none text-ink sm:text-6xl md:text-7xl">R$ 15,31</span>
                   </div>
                   <p className="mt-2 text-sm text-ink/70">
                     ou <strong className="text-ink">R$ 147</strong> à vista
