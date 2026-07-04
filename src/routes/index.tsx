@@ -63,6 +63,8 @@ function CTA({ children = "QUERO MEU ACESSO AGORA", block = false }: { children?
   return (
     <a
       href={CHECKOUT}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`group relative inline-flex items-center justify-center gap-3 rounded-full bg-cta-gradient px-8 py-4 text-sm font-bold uppercase tracking-[0.14em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)] animate-pulse-soft ${block ? "w-full" : ""}`}
     >
       <span>{children}</span>
