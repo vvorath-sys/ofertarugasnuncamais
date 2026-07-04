@@ -248,7 +248,7 @@ function Landing() {
       </section>
 
       {/* APLIQUE E RELAXE */}
-      <section className="bg-cream/50 px-4 py-20 md:py-24">
+      <section className="bg-cream/50 px-4 py-12 md:py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.15fr_1fr]">
           <div className="overflow-hidden rounded-2xl shadow-xl">
             <img src={n2.url} alt="Aplique e relaxe" className="w-full" />
