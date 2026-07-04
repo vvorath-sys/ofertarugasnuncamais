@@ -41,6 +41,7 @@ import n7 from "@/assets/n7.png.asset.json";
 import n8 from "@/assets/n8.png.asset.json";
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
+import ofertaProduto from "@/assets/oferta-produto.png.asset.json";
 import tSandra from "@/assets/t-sandra.png.asset.json";
 import tMarlene from "@/assets/t-marlene.png.asset.json";
 import tDebora from "@/assets/t-debora.png.asset.json";
@@ -526,22 +527,20 @@ function Landing() {
                 </div>
               </div>
 
+              <div className="relative flex items-center justify-center bg-cream p-8 md:p-12">
+                <img src={ofertaProduto.url} alt="Método Rugas Nunca Mais — ebook e guias" className="w-full max-w-md" />
+              </div>
+            </div>
+          </div>
 
-              <div className="relative flex flex-col gap-6 bg-cream p-8 md:p-12">
-                <div className="overflow-hidden rounded-2xl shadow-lg">
-                  <img src={n8.url} alt="O que você recebe — ebook, guia e acesso vitalício" className="w-full" />
-                </div>
-                <div className="rounded-2xl border border-copper/30 bg-white p-5">
-                  <div className="flex items-start gap-3">
-                    <ShieldCheck className="h-8 w-8 shrink-0 text-copper" />
-                    <div>
-                      <h3 className="font-display text-lg text-ink">Garantia blindada de 30 dias</h3>
-                      <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                        Aplique por 30 dias. Se não notar diferença, devolvemos 100% do valor. Sem burocracia.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+          <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-copper/40 bg-white/95 p-6 text-ink shadow-xl md:p-8">
+            <div className="flex items-start gap-4">
+              <ShieldCheck className="h-10 w-10 shrink-0 text-copper" />
+              <div>
+                <h3 className="font-display text-xl text-ink md:text-2xl">Garantia blindada de 30 dias</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Aplique por 30 dias. Se não notar diferença, devolvemos 100% do valor. Sem burocracia.
+                </p>
               </div>
             </div>
           </div>
