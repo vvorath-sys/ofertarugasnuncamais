@@ -518,6 +518,8 @@ function Landing() {
                 <div className="mt-6">
                   <a
                     href={CHECKOUT}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group relative flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-cta-gradient px-4 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)] animate-pulse-soft sm:text-sm"
                   >
                     <span>QUERO ACESSAR AGORA</span>
