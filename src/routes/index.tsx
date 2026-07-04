@@ -31,15 +31,14 @@ function WistiaPlayer() {
     />
   );
 }
-import img1 from "@/assets/img1.png.asset.json";
-import img2 from "@/assets/img2.png.asset.json";
-import img3 from "@/assets/img3.png.asset.json";
-import img4 from "@/assets/img4.png.asset.json";
-import img5 from "@/assets/img5.png.asset.json";
-import img6 from "@/assets/img6.png.asset.json";
-import img7 from "@/assets/img7.png.asset.json";
-import img8 from "@/assets/img8.png.asset.json";
-import img9 from "@/assets/img9.png.asset.json";
+import n1 from "@/assets/n1.png.asset.json";
+import n2 from "@/assets/n2.png.asset.json";
+import n3 from "@/assets/n3.png.asset.json";
+import n4 from "@/assets/n4.png.asset.json";
+import n5 from "@/assets/n5.png.asset.json";
+import n6 from "@/assets/n6.png.asset.json";
+import n7 from "@/assets/n7.png.asset.json";
+import n8 from "@/assets/n8.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
