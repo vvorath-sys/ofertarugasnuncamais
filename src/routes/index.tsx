@@ -429,11 +429,17 @@ function Landing() {
             <div className="grid md:grid-cols-[1.1fr_1fr]">
               <div className="p-8 md:p-12">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe</p>
-                <div className="mt-4 flex items-baseline gap-3">
-                  <span className="text-lg text-muted-foreground line-through">R$ 97</span>
-                  <span className="font-display text-6xl text-ink md:text-7xl">R$ 27</span>
+                <div className="mt-4">
+                  <div className="text-sm text-muted-foreground line-through">De R$ 297</div>
+                  <div className="mt-1 flex items-baseline gap-2">
+                    <span className="text-xl text-ink">12x</span>
+                    <span className="font-display text-6xl leading-none text-ink md:text-7xl">R$ 15,31</span>
+                  </div>
+                  <p className="mt-2 text-sm text-ink/70">
+                    ou <strong className="text-ink">R$ 147</strong> à vista
+                  </p>
                 </div>
-                <p className="mt-1 text-sm text-muted-foreground">Pagamento único · acesso vitalício</p>
+                <p className="mt-3 text-xs text-muted-foreground">Pagamento único · acesso vitalício</p>
 
                 <ul className="mt-8 space-y-3.5">
                   {[
