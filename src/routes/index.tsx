@@ -271,7 +271,7 @@ function Landing() {
       </section>
 
       {/* COMO USAR — imagem oficial dos 4 passos */}
-      <section className="px-4 py-20 md:py-28">
+      <section className="px-4 py-12 md:py-16">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Passo a passo</p>
