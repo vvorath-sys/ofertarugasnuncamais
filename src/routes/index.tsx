@@ -538,12 +538,23 @@ function Landing() {
             </div>
           </div>
 
-          <div className="mx-auto mt-8 max-w-xs">
-            <img
-              src={seloGarantia.url}
-              alt="Selo Garantia 30 Dias — Satisfação Garantida"
-              className="w-full"
-            />
+        </div>
+      </section>
+
+      {/* GARANTIA */}
+      <section className="bg-cream px-4 py-16 md:py-20">
+        <div className="mx-auto grid max-w-4xl items-center gap-8 md:grid-cols-[auto_1fr]">
+          <img
+            src={seloGarantia.url}
+            alt="Selo Garantia 30 Dias — Satisfação Garantida"
+            className="mx-auto w-48 md:w-56"
+          />
+          <div className="text-center md:text-left">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Garantia incondicional</p>
+            <h2 className="mt-3 font-display text-3xl text-ink md:text-4xl">30 dias de garantia total</h2>
+            <p className="mt-4 text-muted-foreground">
+              Teste o Método Rugas Nunca Mais por 30 dias. Se você não notar diferença na sua pele, devolvemos 100% do seu investimento. Sem burocracia, sem perguntas. O risco é todo nosso.
+            </p>
           </div>
         </div>
       </section>
