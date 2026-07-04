@@ -404,10 +404,10 @@ function Landing() {
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
               <Sparkles className="h-3 w-3" /> Oferta por tempo limitado
             </div>
-            <h2 className="font-display text-4xl leading-tight md:text-6xl">
+            <h2 className="font-display text-3xl leading-tight sm:text-4xl md:text-6xl">
               Comece hoje por <em className="text-copper">12x R$ 15,31</em>
             </h2>
-            <div className="mt-6 flex items-center justify-center gap-3 text-sm text-white/70">
+            <div className="mt-6 flex flex-col items-center justify-center gap-2 text-sm text-white/70 sm:flex-row sm:gap-3">
               <span>Esta oferta expira em:</span>
               <Countdown />
             </div>
