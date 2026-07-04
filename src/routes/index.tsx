@@ -136,31 +136,19 @@ function StatRing({ pct, label }: { pct: number; label: string }) {
 function Landing() {
   return (
     <main className="min-h-screen">
-      {/* NAV */}
-      <header className="border-b border-border bg-background/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <div className="font-display text-xl text-ink md:text-2xl">
-            Rugas <em className="text-copper">Nunca Mais</em>
-          </div>
-          <a href={CHECKOUT} className="hidden rounded-full border border-ink px-5 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-ink transition-colors hover:bg-ink hover:text-white md:inline-block">
-            Acessar oferta
-          </a>
-        </div>
-      </header>
-
       {/* HERO */}
       <section className="relative overflow-hidden bg-warm-gradient">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-14 md:grid-cols-2 md:py-24">
-          <div>
-            <h1 className="font-display text-[2.6rem] leading-[1.02] text-ink md:text-6xl lg:text-7xl">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 pt-8 pb-12 md:grid-cols-2 md:gap-12 md:pt-20 md:pb-24">
+          <div className="order-2 md:order-1">
+            <h1 className="font-display text-[2rem] leading-[1.05] text-ink sm:text-4xl md:text-6xl lg:text-7xl">
               Rugas visivelmente <em className="text-copper">suavizadas</em> em poucas semanas —
               <span className="block">sem cremes caros.</span>
             </h1>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground md:mt-6 md:text-lg">
               Um protocolo caseiro com <strong className="text-ink">3 ingredientes</strong> que você já tem na cozinha. Aplicado por mais de <strong className="text-ink">27.000 mulheres</strong> com resultados reais.
             </p>
 
-            <div className="mt-8 space-y-3">
+            <div className="mt-6 space-y-2.5 md:mt-8 md:space-y-3">
               {[
                 "Reduz linhas de expressão em 2–3 semanas",
                 "Rotina de 15 minutos, 2x por semana",
@@ -168,27 +156,27 @@ function Landing() {
               ].map((t) => (
                 <div key={t} className="flex items-start gap-3">
                   <Check className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
-                  <span className="text-[15px] text-ink">{t}</span>
+                  <span className="text-[14px] text-ink md:text-[15px]">{t}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <CTA />
-              <div className="flex items-center gap-2">
+            <div className="mt-7 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center md:mt-9">
+              <CTA block />
+              <div className="flex items-center justify-center gap-2 sm:justify-start">
                 <Stars />
                 <span className="text-xs text-muted-foreground">4.9 · 3.284 avaliações</span>
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground sm:justify-start md:mt-8 md:text-xs">
               <div className="flex items-center gap-1.5"><Lock className="h-3.5 w-3.5" /> Pagamento seguro</div>
               <div className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> Garantia de 30 dias</div>
               <div className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Acesso imediato</div>
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative order-1 md:order-2">
             <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
             <div className="relative">
               <WistiaPlayer />
