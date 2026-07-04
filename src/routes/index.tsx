@@ -41,8 +41,7 @@ import n7 from "@/assets/n7.png.asset.json";
 import n8 from "@/assets/n8.png.asset.json";
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
-import ofertaProduto from "@/assets/o-que-voce-recebe.png.asset.json";
-import seloGarantia from "@/assets/selo-garantia-30-dias.png.asset.json";
+import seloGarantia from "@/assets/selo-garantia-30-dias-removebg-preview.png.asset.json";
 import tSandra from "@/assets/t-sandra.png.asset.json";
 import tMarlene from "@/assets/t-marlene.png.asset.json";
 import tDebora from "@/assets/t-debora.png.asset.json";
@@ -483,8 +482,7 @@ function Landing() {
           </div>
 
           <div className="mt-12 overflow-hidden rounded-3xl bg-white text-ink shadow-2xl">
-            <div className="grid md:grid-cols-[1.1fr_1fr]">
-              <div className="p-8 md:p-12">
+            <div className="p-8 md:p-12">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe</p>
 
                 <ul className="mt-6 space-y-3.5">
@@ -530,11 +528,6 @@ function Landing() {
                     <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3" /> 30 dias de garantia</span>
                   </div>
                 </div>
-              </div>
-
-              <div className="relative flex items-center justify-center bg-cream p-8 md:p-12">
-                <img src={ofertaProduto.url} alt="Método Rugas Nunca Mais — ebook e guias" className="w-full max-w-md" />
-              </div>
             </div>
           </div>
 
