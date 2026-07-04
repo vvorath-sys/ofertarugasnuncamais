@@ -408,7 +408,7 @@ function Landing() {
               <Sparkles className="h-3 w-3" /> Oferta por tempo limitado
             </div>
             <h2 className="font-display text-3xl leading-tight sm:text-4xl md:text-6xl">
-              Comece hoje por <em className="text-copper">12x R$ 15,31</em>
+              Comece hoje por <em className="text-copper">apenas R$ 27</em>
             </h2>
             <div className="mt-6 flex flex-col items-center justify-center gap-2 text-sm text-white/70 sm:flex-row sm:gap-3">
               <span>Esta oferta expira em:</span>
@@ -421,13 +421,12 @@ function Landing() {
               <div className="p-8 md:p-12">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe</p>
                 <div className="mt-4">
-                  <div className="text-sm text-muted-foreground line-through">De R$ 297</div>
+                  <div className="text-sm text-muted-foreground line-through">De R$ 197</div>
                   <div className="mt-1 flex items-baseline gap-2">
-                    <span className="text-lg text-ink sm:text-xl">12x</span>
-                    <span className="font-display text-5xl leading-none text-ink sm:text-6xl md:text-7xl">R$ 15,31</span>
+                    <span className="font-display text-6xl leading-none text-ink sm:text-7xl">R$ 27</span>
                   </div>
                   <p className="mt-2 text-sm text-ink/70">
-                    ou <strong className="text-ink">R$ 147</strong> à vista
+                    Pagamento único · acesso vitalício
                   </p>
                 </div>
                 <p className="mt-3 text-xs text-muted-foreground">Pagamento único · acesso vitalício</p>
