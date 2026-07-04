@@ -429,7 +429,7 @@ function Landing() {
                     Pagamento único · acesso vitalício
                   </p>
                 </div>
-                <p className="mt-3 text-xs text-muted-foreground">Pagamento único · acesso vitalício</p>
+                
 
                 <ul className="mt-8 space-y-3.5">
                   {[
