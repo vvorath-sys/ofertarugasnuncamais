@@ -417,7 +417,7 @@ function Landing() {
               <Sparkles className="h-3 w-3" /> Oferta por tempo limitado
             </div>
             <h2 className="font-display text-4xl leading-tight md:text-6xl">
-              Comece hoje por apenas <em className="text-copper">R$ 27</em>
+              Comece hoje por <em className="text-copper">12x R$ 15,31</em>
             </h2>
             <div className="mt-6 flex items-center justify-center gap-3 text-sm text-white/70">
               <span>Esta oferta expira em:</span>
