@@ -272,6 +272,18 @@ function Landing() {
         </div>
 
       </section>
+      {/* ANTES E DEPOIS */}
+      <section className="px-4 py-16 md:py-20" style={{ backgroundColor: "#fdf5ef" }}>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Antes & depois</p>
+          <h2 className="mt-4 font-display text-4xl leading-tight text-ink md:text-5xl">Resultado Visível</h2>
+          <p className="mt-3 text-sm text-muted-foreground md:text-base">Arraste para ver a transformação.</p>
+        </div>
+        <div className="mt-10">
+          <BeforeAfter />
+        </div>
+      </section>
+
 
 
       {/* PROBLEMA */}
@@ -553,17 +565,6 @@ function Landing() {
         </div>
       </section>
 
-      {/* ANTES E DEPOIS */}
-      <section className="px-4 py-16 md:py-20" style={{ backgroundColor: "#fdf5ef" }}>
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Antes & depois</p>
-          <h2 className="mt-4 font-display text-4xl leading-tight text-ink md:text-5xl">Resultado Visível</h2>
-          <p className="mt-3 text-sm text-muted-foreground md:text-base">Arraste para ver a transformação.</p>
-        </div>
-        <div className="mt-10">
-          <BeforeAfter />
-        </div>
-      </section>
 
       {/* FAQ */}
       <section className="px-4 py-20 md:py-28">
