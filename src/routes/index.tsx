@@ -42,6 +42,7 @@ import n8 from "@/assets/n8.png.asset.json";
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
 import ofertaProduto from "@/assets/oferta-produto.png.asset.json";
+import seloGarantia from "@/assets/selo-garantia-30-dias.png.asset.json";
 import tSandra from "@/assets/t-sandra.png.asset.json";
 import tMarlene from "@/assets/t-marlene.png.asset.json";
 import tDebora from "@/assets/t-debora.png.asset.json";
@@ -533,16 +534,12 @@ function Landing() {
             </div>
           </div>
 
-          <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-copper/40 bg-white/95 p-6 text-ink shadow-xl md:p-8">
-            <div className="flex items-start gap-4">
-              <ShieldCheck className="h-10 w-10 shrink-0 text-copper" />
-              <div>
-                <h3 className="font-display text-xl text-ink md:text-2xl">Garantia blindada de 30 dias</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Aplique por 30 dias. Se não notar diferença, devolvemos 100% do valor. Sem burocracia.
-                </p>
-              </div>
-            </div>
+          <div className="mx-auto mt-8 max-w-xs">
+            <img
+              src={seloGarantia.url}
+              alt="Selo Garantia 30 Dias — Satisfação Garantida"
+              className="w-full"
+            />
           </div>
         </div>
       </section>
