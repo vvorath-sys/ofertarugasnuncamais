@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles, ChevronsLeftRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 declare global {
   namespace JSX {
@@ -39,6 +39,8 @@ import n5 from "@/assets/n5.png.asset.json";
 import n6 from "@/assets/n6.png.asset.json";
 import n7 from "@/assets/n7.png.asset.json";
 import n8 from "@/assets/n8.png.asset.json";
+import antesImg from "@/assets/antes.png.asset.json";
+import depoisImg from "@/assets/depois.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -132,6 +134,92 @@ function StatRing({ pct, label }: { pct: number; label: string }) {
   );
 }
 
+function BeforeAfter() {
+  const [pos, setPos] = useState(50);
+  const ref = useRef<HTMLDivElement>(null);
+  const dragging = useRef(false);
+
+  const update = (clientX: number) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const p = ((clientX - rect.left) / rect.width) * 100;
+    setPos(Math.max(0, Math.min(100, p)));
+  };
+
+  useEffect(() => {
+    const move = (e: MouseEvent | TouchEvent) => {
+      if (!dragging.current) return;
+      const x = "touches" in e ? e.touches[0].clientX : e.clientX;
+      update(x);
+    };
+    const stop = () => { dragging.current = false; };
+    window.addEventListener("mousemove", move);
+    window.addEventListener("touchmove", move, { passive: true });
+    window.addEventListener("mouseup", stop);
+    window.addEventListener("touchend", stop);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("touchmove", move);
+      window.removeEventListener("mouseup", stop);
+      window.removeEventListener("touchend", stop);
+    };
+  }, []);
+
+  const start = (clientX: number) => { dragging.current = true; update(clientX); };
+
+  return (
+    <div className="mx-auto w-full max-w-[480px]">
+      <div
+        ref={ref}
+        className="relative aspect-square w-full select-none overflow-hidden rounded-xl shadow-2xl"
+        onMouseDown={(e) => start(e.clientX)}
+        onTouchStart={(e) => start(e.touches[0].clientX)}
+      >
+        {/* DEPOIS (base, embaixo visualmente — revelado à direita) */}
+        <img src={depoisImg.url} alt="Depois" className="absolute inset-0 h-full w-full object-cover" draggable={false} />
+        {/* ANTES (por cima, clipado da esquerda até pos%) */}
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+        >
+          <img src={antesImg.url} alt="Antes" className="absolute inset-0 h-full w-full object-cover" draggable={false} />
+        </div>
+
+        {/* rótulos */}
+        <span className="absolute left-3 top-3 rounded-full bg-black/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">Antes</span>
+        <span className="absolute right-3 top-3 rounded-full bg-black/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">Depois</span>
+
+        {/* linha divisória */}
+        <div className="pointer-events-none absolute inset-y-0" style={{ left: `${pos}%`, transform: "translateX(-50%)" }}>
+          <div className="h-full w-0.5 bg-white shadow-[0_0_12px_rgba(0,0,0,0.4)]" />
+        </div>
+        {/* handle */}
+        <button
+          type="button"
+          aria-label="Arraste para comparar"
+          className="absolute top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 cursor-grab items-center justify-center rounded-full border-2 border-white bg-copper text-white shadow-xl active:cursor-grabbing"
+          style={{ left: `${pos}%` }}
+          onMouseDown={(e) => { e.stopPropagation(); start(e.clientX); }}
+          onTouchStart={(e) => { e.stopPropagation(); start(e.touches[0].clientX); }}
+        >
+          <ChevronsLeftRight className="h-5 w-5" />
+        </button>
+      </div>
+
+      <input
+        type="range"
+        min={0}
+        max={100}
+        value={pos}
+        onChange={(e) => setPos(Number(e.target.value))}
+        aria-label="Comparar antes e depois"
+        className="mt-5 w-full accent-copper"
+      />
+    </div>
+  );
+}
+
 function Landing() {
   return (
     <main className="min-h-screen">
@@ -184,21 +272,6 @@ function Landing() {
         </div>
       </section>
 
-      {/* PRESS / LOGOS BAR */}
-      <section className="border-y border-border bg-cream/60">
-        <div className="mx-auto max-w-6xl overflow-hidden px-4 py-6">
-          <p className="mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-            Recomendado por especialistas em skincare natural
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 font-display text-xl text-muted-foreground/70 md:text-2xl">
-            <span>VOGUE</span>
-            <span className="italic">Elle</span>
-            <span>MARIE CLAIRE</span>
-            <span className="italic">Harper's</span>
-            <span>GLAMOUR</span>
-          </div>
-        </div>
-      </section>
 
       {/* PROBLEMA */}
       <section className="px-4 py-20 md:py-28">
@@ -263,7 +336,7 @@ function Landing() {
       </section>
 
       {/* APLIQUE E RELAXE */}
-      <section className="bg-cream/50 px-4 py-20 md:py-24">
+      <section className="bg-cream/50 px-4 py-12 md:py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.15fr_1fr]">
           <div className="overflow-hidden rounded-2xl shadow-xl">
             <img src={n2.url} alt="Aplique e relaxe" className="w-full" />
@@ -276,17 +349,17 @@ function Landing() {
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               A fórmula natural ajuda a pele a absorver nutrientes e se renovar. Deixe agir por 15 minutos e sinta a diferença já nas primeiras semanas.
             </p>
-            <div className="mt-6 flex items-center gap-6 text-sm">
-              <div><div className="font-display text-3xl text-ink">15<span className="text-copper">min</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">de ritual</div></div>
+            <div className="mt-6 flex items-center justify-center gap-6 text-sm md:justify-start">
+              <div className="text-center md:text-left"><div className="font-display text-3xl text-ink">15<span className="text-copper">min</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">de ritual</div></div>
               <div className="h-10 w-px bg-border" />
-              <div><div className="font-display text-3xl text-ink">2×<span className="text-copper">/sem</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">frequência</div></div>
+              <div className="text-center md:text-left"><div className="font-display text-3xl text-ink">2×<span className="text-copper">/sem</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">frequência</div></div>
             </div>
           </div>
         </div>
       </section>
 
       {/* COMO USAR — imagem oficial dos 4 passos */}
-      <section className="px-4 py-20 md:py-28">
+      <section className="px-4 py-12 md:py-16">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Passo a passo</p>
@@ -476,6 +549,18 @@ function Landing() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ANTES E DEPOIS */}
+      <section className="px-4 py-16 md:py-20" style={{ backgroundColor: "#fdf5ef" }}>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Antes & depois</p>
+          <h2 className="mt-4 font-display text-4xl leading-tight text-ink md:text-5xl">Resultado Visível</h2>
+          <p className="mt-3 text-sm text-muted-foreground md:text-base">Arraste para ver a transformação.</p>
+        </div>
+        <div className="mt-10">
+          <BeforeAfter />
         </div>
       </section>
 
