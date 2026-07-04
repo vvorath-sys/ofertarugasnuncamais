@@ -293,8 +293,12 @@ function Landing() {
             <h2 className="mt-4 font-display text-4xl text-ink md:text-5xl">4 passos. 15 minutos.</h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">Do lavatório à pele renovada — o ritual completo em uma sequência simples.</p>
           </div>
-          <div className="mt-12 overflow-hidden rounded-3xl border border-border shadow-2xl">
-            <img src={img4.url} alt="Como usar — 4 passos" className="w-full" />
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {[n3, n4, n5].map((img, i) => (
+              <div key={i} className="overflow-hidden rounded-2xl border border-border shadow-xl">
+                <img src={img.url} alt={`Passo ${i + 1}`} className="w-full" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
