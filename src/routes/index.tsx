@@ -184,21 +184,6 @@ function Landing() {
         </div>
       </section>
 
-      {/* PRESS / LOGOS BAR */}
-      <section className="border-y border-border bg-cream/60">
-        <div className="mx-auto max-w-6xl overflow-hidden px-4 py-6">
-          <p className="mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-            Recomendado por especialistas em skincare natural
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 font-display text-xl text-muted-foreground/70 md:text-2xl">
-            <span>VOGUE</span>
-            <span className="italic">Elle</span>
-            <span>MARIE CLAIRE</span>
-            <span className="italic">Harper's</span>
-            <span>GLAMOUR</span>
-          </div>
-        </div>
-      </section>
 
       {/* PROBLEMA */}
       <section className="px-4 py-20 md:py-28">
