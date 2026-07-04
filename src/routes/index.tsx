@@ -134,6 +134,92 @@ function StatRing({ pct, label }: { pct: number; label: string }) {
   );
 }
 
+function BeforeAfter() {
+  const [pos, setPos] = useState(50);
+  const ref = useRef<HTMLDivElement>(null);
+  const dragging = useRef(false);
+
+  const update = (clientX: number) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const p = ((clientX - rect.left) / rect.width) * 100;
+    setPos(Math.max(0, Math.min(100, p)));
+  };
+
+  useEffect(() => {
+    const move = (e: MouseEvent | TouchEvent) => {
+      if (!dragging.current) return;
+      const x = "touches" in e ? e.touches[0].clientX : e.clientX;
+      update(x);
+    };
+    const stop = () => { dragging.current = false; };
+    window.addEventListener("mousemove", move);
+    window.addEventListener("touchmove", move, { passive: true });
+    window.addEventListener("mouseup", stop);
+    window.addEventListener("touchend", stop);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("touchmove", move);
+      window.removeEventListener("mouseup", stop);
+      window.removeEventListener("touchend", stop);
+    };
+  }, []);
+
+  const start = (clientX: number) => { dragging.current = true; update(clientX); };
+
+  return (
+    <div className="mx-auto w-full max-w-[480px]">
+      <div
+        ref={ref}
+        className="relative aspect-square w-full select-none overflow-hidden rounded-xl shadow-2xl"
+        onMouseDown={(e) => start(e.clientX)}
+        onTouchStart={(e) => start(e.touches[0].clientX)}
+      >
+        {/* DEPOIS (base, embaixo visualmente — revelado à direita) */}
+        <img src={depoisImg.url} alt="Depois" className="absolute inset-0 h-full w-full object-cover" draggable={false} />
+        {/* ANTES (por cima, clipado da esquerda até pos%) */}
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+        >
+          <img src={antesImg.url} alt="Antes" className="absolute inset-0 h-full w-full object-cover" draggable={false} />
+        </div>
+
+        {/* rótulos */}
+        <span className="absolute left-3 top-3 rounded-full bg-black/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">Antes</span>
+        <span className="absolute right-3 top-3 rounded-full bg-black/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">Depois</span>
+
+        {/* linha divisória */}
+        <div className="pointer-events-none absolute inset-y-0" style={{ left: `${pos}%`, transform: "translateX(-50%)" }}>
+          <div className="h-full w-0.5 bg-white shadow-[0_0_12px_rgba(0,0,0,0.4)]" />
+        </div>
+        {/* handle */}
+        <button
+          type="button"
+          aria-label="Arraste para comparar"
+          className="absolute top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 cursor-grab items-center justify-center rounded-full border-2 border-white bg-copper text-white shadow-xl active:cursor-grabbing"
+          style={{ left: `${pos}%` }}
+          onMouseDown={(e) => { e.stopPropagation(); start(e.clientX); }}
+          onTouchStart={(e) => { e.stopPropagation(); start(e.touches[0].clientX); }}
+        >
+          <ChevronsLeftRight className="h-5 w-5" />
+        </button>
+      </div>
+
+      <input
+        type="range"
+        min={0}
+        max={100}
+        value={pos}
+        onChange={(e) => setPos(Number(e.target.value))}
+        aria-label="Comparar antes e depois"
+        className="mt-5 w-full accent-copper"
+      />
+    </div>
+  );
+}
+
 function Landing() {
   return (
     <main className="min-h-screen">
