@@ -41,7 +41,7 @@ import n7 from "@/assets/n7.png.asset.json";
 import n8 from "@/assets/n8.png.asset.json";
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
-import ofertaProduto from "@/assets/oferta-produto.png.asset.json";
+import ofertaProduto from "@/assets/o-que-voce-recebe.png.asset.json";
 import seloGarantia from "@/assets/selo-garantia-30-dias.png.asset.json";
 import tSandra from "@/assets/t-sandra.png.asset.json";
 import tMarlene from "@/assets/t-marlene.png.asset.json";
@@ -57,12 +57,14 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const CHECKOUT = "#oferta";
+const CHECKOUT = "https://ggcheckout.app/checkout/v5/1c6ij2l23k83p0zS2xaa";
 
 function CTA({ children = "QUERO MEU ACESSO AGORA", block = false }: { children?: React.ReactNode; block?: boolean }) {
   return (
     <a
       href={CHECKOUT}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`group relative inline-flex items-center justify-center gap-3 rounded-full bg-cta-gradient px-8 py-4 text-sm font-bold uppercase tracking-[0.14em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)] animate-pulse-soft ${block ? "w-full" : ""}`}
     >
       <span>{children}</span>
@@ -516,6 +518,8 @@ function Landing() {
                 <div className="mt-6">
                   <a
                     href={CHECKOUT}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group relative flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-cta-gradient px-4 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)] animate-pulse-soft sm:text-sm"
                   >
                     <span>QUERO ACESSAR AGORA</span>
@@ -534,12 +538,23 @@ function Landing() {
             </div>
           </div>
 
-          <div className="mx-auto mt-8 max-w-xs">
-            <img
-              src={seloGarantia.url}
-              alt="Selo Garantia 30 Dias — Satisfação Garantida"
-              className="w-full"
-            />
+        </div>
+      </section>
+
+      {/* GARANTIA */}
+      <section className="bg-cream px-4 py-16 md:py-20">
+        <div className="mx-auto grid max-w-4xl items-center gap-8 md:grid-cols-[auto_1fr]">
+          <img
+            src={seloGarantia.url}
+            alt="Selo Garantia 30 Dias — Satisfação Garantida"
+            className="mx-auto w-48 md:w-56"
+          />
+          <div className="text-center md:text-left">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Garantia incondicional</p>
+            <h2 className="mt-3 font-display text-3xl text-ink md:text-4xl">30 dias de garantia total</h2>
+            <p className="mt-4 text-muted-foreground">
+              Teste o Método Rugas Nunca Mais por 30 dias. Se você não notar diferença na sua pele, devolvemos 100% do seu investimento. Sem burocracia, sem perguntas. O risco é todo nosso.
+            </p>
           </div>
         </div>
       </section>
