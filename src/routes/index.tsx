@@ -24,7 +24,7 @@ function WistiaPlayer() {
   }, []);
   return (
     <div
-      className="overflow-hidden rounded-2xl border border-ink/10 shadow-2xl bg-black"
+      className="overflow-hidden rounded-2xl border border-copper/30 shadow-2xl bg-copper"
       dangerouslySetInnerHTML={{
         __html: `<style>wistia-player[media-id='rng5l3y995']:not(:defined){background:center/contain no-repeat url('https://fast.wistia.com/embed/medias/rng5l3y995/swatch');display:block;filter:blur(5px);padding-top:56.25%;}</style><wistia-player media-id="rng5l3y995" aspect="1.7777777777777777"></wistia-player>`,
       }}
@@ -41,6 +41,9 @@ import n7 from "@/assets/n7.png.asset.json";
 import n8 from "@/assets/n8.png.asset.json";
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
+import tSandra from "@/assets/t-sandra.png.asset.json";
+import tMarlene from "@/assets/t-marlene.png.asset.json";
+import tDebora from "@/assets/t-debora.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -414,39 +417,16 @@ function Landing() {
         </div>
       </section>
 
-      {/* PROVA SOCIAL — depoimento destaque */}
+      {/* PROVA SOCIAL */}
       <section className="bg-cream px-4 py-20 md:py-24">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 overflow-hidden rounded-3xl bg-card shadow-xl md:grid-cols-2">
-          <img src={n5.url} alt="Sandra M." className="h-full w-full object-cover md:min-h-[420px]" />
-          <div className="p-8 md:p-12">
-            <Stars size="h-5 w-5" />
-            <blockquote className="mt-5 font-display text-2xl leading-tight text-ink md:text-3xl">
-              "Depois de 3 semanas, minha filha perguntou o que eu tinha feito na pele. <em className="text-copper">Nunca imaginei que algo tão simples funcionasse tanto.</em>"
-            </blockquote>
-            <div className="mt-6 flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-ink font-display text-white">S</div>
-              <div>
-                <div className="text-sm font-semibold text-ink">Sandra M., 52</div>
-                <div className="text-xs text-muted-foreground">Cliente verificada · usa há 6 semanas</div>
-              </div>
-            </div>
-          </div>
+        <div className="mx-auto max-w-6xl text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Prova social</p>
+          <h2 className="mt-4 font-display text-4xl leading-tight text-ink md:text-5xl">Histórias reais de quem já testou</h2>
         </div>
-
-        {/* Grade de depoimentos */}
-        <div className="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-3">
-          {[
-            { name: "Marlene R.", age: 47, quote: "Uso 3x por semana. A textura da pele mudou completamente em 1 mês.", time: "2 meses de uso" },
-            { name: "Cristiane A.", age: 55, quote: "Minhas linhas de expressão ficaram muito mais suaves. Meu marido percebeu.", time: "5 semanas de uso" },
-            { name: "Débora L.", age: 43, quote: "Gastei uma fortuna em produtos importados. Este é o único que entregou de verdade.", time: "3 meses de uso" },
-          ].map((t) => (
-            <div key={t.name} className="rounded-2xl border border-border bg-card p-6">
-              <Stars />
-              <p className="mt-4 text-[15px] leading-relaxed text-ink">"{t.quote}"</p>
-              <div className="mt-5 border-t border-border pt-4 text-xs text-muted-foreground">
-                <div className="font-semibold text-ink">{t.name}, {t.age}</div>
-                <div className="mt-0.5">{t.time}</div>
-              </div>
+        <div className="mx-auto mt-12 grid max-w-6xl gap-6 md:grid-cols-3">
+          {[tSandra, tMarlene, tDebora].map((img, i) => (
+            <div key={i} className="overflow-hidden rounded-2xl shadow-xl">
+              <img src={img.url} alt={`Depoimento ${i + 1}`} className="w-full" />
             </div>
           ))}
         </div>
