@@ -44,8 +44,8 @@ export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { property: "og:image", content: img9.url },
-      { name: "twitter:image", content: img9.url },
+      { property: "og:image", content: n2.url },
+      { name: "twitter:image", content: n2.url },
     ],
   }),
 });
@@ -232,7 +232,7 @@ function Landing() {
       <section className="bg-ink-gradient px-4 py-20 text-white md:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-            <img src={img3.url} alt="Feito com ingredientes naturais" className="w-full" />
+            <img src={n1.url} alt="Feito com ingredientes naturais" className="w-full" />
           </div>
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O método</p>
@@ -266,7 +266,7 @@ function Landing() {
       <section className="bg-cream/50 px-4 py-20 md:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.15fr_1fr]">
           <div className="overflow-hidden rounded-2xl shadow-xl">
-            <img src={img2.url} alt="Aplique e relaxe" className="w-full" />
+            <img src={n2.url} alt="Aplique e relaxe" className="w-full" />
           </div>
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Aplicação simples</p>
@@ -319,7 +319,7 @@ function Landing() {
             </div>
           </div>
           <div className="overflow-hidden rounded-2xl shadow-2xl">
-            <img src={img5.url} alt="Textura sedosa e nutritiva" className="w-full" />
+            <img src={n6.url} alt="Textura sedosa e nutritiva" className="w-full" />
           </div>
         </div>
       </section>
@@ -327,7 +327,7 @@ function Landing() {
       {/* PROVA SOCIAL — depoimento destaque */}
       <section className="bg-cream px-4 py-20 md:py-24">
         <div className="mx-auto grid max-w-5xl items-center gap-10 overflow-hidden rounded-3xl bg-card shadow-xl md:grid-cols-2">
-          <img src={img6.url} alt="Sandra M." className="h-full w-full object-cover md:min-h-[420px]" />
+          <img src={n5.url} alt="Sandra M." className="h-full w-full object-cover md:min-h-[420px]" />
           <div className="p-8 md:p-12">
             <Stars size="h-5 w-5" />
             <blockquote className="mt-5 font-display text-2xl leading-tight text-ink md:text-3xl">
@@ -391,7 +391,7 @@ function Landing() {
             </p>
           </div>
           <div className="overflow-hidden rounded-2xl shadow-xl">
-            <img src={img7.url} alt="Ritual de autocuidado" className="w-full" />
+            <img src={n7.url} alt="Ritual de autocuidado" className="w-full" />
           </div>
         </div>
       </section>
@@ -457,7 +457,7 @@ function Landing() {
 
               <div className="relative flex flex-col gap-6 bg-cream p-8 md:p-12">
                 <div className="overflow-hidden rounded-2xl shadow-lg">
-                  <img src={img8.url} alt="O que você recebe — ebook, guia e acesso vitalício" className="w-full" />
+                  <img src={n8.url} alt="O que você recebe — ebook, guia e acesso vitalício" className="w-full" />
                 </div>
                 <div className="rounded-2xl border border-copper/30 bg-white p-5">
                   <div className="flex items-start gap-3">
@@ -498,7 +498,7 @@ function Landing() {
       <section className="bg-warm-gradient px-4 py-20 md:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
           <div className="overflow-hidden rounded-2xl shadow-2xl">
-            <img src={img1.url} alt="Método Rugas Nunca Mais — ebook" className="w-full" />
+            <img src={n8.url} alt="Método Rugas Nunca Mais — ebook" className="w-full" />
           </div>
           <div>
             <h2 className="font-display text-4xl leading-tight text-ink md:text-5xl">
