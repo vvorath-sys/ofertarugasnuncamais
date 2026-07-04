@@ -1,6 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "wistia-player": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { "media-id"?: string; aspect?: string }, HTMLElement>;
+    }
+  }
+}
+
+function WistiaPlayer() {
+  useEffect(() => {
+    const load = (src: string, type?: string) => {
+      if (document.querySelector(`script[src="${src}"]`)) return;
+      const s = document.createElement("script");
+      s.src = src; s.async = true;
+      if (type) s.type = type;
+      document.body.appendChild(s);
+    };
+    load("https://fast.wistia.com/player.js");
+    load("https://fast.wistia.com/embed/1tcapnxmih.js", "module");
+  }, []);
+  return (
+    <div
+      className="overflow-hidden rounded-2xl border border-ink/10 shadow-2xl bg-black"
+      dangerouslySetInnerHTML={{
+        __html: `<style>wistia-player[media-id='1tcapnxmih']:not(:defined){background:center/contain no-repeat url('https://fast.wistia.com/embed/medias/1tcapnxmih/swatch');display:block;filter:blur(5px);padding-top:56.25%;}</style><wistia-player media-id="1tcapnxmih" aspect="1.7777777777777777"></wistia-player>`,
+      }}
+    />
+  );
+}
 import img1 from "@/assets/img1.png.asset.json";
 import img2 from "@/assets/img2.png.asset.json";
 import img3 from "@/assets/img3.png.asset.json";
@@ -160,8 +190,8 @@ function Landing() {
 
           <div className="relative">
             <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
-            <div className="relative overflow-hidden rounded-2xl border border-ink/10 shadow-2xl">
-              <img src={img9.url} alt="Resultado visível — antes e depois" className="w-full" />
+            <div className="relative">
+              <WistiaPlayer />
             </div>
           </div>
         </div>
@@ -387,7 +417,7 @@ function Landing() {
               <Sparkles className="h-3 w-3" /> Oferta por tempo limitado
             </div>
             <h2 className="font-display text-4xl leading-tight md:text-6xl">
-              Comece hoje por apenas <em className="text-copper">R$ 27</em>
+              Comece hoje por <em className="text-copper">12x R$ 15,31</em>
             </h2>
             <div className="mt-6 flex items-center justify-center gap-3 text-sm text-white/70">
               <span>Esta oferta expira em:</span>
@@ -399,11 +429,17 @@ function Landing() {
             <div className="grid md:grid-cols-[1.1fr_1fr]">
               <div className="p-8 md:p-12">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe</p>
-                <div className="mt-4 flex items-baseline gap-3">
-                  <span className="text-lg text-muted-foreground line-through">R$ 97</span>
-                  <span className="font-display text-6xl text-ink md:text-7xl">R$ 27</span>
+                <div className="mt-4">
+                  <div className="text-sm text-muted-foreground line-through">De R$ 297</div>
+                  <div className="mt-1 flex items-baseline gap-2">
+                    <span className="text-xl text-ink">12x</span>
+                    <span className="font-display text-6xl leading-none text-ink md:text-7xl">R$ 15,31</span>
+                  </div>
+                  <p className="mt-2 text-sm text-ink/70">
+                    ou <strong className="text-ink">R$ 147</strong> à vista
+                  </p>
                 </div>
-                <p className="mt-1 text-sm text-muted-foreground">Pagamento único · acesso vitalício</p>
+                <p className="mt-3 text-xs text-muted-foreground">Pagamento único · acesso vitalício</p>
 
                 <ul className="mt-8 space-y-3.5">
                   {[
