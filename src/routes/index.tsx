@@ -41,6 +41,9 @@ import n7 from "@/assets/n7.png.asset.json";
 import n8 from "@/assets/n8.png.asset.json";
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
+import tSandra from "@/assets/t-sandra.png.asset.json";
+import tMarlene from "@/assets/t-marlene.png.asset.json";
+import tDebora from "@/assets/t-debora.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
