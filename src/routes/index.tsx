@@ -225,8 +225,8 @@ function Landing() {
     <main className="min-h-screen">
       {/* HERO */}
       <section className="relative overflow-hidden bg-warm-gradient">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 pt-8 pb-12 md:grid-cols-2 md:gap-12 md:pt-20 md:pb-24">
-          <div className="order-2 md:order-1">
+        <div className="mx-auto max-w-3xl px-4 pt-8 pb-12 md:pt-20 md:pb-24">
+          <div>
             <h1 className="font-display text-[2rem] leading-[1.05] text-ink sm:text-4xl md:text-6xl lg:text-7xl">
               Rugas visivelmente <em className="text-copper">suavizadas</em> em poucas semanas —
               <span className="block">sem cremes caros.</span>
@@ -248,6 +248,13 @@ function Landing() {
               ))}
             </div>
 
+            <div className="relative mt-8 md:mt-10">
+              <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
+              <div className="relative">
+                <WistiaPlayer />
+              </div>
+            </div>
+
             <div className="mt-7 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center md:mt-9">
               <CTA block />
               <div className="flex items-center justify-center gap-2 sm:justify-start">
@@ -262,14 +269,8 @@ function Landing() {
               <div className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Acesso imediato</div>
             </div>
           </div>
-
-          <div className="relative order-1 md:order-2">
-            <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
-            <div className="relative">
-              <WistiaPlayer />
-            </div>
-          </div>
         </div>
+
       </section>
 
 
