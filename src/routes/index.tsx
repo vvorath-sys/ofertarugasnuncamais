@@ -20,33 +20,32 @@ function WistiaPlayer() {
       document.body.appendChild(s);
     };
     load("https://fast.wistia.com/player.js");
-    load("https://fast.wistia.com/embed/1tcapnxmih.js", "module");
+    load("https://fast.wistia.com/embed/rng5l3y995.js", "module");
   }, []);
   return (
     <div
       className="overflow-hidden rounded-2xl border border-ink/10 shadow-2xl bg-black"
       dangerouslySetInnerHTML={{
-        __html: `<style>wistia-player[media-id='1tcapnxmih']:not(:defined){background:center/contain no-repeat url('https://fast.wistia.com/embed/medias/1tcapnxmih/swatch');display:block;filter:blur(5px);padding-top:56.25%;}</style><wistia-player media-id="1tcapnxmih" aspect="1.7777777777777777"></wistia-player>`,
+        __html: `<style>wistia-player[media-id='rng5l3y995']:not(:defined){background:center/contain no-repeat url('https://fast.wistia.com/embed/medias/rng5l3y995/swatch');display:block;filter:blur(5px);padding-top:56.25%;}</style><wistia-player media-id="rng5l3y995" aspect="1.7777777777777777"></wistia-player>`,
       }}
     />
   );
 }
-import img1 from "@/assets/img1.png.asset.json";
-import img2 from "@/assets/img2.png.asset.json";
-import img3 from "@/assets/img3.png.asset.json";
-import img4 from "@/assets/img4.png.asset.json";
-import img5 from "@/assets/img5.png.asset.json";
-import img6 from "@/assets/img6.png.asset.json";
-import img7 from "@/assets/img7.png.asset.json";
-import img8 from "@/assets/img8.png.asset.json";
-import img9 from "@/assets/img9.png.asset.json";
+import n1 from "@/assets/n1.png.asset.json";
+import n2 from "@/assets/n2.png.asset.json";
+import n3 from "@/assets/n3.png.asset.json";
+import n4 from "@/assets/n4.png.asset.json";
+import n5 from "@/assets/n5.png.asset.json";
+import n6 from "@/assets/n6.png.asset.json";
+import n7 from "@/assets/n7.png.asset.json";
+import n8 from "@/assets/n8.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { property: "og:image", content: img9.url },
-      { name: "twitter:image", content: img9.url },
+      { property: "og:image", content: n2.url },
+      { name: "twitter:image", content: n2.url },
     ],
   }),
 });
@@ -233,7 +232,7 @@ function Landing() {
       <section className="bg-ink-gradient px-4 py-20 text-white md:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-            <img src={img3.url} alt="Feito com ingredientes naturais" className="w-full" />
+            <img src={n1.url} alt="Feito com ingredientes naturais" className="w-full" />
           </div>
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O método</p>
@@ -267,7 +266,7 @@ function Landing() {
       <section className="bg-cream/50 px-4 py-20 md:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.15fr_1fr]">
           <div className="overflow-hidden rounded-2xl shadow-xl">
-            <img src={img2.url} alt="Aplique e relaxe" className="w-full" />
+            <img src={n2.url} alt="Aplique e relaxe" className="w-full" />
           </div>
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Aplicação simples</p>
@@ -294,8 +293,12 @@ function Landing() {
             <h2 className="mt-4 font-display text-4xl text-ink md:text-5xl">4 passos. 15 minutos.</h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">Do lavatório à pele renovada — o ritual completo em uma sequência simples.</p>
           </div>
-          <div className="mt-12 overflow-hidden rounded-3xl border border-border shadow-2xl">
-            <img src={img4.url} alt="Como usar — 4 passos" className="w-full" />
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {[n3, n4, n5].map((img, i) => (
+              <div key={i} className="overflow-hidden rounded-2xl border border-border shadow-xl">
+                <img src={img.url} alt={`Passo ${i + 1}`} className="w-full" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -320,7 +323,7 @@ function Landing() {
             </div>
           </div>
           <div className="overflow-hidden rounded-2xl shadow-2xl">
-            <img src={img5.url} alt="Textura sedosa e nutritiva" className="w-full" />
+            <img src={n6.url} alt="Textura sedosa e nutritiva" className="w-full" />
           </div>
         </div>
       </section>
@@ -328,7 +331,7 @@ function Landing() {
       {/* PROVA SOCIAL — depoimento destaque */}
       <section className="bg-cream px-4 py-20 md:py-24">
         <div className="mx-auto grid max-w-5xl items-center gap-10 overflow-hidden rounded-3xl bg-card shadow-xl md:grid-cols-2">
-          <img src={img6.url} alt="Sandra M." className="h-full w-full object-cover md:min-h-[420px]" />
+          <img src={n5.url} alt="Sandra M." className="h-full w-full object-cover md:min-h-[420px]" />
           <div className="p-8 md:p-12">
             <Stars size="h-5 w-5" />
             <blockquote className="mt-5 font-display text-2xl leading-tight text-ink md:text-3xl">
@@ -392,7 +395,7 @@ function Landing() {
             </p>
           </div>
           <div className="overflow-hidden rounded-2xl shadow-xl">
-            <img src={img7.url} alt="Ritual de autocuidado" className="w-full" />
+            <img src={n7.url} alt="Ritual de autocuidado" className="w-full" />
           </div>
         </div>
       </section>
@@ -405,7 +408,7 @@ function Landing() {
               <Sparkles className="h-3 w-3" /> Oferta por tempo limitado
             </div>
             <h2 className="font-display text-3xl leading-tight sm:text-4xl md:text-6xl">
-              Comece hoje por <em className="text-copper">12x R$ 15,31</em>
+              Comece hoje por <em className="text-copper">apenas R$ 27</em>
             </h2>
             <div className="mt-6 flex flex-col items-center justify-center gap-2 text-sm text-white/70 sm:flex-row sm:gap-3">
               <span>Esta oferta expira em:</span>
@@ -418,16 +421,15 @@ function Landing() {
               <div className="p-8 md:p-12">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe</p>
                 <div className="mt-4">
-                  <div className="text-sm text-muted-foreground line-through">De R$ 297</div>
+                  <div className="text-sm text-muted-foreground line-through">De R$ 197</div>
                   <div className="mt-1 flex items-baseline gap-2">
-                    <span className="text-lg text-ink sm:text-xl">12x</span>
-                    <span className="font-display text-5xl leading-none text-ink sm:text-6xl md:text-7xl">R$ 15,31</span>
+                    <span className="font-display text-6xl leading-none text-ink sm:text-7xl">R$ 27</span>
                   </div>
                   <p className="mt-2 text-sm text-ink/70">
-                    ou <strong className="text-ink">R$ 147</strong> à vista
+                    Pagamento único · acesso vitalício
                   </p>
                 </div>
-                <p className="mt-3 text-xs text-muted-foreground">Pagamento único · acesso vitalício</p>
+                
 
                 <ul className="mt-8 space-y-3.5">
                   {[
@@ -458,7 +460,7 @@ function Landing() {
 
               <div className="relative flex flex-col gap-6 bg-cream p-8 md:p-12">
                 <div className="overflow-hidden rounded-2xl shadow-lg">
-                  <img src={img8.url} alt="O que você recebe — ebook, guia e acesso vitalício" className="w-full" />
+                  <img src={n8.url} alt="O que você recebe — ebook, guia e acesso vitalício" className="w-full" />
                 </div>
                 <div className="rounded-2xl border border-copper/30 bg-white p-5">
                   <div className="flex items-start gap-3">
@@ -499,7 +501,7 @@ function Landing() {
       <section className="bg-warm-gradient px-4 py-20 md:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
           <div className="overflow-hidden rounded-2xl shadow-2xl">
-            <img src={img1.url} alt="Método Rugas Nunca Mais — ebook" className="w-full" />
+            <img src={n8.url} alt="Método Rugas Nunca Mais — ebook" className="w-full" />
           </div>
           <div>
             <h2 className="font-display text-4xl leading-tight text-ink md:text-5xl">
