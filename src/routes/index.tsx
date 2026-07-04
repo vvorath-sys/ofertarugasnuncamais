@@ -261,10 +261,10 @@ function Landing() {
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               A fórmula natural ajuda a pele a absorver nutrientes e se renovar. Deixe agir por 15 minutos e sinta a diferença já nas primeiras semanas.
             </p>
-            <div className="mt-6 flex items-center gap-6 text-sm">
-              <div><div className="font-display text-3xl text-ink">15<span className="text-copper">min</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">de ritual</div></div>
+            <div className="mt-6 flex items-center justify-center gap-6 text-sm md:justify-start">
+              <div className="text-center md:text-left"><div className="font-display text-3xl text-ink">15<span className="text-copper">min</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">de ritual</div></div>
               <div className="h-10 w-px bg-border" />
-              <div><div className="font-display text-3xl text-ink">2×<span className="text-copper">/sem</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">frequência</div></div>
+              <div className="text-center md:text-left"><div className="font-display text-3xl text-ink">2×<span className="text-copper">/sem</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">frequência</div></div>
             </div>
           </div>
         </div>
