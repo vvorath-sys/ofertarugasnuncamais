@@ -1,6 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "wistia-player": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { "media-id"?: string; aspect?: string }, HTMLElement>;
+    }
+  }
+}
+
+function WistiaPlayer() {
+  useEffect(() => {
+    const load = (src: string, type?: string) => {
+      if (document.querySelector(`script[src="${src}"]`)) return;
+      const s = document.createElement("script");
+      s.src = src; s.async = true;
+      if (type) s.type = type;
+      document.body.appendChild(s);
+    };
+    load("https://fast.wistia.com/player.js");
+    load("https://fast.wistia.com/embed/1tcapnxmih.js", "module");
+  }, []);
+  return (
+    <div
+      className="overflow-hidden rounded-2xl border border-ink/10 shadow-2xl bg-black"
+      dangerouslySetInnerHTML={{
+        __html: `<style>wistia-player[media-id='1tcapnxmih']:not(:defined){background:center/contain no-repeat url('https://fast.wistia.com/embed/medias/1tcapnxmih/swatch');display:block;filter:blur(5px);padding-top:56.25%;}</style><wistia-player media-id="1tcapnxmih" aspect="1.7777777777777777"></wistia-player>`,
+      }}
+    />
+  );
+}
 import img1 from "@/assets/img1.png.asset.json";
 import img2 from "@/assets/img2.png.asset.json";
 import img3 from "@/assets/img3.png.asset.json";
