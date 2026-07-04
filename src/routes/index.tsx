@@ -57,7 +57,7 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const CHECKOUT = "#oferta";
+const CHECKOUT = "https://ggcheckout.app/checkout/v5/1c6ij2l23k83p0zS2xaa";
 
 function CTA({ children = "QUERO MEU ACESSO AGORA", block = false }: { children?: React.ReactNode; block?: boolean }) {
   return (
