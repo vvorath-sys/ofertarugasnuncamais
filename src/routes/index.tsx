@@ -190,8 +190,8 @@ function Landing() {
 
           <div className="relative">
             <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
-            <div className="relative overflow-hidden rounded-2xl border border-ink/10 shadow-2xl">
-              <img src={img9.url} alt="Resultado visível — antes e depois" className="w-full" />
+            <div className="relative">
+              <WistiaPlayer />
             </div>
           </div>
         </div>
