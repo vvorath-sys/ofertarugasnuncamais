@@ -20,7 +20,7 @@ function WistiaPlayer() {
       document.body.appendChild(s);
     };
     load("https://fast.wistia.com/player.js");
-    load("https://fast.wistia.com/embed/1tcapnxmih.js", "module");
+    load("https://fast.wistia.com/embed/rng5l3y995.js", "module");
   }, []);
   return (
     <div
