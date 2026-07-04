@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles, ChevronsLeftRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 declare global {
   namespace JSX {
