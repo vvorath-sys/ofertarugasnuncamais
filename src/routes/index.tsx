@@ -1,19 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles, Flame } from "lucide-react";
+import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
-import antesDepois from "@/assets/antes-depois.png.asset.json";
+import img1 from "@/assets/img1.png.asset.json";
 import img2 from "@/assets/img2.png.asset.json";
 import img3 from "@/assets/img3.png.asset.json";
 import img4 from "@/assets/img4.png.asset.json";
+import img5 from "@/assets/img5.png.asset.json";
 import img6 from "@/assets/img6.png.asset.json";
 import img7 from "@/assets/img7.png.asset.json";
+import img8 from "@/assets/img8.png.asset.json";
+import img9 from "@/assets/img9.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { property: "og:image", content: antesDepois.url },
-      { name: "twitter:image", content: antesDepois.url },
+      { property: "og:image", content: img9.url },
+      { name: "twitter:image", content: img9.url },
     ],
   }),
 });
@@ -77,17 +80,32 @@ function Countdown() {
   );
 }
 
+function StatRing({ pct, label }: { pct: number; label: string }) {
+  const r = 42;
+  const c = 2 * Math.PI * r;
+  const off = c - (pct / 100) * c;
+  return (
+    <div className="flex items-center gap-5">
+      <div className="relative h-24 w-24 shrink-0">
+        <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
+          <circle cx="50" cy="50" r={r} stroke="currentColor" strokeWidth="8" fill="none" className="text-copper/15" />
+          <circle
+            cx="50" cy="50" r={r} stroke="currentColor" strokeWidth="8" fill="none" strokeLinecap="round"
+            className="text-copper" strokeDasharray={c} strokeDashoffset={off}
+          />
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center font-display text-xl font-semibold text-ink">
+          {pct}%
+        </div>
+      </div>
+      <p className="text-[15px] leading-snug text-ink">{label}</p>
+    </div>
+  );
+}
+
 function Landing() {
   return (
     <main className="min-h-screen">
-      {/* ANNOUNCEMENT BAR */}
-      <div className="bg-ink text-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4 py-2.5 text-[11px] uppercase tracking-[0.2em] md:text-xs">
-          <Flame className="h-3.5 w-3.5 text-copper" />
-          <span>Oferta relâmpago · frete digital grátis · acesso imediato</span>
-        </div>
-      </div>
-
       {/* NAV */}
       <header className="border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
@@ -104,9 +122,6 @@ function Landing() {
       <section className="relative overflow-hidden bg-warm-gradient">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-14 md:grid-cols-2 md:py-24">
           <div>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-copper/30 bg-copper/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
-              <Sparkles className="h-3 w-3" /> Método 100% Natural
-            </div>
             <h1 className="font-display text-[2.6rem] leading-[1.02] text-ink md:text-6xl lg:text-7xl">
               Rugas visivelmente <em className="text-copper">suavizadas</em> em poucas semanas —
               <span className="block">sem cremes caros.</span>
@@ -146,14 +161,7 @@ function Landing() {
           <div className="relative">
             <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
             <div className="relative overflow-hidden rounded-2xl border border-ink/10 shadow-2xl">
-              <img src={antesDepois.url} alt="Antes e depois do Método Rugas Nunca Mais" className="w-full" />
-              <div className="pointer-events-none absolute inset-x-0 top-0 flex justify-between p-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white/95">
-                <span className="rounded-full bg-black/50 px-3 py-1 backdrop-blur">Antes</span>
-                <span className="rounded-full bg-copper px-3 py-1">Depois</span>
-              </div>
-            </div>
-            <div className="mt-4 rounded-xl border border-border bg-card px-4 py-3 text-center text-xs text-muted-foreground">
-              Resultado real após <strong className="text-ink">4 semanas</strong> seguindo o protocolo
+              <img src={img9.url} alt="Resultado visível — antes e depois" className="w-full" />
             </div>
           </div>
         </div>
@@ -184,7 +192,7 @@ function Landing() {
             <em className="text-copper">Você está cuidando errado.</em>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            Cremes de R$ 400, séruns importados, procedimentos que ardem — e mesmo assim, a rugas continuam aparecendo. Não é falta de esforço. É falta do método certo.
+            Cremes de R$ 400, séruns importados, procedimentos que ardem — e mesmo assim, as rugas continuam aparecendo. Não é falta de esforço. É falta do método certo.
           </p>
         </div>
 
@@ -203,14 +211,11 @@ function Landing() {
         </div>
       </section>
 
-      {/* SOLUÇÃO / COMO FUNCIONA */}
+      {/* INGREDIENTES */}
       <section className="bg-ink-gradient px-4 py-20 text-white md:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2">
-          <div className="relative">
-            <img src={img2.url} alt="Máscara natural sendo aplicada" className="rounded-2xl shadow-2xl" />
-            <div className="absolute -bottom-6 -right-6 hidden rounded-xl bg-copper px-5 py-4 text-sm font-semibold text-white shadow-xl md:block">
-              15 min<br /><span className="text-xs font-normal opacity-80">2x por semana</span>
-            </div>
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <img src={img3.url} alt="Feito com ingredientes naturais" className="w-full" />
           </div>
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O método</p>
@@ -240,26 +245,64 @@ function Landing() {
         </div>
       </section>
 
-      {/* COMO USAR */}
-      <section className="px-4 py-20 md:py-28">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Simples de aplicar</p>
-            <h2 className="mt-4 font-display text-4xl text-ink md:text-5xl">4 passos. 15 minutos.</h2>
+      {/* APLIQUE E RELAXE */}
+      <section className="bg-cream/50 px-4 py-20 md:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.15fr_1fr]">
+          <div className="overflow-hidden rounded-2xl shadow-xl">
+            <img src={img2.url} alt="Aplique e relaxe" className="w-full" />
           </div>
-          <div className="mt-14 grid gap-6 md:grid-cols-4">
-            {[
-              { t: "Limpe o rosto", d: "Pele limpa e seca para máxima absorção." },
-              { t: "Aplique a máscara", d: "Espalhe uma camada uniforme, evite área dos olhos." },
-              { t: "Relaxe 15 min", d: "Deite, respire. Deixe os ativos agirem." },
-              { t: "Enxágue", d: "Água morna. Sinta a diferença imediatamente." },
-            ].map((s, i) => (
-              <div key={s.t} className="relative rounded-2xl border border-border bg-card p-6">
-                <div className="font-display text-5xl text-copper/30">{String(i + 1).padStart(2, "0")}</div>
-                <h3 className="mt-3 font-display text-xl text-ink">{s.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-              </div>
-            ))}
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Aplicação simples</p>
+            <h2 className="mt-4 font-display text-4xl leading-tight text-ink md:text-5xl">
+              Aplique. <em className="text-copper">Relaxe.</em> Renove.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              A fórmula natural ajuda a pele a absorver nutrientes e se renovar. Deixe agir por 15 minutos e sinta a diferença já nas primeiras semanas.
+            </p>
+            <div className="mt-6 flex items-center gap-6 text-sm">
+              <div><div className="font-display text-3xl text-ink">15<span className="text-copper">min</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">de ritual</div></div>
+              <div className="h-10 w-px bg-border" />
+              <div><div className="font-display text-3xl text-ink">2×<span className="text-copper">/sem</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">frequência</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COMO USAR — imagem oficial dos 4 passos */}
+      <section className="px-4 py-20 md:py-28">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Passo a passo</p>
+            <h2 className="mt-4 font-display text-4xl text-ink md:text-5xl">4 passos. 15 minutos.</h2>
+            <p className="mx-auto mt-4 max-w-xl text-muted-foreground">Do lavatório à pele renovada — o ritual completo em uma sequência simples.</p>
+          </div>
+          <div className="mt-12 overflow-hidden rounded-3xl border border-border shadow-2xl">
+            <img src={img4.url} alt="Como usar — 4 passos" className="w-full" />
+          </div>
+        </div>
+      </section>
+
+      {/* TEXTURA */}
+      <section className="bg-ink-gradient px-4 py-20 text-white md:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">A fórmula</p>
+            <h2 className="mt-4 font-display text-4xl leading-tight md:text-5xl">
+              Textura sedosa,<br /><em className="text-copper">absorção profunda.</em>
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-white/70">
+              Nada de sensação pesada ou pegajosa. A máscara penetra rápido, hidrata em profundidade e deixa a pele visivelmente mais firme e luminosa.
+            </p>
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              {["Absorção rápida", "Sem parabenos", "Sem oleosidade", "Fragrância natural"].map((t) => (
+                <div key={t} className="flex items-center gap-2 text-sm text-white/80">
+                  <Check className="h-4 w-4 text-copper" /> {t}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-2xl shadow-2xl">
+            <img src={img5.url} alt="Textura sedosa e nutritiva" className="w-full" />
           </div>
         </div>
       </section>
@@ -302,20 +345,19 @@ function Landing() {
         </div>
       </section>
 
-      {/* ESTATÍSTICAS */}
-      <section className="border-y border-border bg-sand/40 px-4 py-14">
-        <div className="mx-auto grid max-w-5xl gap-8 text-center md:grid-cols-4">
-          {[
-            { n: "27k+", l: "mulheres transformadas" },
-            { n: "94%", l: "notaram pele mais macia" },
-            { n: "97%", l: "linhas de expressão suavizadas" },
-            { n: "4.9★", l: "avaliação média" },
-          ].map((s) => (
-            <div key={s.l}>
-              <div className="font-display text-5xl text-ink">{s.n}</div>
-              <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{s.l}</div>
-            </div>
-          ))}
+      {/* ESTATÍSTICAS — anéis de porcentagem */}
+      <section className="border-y border-border bg-background px-4 py-20">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Resultados reais</p>
+            <h2 className="mt-4 font-display text-4xl text-ink md:text-5xl">O que as usuárias relatam</h2>
+          </div>
+          <div className="mt-12 grid gap-x-12 gap-y-8 md:grid-cols-2">
+            <StatRing pct={94} label="notaram a pele visivelmente mais macia em até 3 semanas" />
+            <StatRing pct={97} label="perceberam linhas de expressão suavizadas com o uso contínuo" />
+            <StatRing pct={96} label="continuariam usando diariamente após o período de teste" />
+            <StatRing pct={92} label="recomendariam o método para uma amiga ou familiar" />
+          </div>
         </div>
       </section>
 
@@ -331,16 +373,20 @@ function Landing() {
               Não é só sobre pele. É sobre reservar 15 minutos duas vezes por semana para você. E ver, semana após semana, uma versão mais luminosa no espelho.
             </p>
           </div>
-          <img src={img7.url} alt="Ritual de autocuidado" className="rounded-2xl shadow-xl" />
+          <div className="overflow-hidden rounded-2xl shadow-xl">
+            <img src={img7.url} alt="Ritual de autocuidado" className="w-full" />
+          </div>
         </div>
       </section>
 
       {/* OFERTA */}
       <section id="oferta" className="bg-ink-gradient px-4 py-20 text-white md:py-28">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-5xl">
           <div className="text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Oferta por tempo limitado</p>
-            <h2 className="mt-4 font-display text-4xl leading-tight md:text-6xl">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
+              <Sparkles className="h-3 w-3" /> Oferta por tempo limitado
+            </div>
+            <h2 className="font-display text-4xl leading-tight md:text-6xl">
               Comece hoje por apenas <em className="text-copper">R$ 27</em>
             </h2>
             <div className="mt-6 flex items-center justify-center gap-3 text-sm text-white/70">
@@ -352,7 +398,8 @@ function Landing() {
           <div className="mt-12 overflow-hidden rounded-3xl bg-white text-ink shadow-2xl">
             <div className="grid md:grid-cols-[1.1fr_1fr]">
               <div className="p-8 md:p-12">
-                <div className="flex items-baseline gap-3">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe</p>
+                <div className="mt-4 flex items-baseline gap-3">
                   <span className="text-lg text-muted-foreground line-through">R$ 97</span>
                   <span className="font-display text-6xl text-ink md:text-7xl">R$ 27</span>
                 </div>
@@ -360,7 +407,7 @@ function Landing() {
 
                 <ul className="mt-8 space-y-3.5">
                   {[
-                    "Ebook completo do Método Rugas Nunca Mais",
+                    "Ebook completo Método Rugas Nunca Mais",
                     "Guia passo a passo de aplicação",
                     "Frequência ideal e erros a evitar",
                     "BÔNUS: 5 hábitos que envelhecem a pele",
@@ -385,9 +432,11 @@ function Landing() {
                 </div>
               </div>
 
-              <div className="relative bg-cream p-8 md:p-12">
-                <img src={img3.url} alt="Ingredientes naturais" className="rounded-2xl shadow-lg" />
-                <div className="mt-6 rounded-2xl border border-copper/30 bg-white p-5">
+              <div className="relative flex flex-col gap-6 bg-cream p-8 md:p-12">
+                <div className="overflow-hidden rounded-2xl shadow-lg">
+                  <img src={img8.url} alt="O que você recebe — ebook, guia e acesso vitalício" className="w-full" />
+                </div>
+                <div className="rounded-2xl border border-copper/30 bg-white p-5">
                   <div className="flex items-start gap-3">
                     <ShieldCheck className="h-8 w-8 shrink-0 text-copper" />
                     <div>
@@ -423,59 +472,28 @@ function Landing() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="bg-cream px-4 py-20 md:py-28">
+      <section className="bg-warm-gradient px-4 py-20 md:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
-          <img src={img4.url} alt="Método Rugas Nunca Mais" className="rounded-2xl shadow-xl" />
+          <div className="overflow-hidden rounded-2xl shadow-2xl">
+            <img src={img1.url} alt="Método Rugas Nunca Mais — ebook" className="w-full" />
+          </div>
           <div>
-            <h2 className="font-display text-4xl leading-tight text-ink md:text-6xl">
-              Sua pele não precisa de mais promessas.
+            <h2 className="font-display text-4xl leading-tight text-ink md:text-5xl">
+              Sua pele merece <em className="text-copper">o cuidado certo.</em>
             </h2>
-            <p className="mt-6 font-display text-2xl italic text-copper">
-              Ela precisa de um cuidado simples, consistente e inteligente.
-            </p>
             <p className="mt-6 text-lg text-muted-foreground">
-              Junte-se às mais de 27.000 mulheres que já redescobriram uma pele mais firme, hidratada e luminosa — usando apenas o que já está na cozinha.
+              Comece o Método Rugas Nunca Mais hoje. Acesso imediato, garantia de 30 dias, resultado que aparece no espelho.
             </p>
-            <div className="mt-8"><CTA>Começar agora por R$ 27</CTA></div>
+            <div className="mt-8"><CTA>QUERO COMEÇAR AGORA</CTA></div>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-ink px-4 py-12 text-white/70">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <div className="font-display text-xl text-white">
-              Rugas <em className="text-copper">Nunca Mais</em>
-            </div>
-            <div className="flex gap-6 text-xs">
-              <a href="#" className="hover:text-white">Termos</a>
-              <a href="#" className="hover:text-white">Privacidade</a>
-              <a href="#" className="hover:text-white">Contato</a>
-            </div>
-          </div>
-          <p className="mt-8 text-center text-[11px] leading-relaxed text-white/40">
-            © 2026 Rugas Nunca Mais. Todos os direitos reservados. Este produto não substitui aconselhamento médico profissional. Resultados podem variar de acordo com a consistência do uso e características individuais da pele.
-          </p>
-        </div>
+      <footer className="border-t border-border bg-ink px-4 py-10 text-center text-xs text-white/60">
+        <p>© Método Rugas Nunca Mais · Todos os direitos reservados</p>
+        <p className="mt-2 max-w-2xl mx-auto">Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Resultados podem variar de pessoa para pessoa.</p>
       </footer>
-
-      {/* STICKY MOBILE CTA */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 p-3 shadow-2xl backdrop-blur md:hidden">
-        <div className="flex items-center gap-3">
-          <div className="flex-1">
-            <div className="flex items-baseline gap-2">
-              <span className="text-xs text-muted-foreground line-through">R$ 97</span>
-              <span className="font-display text-xl text-ink">R$ 27</span>
-            </div>
-            <div className="text-[10px] uppercase tracking-widest text-copper">Oferta de hoje</div>
-          </div>
-          <a href={CHECKOUT} className="rounded-full bg-cta-gradient px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg">
-            Quero agora
-          </a>
-        </div>
-      </div>
-      <div className="h-20 md:hidden" />
     </main>
   );
 }
