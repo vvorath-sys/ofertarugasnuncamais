@@ -550,13 +550,13 @@ function Landing() {
 
 
       {/* FAQ */}
-      <section className="px-4 py-12 md:py-16">
+      <section className="px-4 py-8 md:py-10">
         <div className="mx-auto max-w-3xl">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Dúvidas frequentes</p>
             <h2 className="mt-2.5 font-display text-4xl text-ink md:text-5xl">Tudo o que você precisa saber</h2>
           </div>
-          <div className="mt-6 md:mt-8">
+          <div className="mt-5 md:mt-6">
             <FAQ q="O método funciona para qualquer tipo de ruga?" a="É indicado para rugas leves e linhas de expressão. Ameniza rugas mais profundas e retarda o surgimento de novas. Não substitui tratamento dermatológico para casos avançados." />
             <FAQ q="Preciso comprar produtos caros?" a="Não. Os 3 ingredientes são naturais, baratos e fáceis de encontrar. Provavelmente você já tem tudo em casa agora." />
             <FAQ q="Com que frequência devo aplicar?" a="O ideal é de 2 a 3 vezes por semana. Aplicação em excesso não acelera resultados e pode causar oleosidade." />
