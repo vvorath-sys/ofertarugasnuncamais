@@ -234,10 +234,10 @@ function Landing() {
         <div className="mx-auto max-w-3xl px-4 pt-8 pb-12 md:pt-20 md:pb-24">
           <div>
             <h1 className="font-display text-[2rem] leading-[1.05] text-ink sm:text-4xl md:text-5xl lg:text-6xl">
-              Ative a produção natural de colágeno e veja suas rugas suMIREM EM ATÉ 3 SEMANAS
+              Ative a produção natural de colágeno e veja suas rugas sumirem em até 3 semanas
             </h1>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground md:mt-6 md:text-lg">
-              Um protocolo caseiro com <strong className="text-ink">3 ingredientes</strong> que você já tem na cozinha <strong className="text-ink">QUE ATIVA A PRODUÇÃO DE COLÁGENO E REDUZ RUGAS E LINHAS DE EXPRESSÃO</strong>.
+              Um protocolo caseiro com <strong className="text-ink">3 ingredientes</strong> que você já tem na cozinha <strong className="text-ink">que ativa a produção de colágeno e reduz rugas e linhas de expressão</strong>.
             </p>
 
             <div className="mt-6 space-y-2.5 md:mt-8 md:space-y-3">
