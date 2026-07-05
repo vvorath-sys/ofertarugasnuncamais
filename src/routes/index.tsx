@@ -568,8 +568,8 @@ function Landing() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="bg-warm-gradient px-4 py-12 md:py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-10">
+      <section className="bg-warm-gradient px-4 py-8 md:py-10">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div className="overflow-hidden rounded-2xl shadow-2xl">
             <img src={n8.url} alt="Método Rugas Nunca Mais — ebook" className="w-full" />
           </div>
@@ -577,10 +577,10 @@ function Landing() {
             <h2 className="font-display text-4xl leading-tight text-ink md:text-5xl">
               Sua pele merece <em className="text-copper">o cuidado certo.</em>
             </h2>
-            <p className="mt-3 text-lg text-muted-foreground">
+            <p className="mt-2.5 text-lg text-muted-foreground">
               Comece o Método Rugas Nunca Mais hoje. Acesso imediato, garantia de 30 dias, resultado que aparece no espelho.
             </p>
-            <div className="mt-5"><CTA>QUERO COMEÇAR AGORA</CTA></div>
+            <div className="mt-4"><CTA>QUERO COMEÇAR AGORA</CTA></div>
           </div>
         </div>
       </section>
