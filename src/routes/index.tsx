@@ -232,11 +232,11 @@ function Landing() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-warm-gradient">
         <div className="mx-auto max-w-3xl px-4 pt-6 pb-10 md:pt-16 md:pb-20">
-          <div className="text-center sm:text-left">
+          <div>
             <h1 className="font-display text-[1.45rem] leading-[1.18] text-ink sm:text-[1.85rem] md:text-[2.4rem] md:leading-[1.15] lg:text-[3.1rem]">
               Mulheres acima dos 40 estão <strong className="text-copper">eliminando rugas</strong> em casa em <strong className="text-copper">menos de 30 dias</strong> — com essa <strong className="text-copper">colher de caramelo</strong>
             </h1>
-            <p className="mx-auto mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:mx-0 sm:mt-4 sm:text-base md:mt-5 md:text-lg">
+            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:mt-4 sm:text-base md:mt-5 md:text-lg">
               Um protocolo caseiro com <strong className="text-ink">3 ingredientes</strong> que você já tem na cozinha <strong className="text-ink">que ativa a produção de colágeno e reduz rugas e linhas de expressão</strong>.
             </p>
 
@@ -246,20 +246,20 @@ function Landing() {
                 "Rotina de 15 minutos, 2x por semana",
                 "Sem procedimentos, sem agulhas, sem risco",
               ].map((t) => (
-                <div key={t} className="flex items-start justify-center gap-3 sm:justify-start">
+                <div key={t} className="flex items-start gap-3">
                   <Check className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
                   <span className="text-sm text-ink md:text-[15px]">{t}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 flex flex-col items-center gap-3 sm:items-start md:mt-8">
+            <div className="mt-6 flex flex-col items-start gap-3 md:mt-8">
               <CTA block />
               <div className="flex items-center gap-2">
                 <Stars />
                 <span className="text-xs text-muted-foreground">4.9 · 3.284 avaliações</span>
               </div>
-              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground sm:justify-start">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
                 <div className="flex items-center gap-1.5"><Lock className="h-3.5 w-3.5" /> Pagamento seguro</div>
                 <div className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> Garantia de 30 dias</div>
                 <div className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Acesso imediato</div>
