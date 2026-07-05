@@ -231,51 +231,49 @@ function Landing() {
     <main className="min-h-screen">
       {/* HERO */}
       <section className="relative overflow-hidden bg-warm-gradient">
-        <div className="mx-auto max-w-3xl px-4 pt-8 pb-12 md:pt-20 md:pb-24">
-          <div>
-            <h1 className="font-display text-[1.65rem] leading-[1.1] text-ink sm:text-3xl md:text-4xl lg:text-5xl">
-              Mulheres acima dos 40 estão <strong className="text-ink">eliminando rugas</strong> em casa em <strong className="text-ink">menos de 30 dias</strong> — com essa <strong className="text-ink">colher de caramelo</strong>
+        <div className="mx-auto max-w-3xl px-4 pt-6 pb-10 md:pt-16 md:pb-20">
+          <div className="text-center sm:text-left">
+            <h1 className="font-display text-[1.45rem] leading-[1.18] text-ink sm:text-[1.85rem] md:text-[2.4rem] md:leading-[1.15] lg:text-[3.1rem]">
+              Mulheres acima dos 40 estão <strong className="text-copper">eliminando rugas</strong> em casa em <strong className="text-copper">menos de 30 dias</strong> — com essa <strong className="text-copper">colher de caramelo</strong>
             </h1>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground md:mt-6 md:text-lg">
+            <p className="mx-auto mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:mx-0 sm:mt-4 sm:text-base md:mt-5 md:text-lg">
               Um protocolo caseiro com <strong className="text-ink">3 ingredientes</strong> que você já tem na cozinha <strong className="text-ink">que ativa a produção de colágeno e reduz rugas e linhas de expressão</strong>.
             </p>
 
-            <div className="mt-6 space-y-2.5 md:mt-8 md:space-y-3">
+            <div className="mt-4 space-y-2 sm:mt-5 md:mt-6 md:space-y-2.5">
               {[
                 "Reduz linhas de expressão em 2–3 semanas",
                 "Rotina de 15 minutos, 2x por semana",
                 "Sem procedimentos, sem agulhas, sem risco",
               ].map((t) => (
-                <div key={t} className="flex items-start gap-3">
+                <div key={t} className="flex items-start justify-center gap-3 sm:justify-start">
                   <Check className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
-                  <span className="text-[14px] text-ink md:text-[15px]">{t}</span>
+                  <span className="text-sm text-ink md:text-[15px]">{t}</span>
                 </div>
               ))}
             </div>
 
-            <div className="relative mt-8 md:mt-10">
-              <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
-              <div className="relative">
-                <WistiaPlayer />
-              </div>
-            </div>
-
-            <div className="mt-7 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center md:mt-9">
+            <div className="mt-6 flex flex-col items-center gap-3 sm:items-start md:mt-8">
               <CTA block />
-              <div className="flex items-center justify-center gap-2 sm:justify-start">
+              <div className="flex items-center gap-2">
                 <Stars />
                 <span className="text-xs text-muted-foreground">4.9 · 3.284 avaliações</span>
               </div>
+              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground sm:justify-start">
+                <div className="flex items-center gap-1.5"><Lock className="h-3.5 w-3.5" /> Pagamento seguro</div>
+                <div className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> Garantia de 30 dias</div>
+                <div className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Acesso imediato</div>
+              </div>
             </div>
+          </div>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground sm:justify-start md:mt-8 md:text-xs">
-              <div className="flex items-center gap-1.5"><Lock className="h-3.5 w-3.5" /> Pagamento seguro</div>
-              <div className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> Garantia de 30 dias</div>
-              <div className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Acesso imediato</div>
+          <div className="relative mt-8 md:mt-12">
+            <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
+            <div className="relative">
+              <WistiaPlayer />
             </div>
           </div>
         </div>
-
       </section>
       {/* ANTES E DEPOIS */}
       <section className="px-4 py-16 md:py-20" style={{ backgroundColor: "#fdf5ef" }}>
