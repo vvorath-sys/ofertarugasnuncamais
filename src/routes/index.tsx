@@ -277,21 +277,19 @@ function Landing() {
         </div>
       </section>
       {/* ANTES E DEPOIS */}
-      <section className="px-4 py-10 md:py-14" style={{ backgroundColor: "#fdf5ef" }}>
+      <section className="px-4 py-6 md:py-8" style={{ backgroundColor: "#fdf5ef" }}>
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Antes & depois</p>
           <h2 className="mt-2.5 font-display text-4xl leading-tight text-ink md:text-5xl">Resultado Visível</h2>
           <p className="mt-2 text-sm text-muted-foreground md:text-base">Arraste para ver a transformação.</p>
         </div>
-        <div className="mt-6 md:mt-8">
+        <div className="mt-4 md:mt-5">
           <BeforeAfter />
         </div>
       </section>
 
-
-
       {/* PROBLEMA */}
-      <section className="px-4 py-11 md:py-16">
+      <section className="px-4 py-7 md:py-10">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O problema real</p>
           <h2 className="mt-2.5 font-display text-4xl leading-tight text-ink md:text-5xl">
@@ -303,7 +301,7 @@ function Landing() {
           </p>
         </div>
 
-        <div className="mx-auto mt-8 grid max-w-5xl gap-3 md:grid-cols-2">
+        <div className="mx-auto mt-5 grid max-w-5xl gap-3 md:grid-cols-2">
           {[
             "Você evita se olhar de perto no espelho",
             "Já gastou fortunas em cremes que não entregaram",
