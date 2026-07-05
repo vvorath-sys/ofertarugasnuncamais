@@ -586,7 +586,7 @@ function Landing() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border bg-ink px-4 py-10 text-center text-xs text-white/60">
+      <footer className="border-t border-border bg-ink px-4 py-6 text-center text-xs text-white/60">
         <p>© Método Rugas Nunca Mais · Todos os direitos reservados</p>
         <p className="mt-2 max-w-2xl mx-auto">Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Resultados podem variar de pessoa para pessoa.</p>
       </footer>
