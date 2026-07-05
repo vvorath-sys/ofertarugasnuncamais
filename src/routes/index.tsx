@@ -448,14 +448,14 @@ function Landing() {
       </section>
 
       {/* AUTOCUIDADO */}
-      <section className="px-4 py-12 md:py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-10">
+      <section className="px-4 py-8 md:py-10">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Ritual de autocuidado</p>
             <h2 className="mt-2.5 font-display text-4xl text-ink md:text-5xl">
               Um momento seu.<br /><em className="text-copper">Um resultado para a vida.</em>
             </h2>
-            <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-2.5 text-lg leading-relaxed text-muted-foreground">
               Não é só sobre pele. É sobre reservar 15 minutos duas vezes por semana para você. E ver, semana após semana, uma versão mais luminosa no espelho.
             </p>
           </div>
