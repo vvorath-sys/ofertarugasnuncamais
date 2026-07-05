@@ -392,17 +392,17 @@ function Landing() {
       </section>
 
       {/* TEXTURA */}
-      <section className="bg-ink-gradient px-4 py-12 text-white md:py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-10">
+      <section className="bg-ink-gradient px-4 py-8 text-white md:py-10">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">A fórmula</p>
             <h2 className="mt-2.5 font-display text-4xl leading-tight md:text-5xl">
               Textura sedosa,<br /><em className="text-copper">absorção profunda.</em>
             </h2>
-            <p className="mt-3 text-lg leading-relaxed text-white/70">
+            <p className="mt-2.5 text-lg leading-relaxed text-white/70">
               Nada de sensação pesada ou pegajosa. A máscara penetra rápido, hidrata em profundidade e deixa a pele visivelmente mais firme e luminosa.
             </p>
-            <div className="mt-5 grid grid-cols-2 gap-3">
+            <div className="mt-4 grid grid-cols-2 gap-3">
               {["Absorção rápida", "Sem parabenos", "Sem oleosidade", "Fragrância natural"].map((t) => (
                 <div key={t} className="flex items-center gap-2 text-sm text-white/80">
                   <Check className="h-4 w-4 text-copper" /> {t}
