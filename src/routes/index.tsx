@@ -317,8 +317,8 @@ function Landing() {
       </section>
 
       {/* INGREDIENTES */}
-      <section className="bg-ink-gradient px-4 py-12 text-white md:py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-10">
+      <section className="bg-ink-gradient px-4 py-8 text-white md:py-10">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <img src={n1.url} alt="Feito com ingredientes naturais" className="w-full" />
           </div>
@@ -331,7 +331,7 @@ function Landing() {
             <p className="mt-3 text-lg leading-relaxed text-white/70">
               Uma máscara caseira rica em antioxidantes, vitaminas A, B, C e potássio que estimula renovação celular e devolve firmeza à pele.
             </p>
-            <div className="mt-5 space-y-3">
+            <div className="mt-4 space-y-2.5">
               {[
                 { n: "01", t: "Renovação celular", d: "Antioxidantes neutralizam radicais livres e aceleram a formação de novas células." },
                 { n: "02", t: "Hidratação profunda", d: "Nutre a derme já nas primeiras aplicações, devolvendo maciez e viço." },
