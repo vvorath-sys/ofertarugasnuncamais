@@ -466,10 +466,10 @@ function Landing() {
       </section>
 
       {/* OFERTA */}
-      <section id="oferta" className="bg-ink-gradient px-4 py-12 text-white md:py-16">
+      <section id="oferta" className="bg-ink-gradient px-4 py-8 text-white md:py-10">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
               <Sparkles className="h-3 w-3" /> Esta oferta expira em
             </div>
             <div className="flex items-center justify-center">
@@ -477,11 +477,11 @@ function Landing() {
             </div>
           </div>
 
-          <div className="mt-7 overflow-hidden rounded-3xl bg-white text-ink shadow-2xl md:mt-9">
-            <div className="p-6 md:p-8">
+          <div className="mt-5 overflow-hidden rounded-3xl bg-white text-ink shadow-2xl md:mt-6">
+            <div className="p-5 md:p-6">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe</p>
 
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-3 space-y-2.5">
                   {[
                     "Ebook completo Método Rugas Nunca Mais",
                     "Guia passo a passo de aplicação",
@@ -499,7 +499,7 @@ function Landing() {
                   ))}
                 </ul>
 
-                <div className="mt-5 border-t border-border pt-5 text-center">
+                <div className="mt-4 border-t border-border pt-4 text-center">
                   <div className="text-sm text-muted-foreground line-through">De R$ 197</div>
                   <div className="mt-1 flex items-baseline justify-center gap-2">
                     <span className="font-display text-6xl leading-none text-ink sm:text-7xl">R$ 27</span>
@@ -509,7 +509,7 @@ function Landing() {
                   </p>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-4">
                   <a
                     href={CHECKOUT}
                     target="_blank"
@@ -519,7 +519,7 @@ function Landing() {
                     <span>QUERO ACESSAR AGORA</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
-                  <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
+                  <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
                     <span className="flex items-center gap-1"><Lock className="h-3 w-3" /> Compra 100% segura</span>
                     <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3" /> 30 dias de garantia</span>
                   </div>
