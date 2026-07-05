@@ -231,16 +231,16 @@ function Landing() {
     <main className="min-h-screen">
       {/* HERO */}
       <section className="relative overflow-hidden bg-warm-gradient">
-        <div className="mx-auto max-w-3xl px-4 pt-5 pb-7 md:pt-10 md:pb-12">
+        <div className="mx-auto max-w-3xl px-4 pt-4 pb-5 md:pt-6 md:pb-8">
           <div>
             <h1 className="font-display text-[1.45rem] leading-[1.18] text-ink sm:text-[1.85rem] md:text-[2.4rem] md:leading-[1.15] lg:text-[3.1rem]">
               Mulheres acima dos 40 estão <strong className="text-copper">eliminando rugas</strong> em casa em <strong className="text-copper">menos de 30 dias</strong> — com essa <strong className="text-copper">colher de caramelo</strong>
             </h1>
-            <p className="mt-2.5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base md:text-lg">
+            <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base md:text-lg">
               Um protocolo caseiro com <strong className="text-ink">3 ingredientes</strong> que você já tem na cozinha <strong className="text-ink">que ativa a produção de colágeno e reduz rugas e linhas de expressão</strong>.
             </p>
 
-            <div className="mt-3.5 space-y-2 md:mt-4 md:space-y-2.5">
+            <div className="mt-3 space-y-2 md:space-y-2.5">
               {[
                 "Reduz linhas de expressão em 2–3 semanas",
                 "Rotina de 15 minutos, 2x por semana",
@@ -255,14 +255,14 @@ function Landing() {
 
           </div>
 
-          <div className="relative mt-5 md:mt-7">
+          <div className="relative mt-4 md:mt-5">
             <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
             <div className="relative">
               <WistiaPlayer />
             </div>
           </div>
 
-          <div className="mt-4 flex flex-col items-start gap-2.5 md:mt-5">
+          <div className="mt-3 flex flex-col items-start gap-2 md:mt-4">
             <CTA block />
             <div className="flex items-center gap-2">
               <Stars />
@@ -277,21 +277,19 @@ function Landing() {
         </div>
       </section>
       {/* ANTES E DEPOIS */}
-      <section className="px-4 py-10 md:py-14" style={{ backgroundColor: "#fdf5ef" }}>
+      <section className="px-4 py-6 md:py-8" style={{ backgroundColor: "#fdf5ef" }}>
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Antes & depois</p>
           <h2 className="mt-2.5 font-display text-4xl leading-tight text-ink md:text-5xl">Resultado Visível</h2>
           <p className="mt-2 text-sm text-muted-foreground md:text-base">Arraste para ver a transformação.</p>
         </div>
-        <div className="mt-6 md:mt-8">
+        <div className="mt-4 md:mt-5">
           <BeforeAfter />
         </div>
       </section>
 
-
-
       {/* PROBLEMA */}
-      <section className="px-4 py-11 md:py-16">
+      <section className="px-4 py-7 md:py-10">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O problema real</p>
           <h2 className="mt-2.5 font-display text-4xl leading-tight text-ink md:text-5xl">
@@ -303,7 +301,7 @@ function Landing() {
           </p>
         </div>
 
-        <div className="mx-auto mt-8 grid max-w-5xl gap-3 md:grid-cols-2">
+        <div className="mx-auto mt-5 grid max-w-5xl gap-3 md:grid-cols-2">
           {[
             "Você evita se olhar de perto no espelho",
             "Já gastou fortunas em cremes que não entregaram",
@@ -319,8 +317,8 @@ function Landing() {
       </section>
 
       {/* INGREDIENTES */}
-      <section className="bg-ink-gradient px-4 py-12 text-white md:py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-10">
+      <section className="bg-ink-gradient px-4 py-8 text-white md:py-10">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <img src={n1.url} alt="Feito com ingredientes naturais" className="w-full" />
           </div>
@@ -333,7 +331,7 @@ function Landing() {
             <p className="mt-3 text-lg leading-relaxed text-white/70">
               Uma máscara caseira rica em antioxidantes, vitaminas A, B, C e potássio que estimula renovação celular e devolve firmeza à pele.
             </p>
-            <div className="mt-5 space-y-3">
+            <div className="mt-4 space-y-2.5">
               {[
                 { n: "01", t: "Renovação celular", d: "Antioxidantes neutralizam radicais livres e aceleram a formação de novas células." },
                 { n: "02", t: "Hidratação profunda", d: "Nutre a derme já nas primeiras aplicações, devolvendo maciez e viço." },
@@ -353,8 +351,8 @@ function Landing() {
       </section>
 
       {/* APLIQUE E RELAXE */}
-      <section className="bg-cream/50 px-4 py-10 md:py-12">
-        <div className="mx-auto grid max-w-6xl items-center gap-7 md:grid-cols-[1.15fr_1fr] md:gap-9">
+      <section className="bg-cream/50 px-4 py-6 md:py-8">
+        <div className="mx-auto grid max-w-6xl items-center gap-5 md:grid-cols-[1.15fr_1fr] md:gap-7">
           <div className="overflow-hidden rounded-2xl shadow-xl">
             <img src={n2.url} alt="Aplique e relaxe" className="w-full" />
           </div>
@@ -363,10 +361,10 @@ function Landing() {
             <h2 className="mt-2.5 font-display text-4xl leading-tight text-ink md:text-5xl">
               Aplique. <em className="text-copper">Relaxe.</em> Renove.
             </h2>
-            <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-2.5 text-lg leading-relaxed text-muted-foreground">
               A fórmula natural ajuda a pele a absorver nutrientes e se renovar. Deixe agir por 15 minutos e sinta a diferença já nas primeiras semanas.
             </p>
-            <div className="mt-4 flex items-center justify-center gap-6 text-sm md:justify-start">
+            <div className="mt-3 flex items-center justify-center gap-6 text-sm md:justify-start">
               <div className="text-center md:text-left"><div className="font-display text-3xl text-ink">15<span className="text-copper">min</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">de ritual</div></div>
               <div className="h-10 w-px bg-border" />
               <div className="text-center md:text-left"><div className="font-display text-3xl text-ink">2×<span className="text-copper">/sem</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">frequência</div></div>
@@ -376,14 +374,14 @@ function Landing() {
       </section>
 
       {/* COMO USAR — imagem oficial dos 4 passos */}
-      <section className="px-4 py-10 md:py-12">
+      <section className="px-4 py-6 md:py-8">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Passo a passo</p>
             <h2 className="mt-2.5 font-display text-4xl text-ink md:text-5xl">4 passos. 15 minutos.</h2>
-            <p className="mx-auto mt-2.5 max-w-xl text-muted-foreground">Do lavatório à pele renovada — o ritual completo em uma sequência simples.</p>
+            <p className="mx-auto mt-2 max-w-xl text-muted-foreground">Do lavatório à pele renovada — o ritual completo em uma sequência simples.</p>
           </div>
-          <div className="mt-6 grid gap-3 sm:grid-cols-3 md:mt-8">
+          <div className="mt-4 grid gap-2.5 sm:grid-cols-3 md:mt-5">
             {[n3, n4, n5].map((img, i) => (
               <div key={i} className="overflow-hidden rounded-2xl border border-border shadow-xl">
                 <img src={img.url} alt={`Passo ${i + 1}`} className="w-full" />
@@ -394,17 +392,17 @@ function Landing() {
       </section>
 
       {/* TEXTURA */}
-      <section className="bg-ink-gradient px-4 py-12 text-white md:py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-10">
+      <section className="bg-ink-gradient px-4 py-8 text-white md:py-10">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">A fórmula</p>
             <h2 className="mt-2.5 font-display text-4xl leading-tight md:text-5xl">
               Textura sedosa,<br /><em className="text-copper">absorção profunda.</em>
             </h2>
-            <p className="mt-3 text-lg leading-relaxed text-white/70">
+            <p className="mt-2.5 text-lg leading-relaxed text-white/70">
               Nada de sensação pesada ou pegajosa. A máscara penetra rápido, hidrata em profundidade e deixa a pele visivelmente mais firme e luminosa.
             </p>
-            <div className="mt-5 grid grid-cols-2 gap-3">
+            <div className="mt-4 grid grid-cols-2 gap-3">
               {["Absorção rápida", "Sem parabenos", "Sem oleosidade", "Fragrância natural"].map((t) => (
                 <div key={t} className="flex items-center gap-2 text-sm text-white/80">
                   <Check className="h-4 w-4 text-copper" /> {t}
@@ -419,12 +417,12 @@ function Landing() {
       </section>
 
       {/* PROVA SOCIAL */}
-      <section className="bg-cream px-4 py-12 md:py-16">
+      <section className="bg-cream px-4 py-8 md:py-10">
         <div className="mx-auto max-w-6xl text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Prova social</p>
           <h2 className="mt-2.5 font-display text-4xl leading-tight text-ink md:text-5xl">Histórias reais de quem já testou</h2>
         </div>
-        <div className="mx-auto mt-7 grid max-w-6xl gap-4 md:mt-9 md:grid-cols-3">
+        <div className="mx-auto mt-5 grid max-w-6xl gap-4 md:mt-6 md:grid-cols-3">
           {[tSandra, tMarlene, tDebora].map((img, i) => (
             <div key={i} className="overflow-hidden rounded-2xl shadow-xl">
               <img src={img.url} alt={`Depoimento ${i + 1}`} className="w-full" />
@@ -434,13 +432,13 @@ function Landing() {
       </section>
 
       {/* ESTATÍSTICAS — anéis de porcentagem */}
-      <section className="border-y border-border bg-background px-4 py-12 md:py-16">
+      <section className="border-y border-border bg-background px-4 py-8 md:py-10">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Resultados reais</p>
             <h2 className="mt-2.5 font-display text-4xl text-ink md:text-5xl">O que as usuárias relatam</h2>
           </div>
-          <div className="mt-7 grid gap-x-10 gap-y-6 md:mt-9 md:grid-cols-2">
+          <div className="mt-5 grid gap-x-10 gap-y-6 md:mt-6 md:grid-cols-2">
             <StatRing pct={94} label="notaram a pele visivelmente mais macia em até 3 semanas" />
             <StatRing pct={97} label="perceberam linhas de expressão suavizadas com o uso contínuo" />
             <StatRing pct={96} label="continuariam usando diariamente após o período de teste" />
@@ -450,14 +448,14 @@ function Landing() {
       </section>
 
       {/* AUTOCUIDADO */}
-      <section className="px-4 py-12 md:py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-10">
+      <section className="px-4 py-8 md:py-10">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Ritual de autocuidado</p>
             <h2 className="mt-2.5 font-display text-4xl text-ink md:text-5xl">
               Um momento seu.<br /><em className="text-copper">Um resultado para a vida.</em>
             </h2>
-            <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-2.5 text-lg leading-relaxed text-muted-foreground">
               Não é só sobre pele. É sobre reservar 15 minutos duas vezes por semana para você. E ver, semana após semana, uma versão mais luminosa no espelho.
             </p>
           </div>
@@ -468,10 +466,10 @@ function Landing() {
       </section>
 
       {/* OFERTA */}
-      <section id="oferta" className="bg-ink-gradient px-4 py-12 text-white md:py-16">
+      <section id="oferta" className="bg-ink-gradient px-4 py-8 text-white md:py-10">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
               <Sparkles className="h-3 w-3" /> Esta oferta expira em
             </div>
             <div className="flex items-center justify-center">
@@ -479,11 +477,11 @@ function Landing() {
             </div>
           </div>
 
-          <div className="mt-7 overflow-hidden rounded-3xl bg-white text-ink shadow-2xl md:mt-9">
-            <div className="p-6 md:p-8">
+          <div className="mt-5 overflow-hidden rounded-3xl bg-white text-ink shadow-2xl md:mt-6">
+            <div className="p-5 md:p-6">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe</p>
 
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-3 space-y-2.5">
                   {[
                     "Ebook completo Método Rugas Nunca Mais",
                     "Guia passo a passo de aplicação",
@@ -501,7 +499,7 @@ function Landing() {
                   ))}
                 </ul>
 
-                <div className="mt-5 border-t border-border pt-5 text-center">
+                <div className="mt-4 border-t border-border pt-4 text-center">
                   <div className="text-sm text-muted-foreground line-through">De R$ 197</div>
                   <div className="mt-1 flex items-baseline justify-center gap-2">
                     <span className="font-display text-6xl leading-none text-ink sm:text-7xl">R$ 27</span>
@@ -511,7 +509,7 @@ function Landing() {
                   </p>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-4">
                   <a
                     href={CHECKOUT}
                     target="_blank"
@@ -521,7 +519,7 @@ function Landing() {
                     <span>QUERO ACESSAR AGORA</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
-                  <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
+                  <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
                     <span className="flex items-center gap-1"><Lock className="h-3 w-3" /> Compra 100% segura</span>
                     <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3" /> 30 dias de garantia</span>
                   </div>
@@ -533,8 +531,8 @@ function Landing() {
       </section>
 
       {/* GARANTIA */}
-      <section className="bg-cream px-4 py-10 md:py-12">
-        <div className="mx-auto grid max-w-4xl items-center gap-5 md:grid-cols-[auto_1fr] md:gap-7">
+      <section className="bg-cream px-4 py-6 md:py-8">
+        <div className="mx-auto grid max-w-4xl items-center gap-4 md:grid-cols-[auto_1fr] md:gap-6">
           <img
             src={seloGarantia.url}
             alt="Selo Garantia 30 Dias — Satisfação Garantida"
@@ -542,8 +540,8 @@ function Landing() {
           />
           <div className="text-center md:text-left">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Garantia incondicional</p>
-            <h2 className="mt-3 font-display text-3xl text-ink md:text-4xl">30 dias de garantia total</h2>
-            <p className="mt-3 text-muted-foreground">
+            <h2 className="mt-2.5 font-display text-3xl text-ink md:text-4xl">30 dias de garantia total</h2>
+            <p className="mt-2.5 text-muted-foreground">
               Teste o Método Rugas Nunca Mais por 30 dias. Se você não notar diferença na sua pele, devolvemos 100% do seu investimento. Sem burocracia, sem perguntas. O risco é todo nosso.
             </p>
           </div>
@@ -552,13 +550,13 @@ function Landing() {
 
 
       {/* FAQ */}
-      <section className="px-4 py-12 md:py-16">
+      <section className="px-4 py-8 md:py-10">
         <div className="mx-auto max-w-3xl">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Dúvidas frequentes</p>
             <h2 className="mt-2.5 font-display text-4xl text-ink md:text-5xl">Tudo o que você precisa saber</h2>
           </div>
-          <div className="mt-6 md:mt-8">
+          <div className="mt-5 md:mt-6">
             <FAQ q="O método funciona para qualquer tipo de ruga?" a="É indicado para rugas leves e linhas de expressão. Ameniza rugas mais profundas e retarda o surgimento de novas. Não substitui tratamento dermatológico para casos avançados." />
             <FAQ q="Preciso comprar produtos caros?" a="Não. Os 3 ingredientes são naturais, baratos e fáceis de encontrar. Provavelmente você já tem tudo em casa agora." />
             <FAQ q="Com que frequência devo aplicar?" a="O ideal é de 2 a 3 vezes por semana. Aplicação em excesso não acelera resultados e pode causar oleosidade." />
@@ -570,8 +568,8 @@ function Landing() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="bg-warm-gradient px-4 py-12 md:py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2 md:gap-10">
+      <section className="bg-warm-gradient px-4 py-8 md:py-10">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div className="overflow-hidden rounded-2xl shadow-2xl">
             <img src={n8.url} alt="Método Rugas Nunca Mais — ebook" className="w-full" />
           </div>
@@ -579,16 +577,16 @@ function Landing() {
             <h2 className="font-display text-4xl leading-tight text-ink md:text-5xl">
               Sua pele merece <em className="text-copper">o cuidado certo.</em>
             </h2>
-            <p className="mt-3 text-lg text-muted-foreground">
+            <p className="mt-2.5 text-lg text-muted-foreground">
               Comece o Método Rugas Nunca Mais hoje. Acesso imediato, garantia de 30 dias, resultado que aparece no espelho.
             </p>
-            <div className="mt-5"><CTA>QUERO COMEÇAR AGORA</CTA></div>
+            <div className="mt-4"><CTA>QUERO COMEÇAR AGORA</CTA></div>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border bg-ink px-4 py-10 text-center text-xs text-white/60">
+      <footer className="border-t border-border bg-ink px-4 py-6 text-center text-xs text-white/60">
         <p>© Método Rugas Nunca Mais · Todos os direitos reservados</p>
         <p className="mt-2 max-w-2xl mx-auto">Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Resultados podem variar de pessoa para pessoa.</p>
       </footer>
