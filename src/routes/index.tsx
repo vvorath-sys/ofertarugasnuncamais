@@ -351,8 +351,8 @@ function Landing() {
       </section>
 
       {/* APLIQUE E RELAXE */}
-      <section className="bg-cream/50 px-4 py-10 md:py-12">
-        <div className="mx-auto grid max-w-6xl items-center gap-7 md:grid-cols-[1.15fr_1fr] md:gap-9">
+      <section className="bg-cream/50 px-4 py-6 md:py-8">
+        <div className="mx-auto grid max-w-6xl items-center gap-5 md:grid-cols-[1.15fr_1fr] md:gap-7">
           <div className="overflow-hidden rounded-2xl shadow-xl">
             <img src={n2.url} alt="Aplique e relaxe" className="w-full" />
           </div>
@@ -361,10 +361,10 @@ function Landing() {
             <h2 className="mt-2.5 font-display text-4xl leading-tight text-ink md:text-5xl">
               Aplique. <em className="text-copper">Relaxe.</em> Renove.
             </h2>
-            <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-2.5 text-lg leading-relaxed text-muted-foreground">
               A fórmula natural ajuda a pele a absorver nutrientes e se renovar. Deixe agir por 15 minutos e sinta a diferença já nas primeiras semanas.
             </p>
-            <div className="mt-4 flex items-center justify-center gap-6 text-sm md:justify-start">
+            <div className="mt-3 flex items-center justify-center gap-6 text-sm md:justify-start">
               <div className="text-center md:text-left"><div className="font-display text-3xl text-ink">15<span className="text-copper">min</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">de ritual</div></div>
               <div className="h-10 w-px bg-border" />
               <div className="text-center md:text-left"><div className="font-display text-3xl text-ink">2×<span className="text-copper">/sem</span></div><div className="text-xs uppercase tracking-widest text-muted-foreground">frequência</div></div>
