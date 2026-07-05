@@ -233,9 +233,8 @@ function Landing() {
       <section className="relative overflow-hidden bg-warm-gradient">
         <div className="mx-auto max-w-3xl px-4 pt-8 pb-12 md:pt-20 md:pb-24">
           <div>
-            <h1 className="font-display text-[2rem] leading-[1.05] text-ink sm:text-4xl md:text-6xl lg:text-7xl">
-              Rugas visivelmente <em className="text-copper">suavizadas</em> em poucas semanas —
-              <span className="block">sem cremes caros.</span>
+            <h1 className="font-display text-[2rem] leading-[1.05] text-ink sm:text-4xl md:text-5xl lg:text-6xl">
+              Você não precisa gastar R$800 em uma clínica para se livrar das rugas. Precisa apenas de 3 ingredientes caseiros que você já tem em casa.
             </h1>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground md:mt-6 md:text-lg">
               Um protocolo caseiro com <strong className="text-ink">3 ingredientes</strong> que você já tem na cozinha. Aplicado por mais de <strong className="text-ink">27.000 mulheres</strong> com resultados reais.
