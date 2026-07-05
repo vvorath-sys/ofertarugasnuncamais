@@ -231,16 +231,16 @@ function Landing() {
     <main className="min-h-screen">
       {/* HERO */}
       <section className="relative overflow-hidden bg-warm-gradient">
-        <div className="mx-auto max-w-3xl px-4 pt-5 pb-7 md:pt-10 md:pb-12">
+        <div className="mx-auto max-w-3xl px-4 pt-4 pb-5 md:pt-6 md:pb-8">
           <div>
             <h1 className="font-display text-[1.45rem] leading-[1.18] text-ink sm:text-[1.85rem] md:text-[2.4rem] md:leading-[1.15] lg:text-[3.1rem]">
               Mulheres acima dos 40 estão <strong className="text-copper">eliminando rugas</strong> em casa em <strong className="text-copper">menos de 30 dias</strong> — com essa <strong className="text-copper">colher de caramelo</strong>
             </h1>
-            <p className="mt-2.5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base md:text-lg">
+            <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base md:text-lg">
               Um protocolo caseiro com <strong className="text-ink">3 ingredientes</strong> que você já tem na cozinha <strong className="text-ink">que ativa a produção de colágeno e reduz rugas e linhas de expressão</strong>.
             </p>
 
-            <div className="mt-3.5 space-y-2 md:mt-4 md:space-y-2.5">
+            <div className="mt-3 space-y-2 md:space-y-2.5">
               {[
                 "Reduz linhas de expressão em 2–3 semanas",
                 "Rotina de 15 minutos, 2x por semana",
@@ -255,14 +255,14 @@ function Landing() {
 
           </div>
 
-          <div className="relative mt-5 md:mt-7">
+          <div className="relative mt-4 md:mt-5">
             <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
             <div className="relative">
               <WistiaPlayer />
             </div>
           </div>
 
-          <div className="mt-4 flex flex-col items-start gap-2.5 md:mt-5">
+          <div className="mt-3 flex flex-col items-start gap-2 md:mt-4">
             <CTA block />
             <div className="flex items-center gap-2">
               <Stars />
