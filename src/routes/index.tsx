@@ -374,14 +374,14 @@ function Landing() {
       </section>
 
       {/* COMO USAR — imagem oficial dos 4 passos */}
-      <section className="px-4 py-10 md:py-12">
+      <section className="px-4 py-6 md:py-8">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Passo a passo</p>
             <h2 className="mt-2.5 font-display text-4xl text-ink md:text-5xl">4 passos. 15 minutos.</h2>
-            <p className="mx-auto mt-2.5 max-w-xl text-muted-foreground">Do lavatório à pele renovada — o ritual completo em uma sequência simples.</p>
+            <p className="mx-auto mt-2 max-w-xl text-muted-foreground">Do lavatório à pele renovada — o ritual completo em uma sequência simples.</p>
           </div>
-          <div className="mt-6 grid gap-3 sm:grid-cols-3 md:mt-8">
+          <div className="mt-4 grid gap-2.5 sm:grid-cols-3 md:mt-5">
             {[n3, n4, n5].map((img, i) => (
               <div key={i} className="overflow-hidden rounded-2xl border border-border shadow-xl">
                 <img src={img.url} alt={`Passo ${i + 1}`} className="w-full" />
