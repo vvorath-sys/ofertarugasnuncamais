@@ -233,8 +233,8 @@ function Landing() {
       <section className="relative overflow-hidden bg-warm-gradient">
         <div className="mx-auto max-w-3xl px-4 pt-8 pb-12 md:pt-20 md:pb-24">
           <div>
-            <h1 className="font-display text-[2rem] leading-[1.05] text-ink sm:text-4xl md:text-5xl lg:text-6xl">
-              Mulheres acima dos 40 estão eliminando rugas em casa em menos de 30 dias — com essa colher de caramelo
+            <h1 className="font-display text-[1.65rem] leading-[1.1] text-ink sm:text-3xl md:text-4xl lg:text-5xl">
+              Mulheres acima dos 40 estão <strong className="text-ink">eliminando rugas</strong> em casa em <strong className="text-ink">menos de 30 dias</strong> — com essa <strong className="text-ink">colher de caramelo</strong>
             </h1>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground md:mt-6 md:text-lg">
               Um protocolo caseiro com <strong className="text-ink">3 ingredientes</strong> que você já tem na cozinha <strong className="text-ink">que ativa a produção de colágeno e reduz rugas e linhas de expressão</strong>.
