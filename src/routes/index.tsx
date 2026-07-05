@@ -417,12 +417,12 @@ function Landing() {
       </section>
 
       {/* PROVA SOCIAL */}
-      <section className="bg-cream px-4 py-12 md:py-16">
+      <section className="bg-cream px-4 py-8 md:py-10">
         <div className="mx-auto max-w-6xl text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Prova social</p>
           <h2 className="mt-2.5 font-display text-4xl leading-tight text-ink md:text-5xl">Histórias reais de quem já testou</h2>
         </div>
-        <div className="mx-auto mt-7 grid max-w-6xl gap-4 md:mt-9 md:grid-cols-3">
+        <div className="mx-auto mt-5 grid max-w-6xl gap-4 md:mt-6 md:grid-cols-3">
           {[tSandra, tMarlene, tDebora].map((img, i) => (
             <div key={i} className="overflow-hidden rounded-2xl shadow-xl">
               <img src={img.url} alt={`Depoimento ${i + 1}`} className="w-full" />
@@ -432,13 +432,13 @@ function Landing() {
       </section>
 
       {/* ESTATÍSTICAS — anéis de porcentagem */}
-      <section className="border-y border-border bg-background px-4 py-12 md:py-16">
+      <section className="border-y border-border bg-background px-4 py-8 md:py-10">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Resultados reais</p>
             <h2 className="mt-2.5 font-display text-4xl text-ink md:text-5xl">O que as usuárias relatam</h2>
           </div>
-          <div className="mt-7 grid gap-x-10 gap-y-6 md:mt-9 md:grid-cols-2">
+          <div className="mt-5 grid gap-x-10 gap-y-6 md:mt-6 md:grid-cols-2">
             <StatRing pct={94} label="notaram a pele visivelmente mais macia em até 3 semanas" />
             <StatRing pct={97} label="perceberam linhas de expressão suavizadas com o uso contínuo" />
             <StatRing pct={96} label="continuariam usando diariamente após o período de teste" />
