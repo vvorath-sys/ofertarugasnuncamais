@@ -93,29 +93,8 @@ function FAQ({ q, a }: { q: string; a: string }) {
   );
 }
 
-function Countdown() {
-  const [t, setT] = useState({ h: 0, m: 15, s: 0 });
-  useEffect(() => {
-    const id = setInterval(() => {
-      setT((p) => {
-        let s = p.s - 1, m = p.m, h = p.h;
-        if (s < 0) { s = 59; m -= 1; }
-        if (m < 0) { m = 59; h -= 1; }
-        if (h < 0) return { h: 0, m: 15, s: 0 };
-        return { h, m, s };
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return (
-    <div className="flex items-center gap-2 font-mono text-xl tabular-nums text-ink md:text-2xl">
-      <span className="rounded bg-ink px-2 py-1 text-white">{pad(t.h)}</span>:
-      <span className="rounded bg-ink px-2 py-1 text-white">{pad(t.m)}</span>:
-      <span className="rounded bg-ink px-2 py-1 text-white">{pad(t.s)}</span>
-    </div>
-  );
-}
+
+
 
 function StatRing({ pct, label }: { pct: number; label: string }) {
   const r = 42;
