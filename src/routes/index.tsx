@@ -542,12 +542,16 @@ function Landing() {
           </div>
           <div className="mt-5 md:mt-6">
             <FAQ q="O método funciona para qualquer tipo de ruga?" a="É indicado para rugas leves e linhas de expressão. Ameniza rugas mais profundas e retarda o surgimento de novas. Não substitui tratamento dermatológico para casos avançados." />
+            <FAQ q="Funciona para pele sensível, oleosa ou madura?" a="Sim. Os 3 ingredientes são naturais e suaves, adequados para todos os tipos de pele. Recomendamos fazer o teste no antebraço antes da primeira aplicação, como em qualquer novo cosmético." />
+            <FAQ q="É seguro para mulheres acima dos 50 ou 60 anos?" a="Sim. O protocolo foi pensado justamente para mulheres a partir dos 40 anos, e milhares de usuárias acima dos 60 já aplicam com segurança e ótimos resultados." />
             <FAQ q="Preciso comprar produtos caros?" a="Não. Os 3 ingredientes são naturais, baratos e fáceis de encontrar. Provavelmente você já tem tudo em casa agora." />
             <FAQ q="Com que frequência devo aplicar?" a="O ideal é de 2 a 3 vezes por semana. Aplicação em excesso não acelera resultados e pode causar oleosidade." />
             <FAQ q="Quanto tempo até ver resultado?" a="A maioria das mulheres nota diferença já nas primeiras 2 a 3 semanas de uso consistente." />
-            <FAQ q="Como recebo o acesso?" a="Imediatamente após a compra, você recebe o ebook e todos os bônus por e-mail e em uma área de membros vitalícia." />
-            <FAQ q="E se eu não gostar?" a="Você tem 30 dias para testar. Se não notar diferença, devolvemos 100% do valor sem perguntas." />
+            <FAQ q="Como recebo o acesso?" a="Imediatamente após a compra, você recebe o ebook e todos os bônus por e-mail e em uma área de membros vitalícia, acessível pelo celular ou computador." />
+            <FAQ q="Quais formas de pagamento posso usar?" a="Aceitamos Pix (aprovação em segundos), cartão de crédito Visa, Mastercard, Elo, Amex e Hipercard, com parcelamento em até 3x sem juros." />
+            <FAQ q="E se eu não gostar?" a="Você tem 30 dias para testar. Se não notar diferença, devolvemos 100% do valor sem perguntas — basta enviar um e-mail para o suporte." />
           </div>
+
         </div>
       </section>
 
