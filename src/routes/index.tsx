@@ -93,8 +93,29 @@ function FAQ({ q, a }: { q: string; a: string }) {
   );
 }
 
-
-
+function Countdown() {
+  const [t, setT] = useState({ h: 0, m: 15, s: 0 });
+  useEffect(() => {
+    const id = setInterval(() => {
+      setT((p) => {
+        let s = p.s - 1, m = p.m, h = p.h;
+        if (s < 0) { s = 59; m -= 1; }
+        if (m < 0) { m = 59; h -= 1; }
+        if (h < 0) return { h: 0, m: 15, s: 0 };
+        return { h, m, s };
+      });
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return (
+    <div className="flex items-center gap-2 font-mono text-xl tabular-nums text-ink md:text-2xl">
+      <span className="rounded bg-ink px-2 py-1 text-white">{pad(t.h)}</span>:
+      <span className="rounded bg-ink px-2 py-1 text-white">{pad(t.m)}</span>:
+      <span className="rounded bg-ink px-2 py-1 text-white">{pad(t.s)}</span>
+    </div>
+  );
+}
 
 function StatRing({ pct, label }: { pct: number; label: string }) {
   const r = 42;
@@ -241,22 +262,18 @@ function Landing() {
             </div>
           </div>
 
-          <div className="mt-3 flex flex-col items-center gap-2 text-center md:mt-4">
+          <div className="mt-3 flex flex-col items-start gap-2 md:mt-4">
             <CTA block />
             <div className="flex items-center gap-2">
               <Stars />
               <span className="text-xs text-muted-foreground">4.9 · 3.284 avaliações</span>
             </div>
-            <p className="text-[11px] font-medium text-copper">
-              +1.284 mulheres acessaram o método este mês
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
               <div className="flex items-center gap-1.5"><Lock className="h-3.5 w-3.5" /> Pagamento seguro</div>
               <div className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> Garantia de 30 dias</div>
               <div className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Acesso imediato</div>
             </div>
           </div>
-
         </div>
       </section>
       {/* ANTES E DEPOIS */}
@@ -269,14 +286,7 @@ function Landing() {
         <div className="mt-4 md:mt-5">
           <BeforeAfter />
         </div>
-        <div className="mx-auto mt-6 flex justify-center">
-          <a href="#oferta" className="group inline-flex items-center justify-center gap-3 rounded-full bg-cta-gradient px-8 py-4 text-sm font-bold uppercase tracking-[0.14em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5">
-            <span>QUERO ESSE RESULTADO</span>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-        </div>
       </section>
-
 
       {/* PROBLEMA */}
       <section className="px-4 py-7 md:py-10">
@@ -419,27 +429,6 @@ function Landing() {
             </div>
           ))}
         </div>
-
-        <div className="mx-auto mt-6 grid max-w-6xl gap-4 md:grid-cols-3">
-          {[
-            { n: "Cláudia R.", a: 58, c: "Curitiba, PR", t: "Na terceira semana, meu marido perguntou se eu tinha feito procedimento. Não fiz nada além da máscara 2x por semana. Sério, foi a melhor R$ 27 da minha vida." },
-            { n: "Regina M.", a: 46, c: "Recife, PE", t: "Já tinha gastado mais de R$ 2 mil em cremes importados. Nada comparado ao efeito desses 3 ingredientes. Minha pele está mais firme e o brilho voltou." },
-            { n: "Vera L.", a: 63, c: "Porto Alegre, RS", t: "Achei que era coisa de gente jovem. Aos 63 vi diferença nas linhas ao redor da boca em menos de um mês. Continuo usando todo dia." },
-          ].map((d) => (
-            <div key={d.n} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
-              <Stars />
-              <p className="mt-3 text-[15px] leading-relaxed text-ink">"{d.t}"</p>
-              <p className="mt-3 text-xs text-muted-foreground">— {d.n}, {d.a} anos · {d.c}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mx-auto mt-7 flex justify-center">
-          <a href="#oferta" className="group relative inline-flex items-center justify-center gap-3 rounded-full bg-cta-gradient px-8 py-4 text-sm font-bold uppercase tracking-[0.14em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)]">
-            <span>QUERO O MESMO RESULTADO</span>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-        </div>
       </section>
 
       {/* ESTATÍSTICAS — anéis de porcentagem */}
@@ -455,12 +444,8 @@ function Landing() {
             <StatRing pct={96} label="continuariam usando diariamente após o período de teste" />
             <StatRing pct={92} label="recomendariam o método para uma amiga ou familiar" />
           </div>
-          <p className="mt-5 text-center text-[11px] italic text-muted-foreground">
-            Pesquisa interna com 412 usuárias do Método Rugas Nunca Mais realizada em 2025.
-          </p>
         </div>
       </section>
-
 
       {/* AUTOCUIDADO */}
       <section className="px-4 py-8 md:py-10">
@@ -480,101 +465,47 @@ function Landing() {
         </div>
       </section>
 
-      {/* PARA QUEM É / NÃO É */}
-      <section className="bg-cream/60 px-4 py-8 md:py-10">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Antes de continuar</p>
-            <h2 className="mt-2.5 font-display text-4xl leading-tight text-ink md:text-5xl">Este método é pra você?</h2>
-          </div>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-copper/30 bg-white p-6 shadow-sm">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-copper">✓ É pra você se</p>
-              <ul className="mt-4 space-y-3">
-                {[
-                  "Tem mais de 35 anos e quer prevenir ou amenizar rugas",
-                  "Já cansou de gastar fortunas em cremes que não entregam",
-                  "Prefere ingredientes naturais a procedimentos invasivos",
-                  "Tem 15 minutos livres, 2 vezes por semana",
-                  "Quer ver diferença real no espelho, não só promessa",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-[15px] text-ink">
-                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
-                    <span>{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-border bg-white p-6 shadow-sm">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">✗ Não é pra você se</p>
-              <ul className="mt-4 space-y-3">
-                {[
-                  "Quer resultado da noite pro dia, sem consistência",
-                  "Espera eliminar rugas profundas sem procedimento",
-                  "Não está disposta a dedicar 15 minutos 2x por semana",
-                  "Prefere continuar dependendo de cremes caros",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-[15px] text-muted-foreground">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/60" />
-                    <span>{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* OFERTA */}
       <section id="oferta" className="bg-ink-gradient px-4 py-8 text-white md:py-10">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
-              <Sparkles className="h-3 w-3" /> Oferta especial de lançamento
+              <Sparkles className="h-3 w-3" /> Esta oferta expira em
             </div>
-            <h2 className="font-display text-3xl leading-tight md:text-4xl">
-              Comece hoje por menos do que <em className="text-copper">um café da manhã</em>
-            </h2>
+            <div className="flex items-center justify-center">
+              <Countdown />
+            </div>
           </div>
-
 
           <div className="mt-5 overflow-hidden rounded-3xl bg-white text-ink shadow-2xl md:mt-6">
             <div className="p-5 md:p-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Tudo que você recebe</p>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe</p>
 
-                <ul className="mt-3 divide-y divide-border">
+                <ul className="mt-3 space-y-2.5">
                   {[
-                    { t: "Ebook Método Rugas Nunca Mais", v: "R$ 97" },
-                    { t: "Guia passo a passo de aplicação", v: "R$ 27" },
-                    { t: "Frequência ideal e erros a evitar", v: "R$ 17" },
-                    { t: "BÔNUS: Corpo dos Sonhos", v: "R$ 47", bonus: true },
-                    { t: "BÔNUS: Ritual anti-idade de 5 minutos", v: "R$ 37", bonus: true },
-                    { t: "Acesso vitalício + atualizações", v: "Grátis" },
-                  ].map(({ t, v, bonus }) => (
-                    <li key={t} className="flex items-center justify-between gap-3 py-2.5">
-                      <div className="flex items-start gap-2.5">
-                        <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-copper text-white">
-                          <Check className="h-3 w-3" />
-                        </div>
-                        <span className={`text-[14px] ${bonus ? "font-semibold text-copper" : "text-ink"}`}>{t}</span>
+                    "Ebook completo Método Rugas Nunca Mais",
+                    "Guia passo a passo de aplicação",
+                    "Frequência ideal e erros a evitar",
+                    "BÔNUS: Corpo dos sonhos",
+                    "BÔNUS: Ritual anti-idade de 5 minutos ao acordar",
+                    "Acesso vitalício + atualizações gratuitas",
+                  ].map((t) => (
+                    <li key={t} className="flex items-start gap-3">
+                      <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-copper text-white">
+                        <Check className="h-3 w-3" />
                       </div>
-                      <span className="shrink-0 text-[13px] font-medium text-muted-foreground line-through">{v}</span>
+                      <span className="text-[15px] text-ink">{t}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-3 flex items-center justify-between rounded-xl bg-cream px-4 py-3">
-                  <span className="text-[13px] font-semibold uppercase tracking-wider text-ink">Valor total</span>
-                  <span className="font-display text-xl text-muted-foreground line-through">R$ 225</span>
-                </div>
-
                 <div className="mt-4 border-t border-border pt-4 text-center">
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-copper">Hoje, apenas</div>
+                  <div className="text-sm text-muted-foreground line-through">De R$ 197</div>
                   <div className="mt-1 flex items-baseline justify-center gap-2">
                     <span className="font-display text-6xl leading-none text-ink sm:text-7xl">R$ 27</span>
                   </div>
                   <p className="mt-2 text-sm text-ink/70">
-                    Pagamento único · ou 3x de R$ 9,54 · acesso vitalício
+                    Pagamento único · acesso vitalício
                   </p>
                 </div>
 
@@ -592,24 +523,12 @@ function Landing() {
                     <span className="flex items-center gap-1"><Lock className="h-3 w-3" /> Compra 100% segura</span>
                     <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3" /> 30 dias de garantia</span>
                   </div>
-                  <div className="mt-4 flex flex-col items-center gap-2 border-t border-border pt-4">
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Formas de pagamento</span>
-                    <div className="flex flex-wrap items-center justify-center gap-2">
-                      {["Pix", "Visa", "Master", "Elo", "Amex", "Hiper"].map((m) => (
-                        <span key={m} className="rounded-md border border-border bg-cream px-2.5 py-1 text-[11px] font-semibold text-ink">
-                          {m}
-                        </span>
-                      ))}
-                    </div>
-                    <span className="text-[11px] text-muted-foreground">Parcelamento em até 3x sem juros no cartão</span>
-                  </div>
                 </div>
             </div>
           </div>
 
         </div>
       </section>
-
 
       {/* GARANTIA */}
       <section className="bg-cream px-4 py-6 md:py-8">
@@ -639,16 +558,12 @@ function Landing() {
           </div>
           <div className="mt-5 md:mt-6">
             <FAQ q="O método funciona para qualquer tipo de ruga?" a="É indicado para rugas leves e linhas de expressão. Ameniza rugas mais profundas e retarda o surgimento de novas. Não substitui tratamento dermatológico para casos avançados." />
-            <FAQ q="Funciona para pele sensível, oleosa ou madura?" a="Sim. Os 3 ingredientes são naturais e suaves, adequados para todos os tipos de pele. Recomendamos fazer o teste no antebraço antes da primeira aplicação, como em qualquer novo cosmético." />
-            <FAQ q="É seguro para mulheres acima dos 50 ou 60 anos?" a="Sim. O protocolo foi pensado justamente para mulheres a partir dos 40 anos, e milhares de usuárias acima dos 60 já aplicam com segurança e ótimos resultados." />
             <FAQ q="Preciso comprar produtos caros?" a="Não. Os 3 ingredientes são naturais, baratos e fáceis de encontrar. Provavelmente você já tem tudo em casa agora." />
             <FAQ q="Com que frequência devo aplicar?" a="O ideal é de 2 a 3 vezes por semana. Aplicação em excesso não acelera resultados e pode causar oleosidade." />
             <FAQ q="Quanto tempo até ver resultado?" a="A maioria das mulheres nota diferença já nas primeiras 2 a 3 semanas de uso consistente." />
-            <FAQ q="Como recebo o acesso?" a="Imediatamente após a compra, você recebe o ebook e todos os bônus por e-mail e em uma área de membros vitalícia, acessível pelo celular ou computador." />
-            <FAQ q="Quais formas de pagamento posso usar?" a="Aceitamos Pix (aprovação em segundos), cartão de crédito Visa, Mastercard, Elo, Amex e Hipercard, com parcelamento em até 3x sem juros." />
-            <FAQ q="E se eu não gostar?" a="Você tem 30 dias para testar. Se não notar diferença, devolvemos 100% do valor sem perguntas — basta enviar um e-mail para o suporte." />
+            <FAQ q="Como recebo o acesso?" a="Imediatamente após a compra, você recebe o ebook e todos os bônus por e-mail e em uma área de membros vitalícia." />
+            <FAQ q="E se eu não gostar?" a="Você tem 30 dias para testar. Se não notar diferença, devolvemos 100% do valor sem perguntas." />
           </div>
-
         </div>
       </section>
 
@@ -671,23 +586,10 @@ function Landing() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border bg-ink px-4 py-8 text-xs text-white/60">
-        <div className="mx-auto max-w-4xl space-y-4 text-center">
-          <p className="font-display text-base text-white">Método Rugas Nunca Mais</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <a href="mailto:suporte@rugasnuncamais.com" className="hover:text-white">suporte@rugasnuncamais.com</a>
-            <a href="/politica-de-privacidade" className="hover:text-white">Política de Privacidade</a>
-            <a href="/termos-de-uso" className="hover:text-white">Termos de Uso</a>
-          </div>
-          <p className="mx-auto max-w-2xl leading-relaxed">
-            © {new Date().getFullYear()} Método Rugas Nunca Mais · Todos os direitos reservados.
-            Este site não é afiliado ao Facebook, Instagram ou a qualquer entidade Meta.
-            Os resultados apresentados são individuais e podem variar de pessoa para pessoa.
-            Este produto não substitui acompanhamento médico ou dermatológico.
-          </p>
-        </div>
+      <footer className="border-t border-border bg-ink px-4 py-6 text-center text-xs text-white/60">
+        <p>© Método Rugas Nunca Mais · Todos os direitos reservados</p>
+        <p className="mt-2 max-w-2xl mx-auto">Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Resultados podem variar de pessoa para pessoa.</p>
       </footer>
-
     </main>
   );
 }
