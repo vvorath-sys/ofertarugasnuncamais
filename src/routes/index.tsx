@@ -93,29 +93,8 @@ function FAQ({ q, a }: { q: string; a: string }) {
   );
 }
 
-function Countdown() {
-  const [t, setT] = useState({ h: 0, m: 15, s: 0 });
-  useEffect(() => {
-    const id = setInterval(() => {
-      setT((p) => {
-        let s = p.s - 1, m = p.m, h = p.h;
-        if (s < 0) { s = 59; m -= 1; }
-        if (m < 0) { m = 59; h -= 1; }
-        if (h < 0) return { h: 0, m: 15, s: 0 };
-        return { h, m, s };
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return (
-    <div className="flex items-center gap-2 font-mono text-xl tabular-nums text-ink md:text-2xl">
-      <span className="rounded bg-ink px-2 py-1 text-white">{pad(t.h)}</span>:
-      <span className="rounded bg-ink px-2 py-1 text-white">{pad(t.m)}</span>:
-      <span className="rounded bg-ink px-2 py-1 text-white">{pad(t.s)}</span>
-    </div>
-  );
-}
+
+
 
 function StatRing({ pct, label }: { pct: number; label: string }) {
   const r = 42;
@@ -470,12 +449,13 @@ function Landing() {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
-              <Sparkles className="h-3 w-3" /> Esta oferta expira em
+              <Sparkles className="h-3 w-3" /> Oferta especial de lançamento
             </div>
-            <div className="flex items-center justify-center">
-              <Countdown />
-            </div>
+            <h2 className="font-display text-3xl leading-tight md:text-4xl">
+              Comece hoje por menos do que <em className="text-copper">um café da manhã</em>
+            </h2>
           </div>
+
 
           <div className="mt-5 overflow-hidden rounded-3xl bg-white text-ink shadow-2xl md:mt-6">
             <div className="p-5 md:p-6">
