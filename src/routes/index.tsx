@@ -269,7 +269,14 @@ function Landing() {
         <div className="mt-4 md:mt-5">
           <BeforeAfter />
         </div>
+        <div className="mx-auto mt-6 flex justify-center">
+          <a href="#oferta" className="group inline-flex items-center justify-center gap-3 rounded-full bg-cta-gradient px-8 py-4 text-sm font-bold uppercase tracking-[0.14em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5">
+            <span>QUERO ESSE RESULTADO</span>
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
       </section>
+
 
       {/* PROBLEMA */}
       <section className="px-4 py-7 md:py-10">
