@@ -241,18 +241,22 @@ function Landing() {
             </div>
           </div>
 
-          <div className="mt-3 flex flex-col items-start gap-2 md:mt-4">
+          <div className="mt-3 flex flex-col items-center gap-2 text-center md:mt-4">
             <CTA block />
             <div className="flex items-center gap-2">
               <Stars />
               <span className="text-xs text-muted-foreground">4.9 · 3.284 avaliações</span>
             </div>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
+            <p className="text-[11px] font-medium text-copper">
+              +1.284 mulheres acessaram o método este mês
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
               <div className="flex items-center gap-1.5"><Lock className="h-3.5 w-3.5" /> Pagamento seguro</div>
               <div className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> Garantia de 30 dias</div>
               <div className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Acesso imediato</div>
             </div>
           </div>
+
         </div>
       </section>
       {/* ANTES E DEPOIS */}
