@@ -448,6 +448,51 @@ function Landing() {
         </div>
       </section>
 
+      {/* PARA QUEM É / NÃO É */}
+      <section className="bg-cream/60 px-4 py-8 md:py-10">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Antes de continuar</p>
+            <h2 className="mt-2.5 font-display text-4xl leading-tight text-ink md:text-5xl">Este método é pra você?</h2>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="rounded-2xl border border-copper/30 bg-white p-6 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-copper">✓ É pra você se</p>
+              <ul className="mt-4 space-y-3">
+                {[
+                  "Tem mais de 35 anos e quer prevenir ou amenizar rugas",
+                  "Já cansou de gastar fortunas em cremes que não entregam",
+                  "Prefere ingredientes naturais a procedimentos invasivos",
+                  "Tem 15 minutos livres, 2 vezes por semana",
+                  "Quer ver diferença real no espelho, não só promessa",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-3 text-[15px] text-ink">
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-border bg-white p-6 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">✗ Não é pra você se</p>
+              <ul className="mt-4 space-y-3">
+                {[
+                  "Quer resultado da noite pro dia, sem consistência",
+                  "Espera eliminar rugas profundas sem procedimento",
+                  "Não está disposta a dedicar 15 minutos 2x por semana",
+                  "Prefere continuar dependendo de cremes caros",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-3 text-[15px] text-muted-foreground">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/60" />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* OFERTA */}
       <section id="oferta" className="bg-ink-gradient px-4 py-8 text-white md:py-10">
         <div className="mx-auto max-w-5xl">
@@ -463,33 +508,41 @@ function Landing() {
 
           <div className="mt-5 overflow-hidden rounded-3xl bg-white text-ink shadow-2xl md:mt-6">
             <div className="p-5 md:p-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe</p>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">Tudo que você recebe</p>
 
-                <ul className="mt-3 space-y-2.5">
+                <ul className="mt-3 divide-y divide-border">
                   {[
-                    "Ebook completo Método Rugas Nunca Mais",
-                    "Guia passo a passo de aplicação",
-                    "Frequência ideal e erros a evitar",
-                    "BÔNUS: Corpo dos sonhos",
-                    "BÔNUS: Ritual anti-idade de 5 minutos ao acordar",
-                    "Acesso vitalício + atualizações gratuitas",
-                  ].map((t) => (
-                    <li key={t} className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-copper text-white">
-                        <Check className="h-3 w-3" />
+                    { t: "Ebook Método Rugas Nunca Mais", v: "R$ 97" },
+                    { t: "Guia passo a passo de aplicação", v: "R$ 27" },
+                    { t: "Frequência ideal e erros a evitar", v: "R$ 17" },
+                    { t: "BÔNUS: Corpo dos Sonhos", v: "R$ 47", bonus: true },
+                    { t: "BÔNUS: Ritual anti-idade de 5 minutos", v: "R$ 37", bonus: true },
+                    { t: "Acesso vitalício + atualizações", v: "Grátis" },
+                  ].map(({ t, v, bonus }) => (
+                    <li key={t} className="flex items-center justify-between gap-3 py-2.5">
+                      <div className="flex items-start gap-2.5">
+                        <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-copper text-white">
+                          <Check className="h-3 w-3" />
+                        </div>
+                        <span className={`text-[14px] ${bonus ? "font-semibold text-copper" : "text-ink"}`}>{t}</span>
                       </div>
-                      <span className="text-[15px] text-ink">{t}</span>
+                      <span className="shrink-0 text-[13px] font-medium text-muted-foreground line-through">{v}</span>
                     </li>
                   ))}
                 </ul>
 
+                <div className="mt-3 flex items-center justify-between rounded-xl bg-cream px-4 py-3">
+                  <span className="text-[13px] font-semibold uppercase tracking-wider text-ink">Valor total</span>
+                  <span className="font-display text-xl text-muted-foreground line-through">R$ 225</span>
+                </div>
+
                 <div className="mt-4 border-t border-border pt-4 text-center">
-                  <div className="text-sm text-muted-foreground line-through">De R$ 197</div>
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-copper">Hoje, apenas</div>
                   <div className="mt-1 flex items-baseline justify-center gap-2">
                     <span className="font-display text-6xl leading-none text-ink sm:text-7xl">R$ 27</span>
                   </div>
                   <p className="mt-2 text-sm text-ink/70">
-                    Pagamento único · acesso vitalício
+                    Pagamento único · ou 3x de R$ 9,54 · acesso vitalício
                   </p>
                 </div>
 
@@ -507,12 +560,24 @@ function Landing() {
                     <span className="flex items-center gap-1"><Lock className="h-3 w-3" /> Compra 100% segura</span>
                     <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3" /> 30 dias de garantia</span>
                   </div>
+                  <div className="mt-4 flex flex-col items-center gap-2 border-t border-border pt-4">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Formas de pagamento</span>
+                    <div className="flex flex-wrap items-center justify-center gap-2">
+                      {["Pix", "Visa", "Master", "Elo", "Amex", "Hiper"].map((m) => (
+                        <span key={m} className="rounded-md border border-border bg-cream px-2.5 py-1 text-[11px] font-semibold text-ink">
+                          {m}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="text-[11px] text-muted-foreground">Parcelamento em até 3x sem juros no cartão</span>
+                  </div>
                 </div>
             </div>
           </div>
 
         </div>
       </section>
+
 
       {/* GARANTIA */}
       <section className="bg-cream px-4 py-6 md:py-8">
