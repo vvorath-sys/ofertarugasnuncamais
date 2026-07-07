@@ -470,12 +470,13 @@ function Landing() {
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
-              <Sparkles className="h-3 w-3" /> Esta oferta expira em
+              <Sparkles className="h-3 w-3" /> Oferta especial de lançamento
             </div>
-            <div className="flex items-center justify-center">
-              <Countdown />
-            </div>
+            <h2 className="font-display text-3xl leading-tight md:text-4xl">
+              Comece hoje por menos do que <em className="text-copper">um café da manhã</em>
+            </h2>
           </div>
+
 
           <div className="mt-5 overflow-hidden rounded-3xl bg-white text-ink shadow-2xl md:mt-6">
             <div className="p-5 md:p-6">
