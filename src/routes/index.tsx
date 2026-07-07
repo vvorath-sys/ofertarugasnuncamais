@@ -412,6 +412,27 @@ function Landing() {
             </div>
           ))}
         </div>
+
+        <div className="mx-auto mt-6 grid max-w-6xl gap-4 md:grid-cols-3">
+          {[
+            { n: "Cláudia R.", a: 58, c: "Curitiba, PR", t: "Na terceira semana, meu marido perguntou se eu tinha feito procedimento. Não fiz nada além da máscara 2x por semana. Sério, foi a melhor R$ 27 da minha vida." },
+            { n: "Regina M.", a: 46, c: "Recife, PE", t: "Já tinha gastado mais de R$ 2 mil em cremes importados. Nada comparado ao efeito desses 3 ingredientes. Minha pele está mais firme e o brilho voltou." },
+            { n: "Vera L.", a: 63, c: "Porto Alegre, RS", t: "Achei que era coisa de gente jovem. Aos 63 vi diferença nas linhas ao redor da boca em menos de um mês. Continuo usando todo dia." },
+          ].map((d) => (
+            <div key={d.n} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+              <Stars />
+              <p className="mt-3 text-[15px] leading-relaxed text-ink">"{d.t}"</p>
+              <p className="mt-3 text-xs text-muted-foreground">— {d.n}, {d.a} anos · {d.c}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-7 flex justify-center">
+          <a href="#oferta" className="group relative inline-flex items-center justify-center gap-3 rounded-full bg-cta-gradient px-8 py-4 text-sm font-bold uppercase tracking-[0.14em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)]">
+            <span>QUERO O MESMO RESULTADO</span>
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
       </section>
 
       {/* ESTATÍSTICAS — anéis de porcentagem */}
@@ -427,8 +448,12 @@ function Landing() {
             <StatRing pct={96} label="continuariam usando diariamente após o período de teste" />
             <StatRing pct={92} label="recomendariam o método para uma amiga ou familiar" />
           </div>
+          <p className="mt-5 text-center text-[11px] italic text-muted-foreground">
+            Pesquisa interna com 412 usuárias do Método Rugas Nunca Mais realizada em 2025.
+          </p>
         </div>
       </section>
+
 
       {/* AUTOCUIDADO */}
       <section className="px-4 py-8 md:py-10">
