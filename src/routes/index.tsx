@@ -570,10 +570,23 @@ function Landing() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border bg-ink px-4 py-6 text-center text-xs text-white/60">
-        <p>© Método Rugas Nunca Mais · Todos os direitos reservados</p>
-        <p className="mt-2 max-w-2xl mx-auto">Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Resultados podem variar de pessoa para pessoa.</p>
+      <footer className="border-t border-border bg-ink px-4 py-8 text-xs text-white/60">
+        <div className="mx-auto max-w-4xl space-y-4 text-center">
+          <p className="font-display text-base text-white">Método Rugas Nunca Mais</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <a href="mailto:suporte@rugasnuncamais.com" className="hover:text-white">suporte@rugasnuncamais.com</a>
+            <a href="/politica-de-privacidade" className="hover:text-white">Política de Privacidade</a>
+            <a href="/termos-de-uso" className="hover:text-white">Termos de Uso</a>
+          </div>
+          <p className="mx-auto max-w-2xl leading-relaxed">
+            © {new Date().getFullYear()} Método Rugas Nunca Mais · Todos os direitos reservados.
+            Este site não é afiliado ao Facebook, Instagram ou a qualquer entidade Meta.
+            Os resultados apresentados são individuais e podem variar de pessoa para pessoa.
+            Este produto não substitui acompanhamento médico ou dermatológico.
+          </p>
+        </div>
       </footer>
+
     </main>
   );
 }
