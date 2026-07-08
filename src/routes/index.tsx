@@ -1119,8 +1119,3 @@ function Landing() {
     </main>
   );
 }
-mx-auto">Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Resultados podem variar de pessoa para pessoa.</p>
-      </footer>
-    </main>
-  );
-}
