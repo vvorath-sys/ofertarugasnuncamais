@@ -58,7 +58,7 @@ export const Route = createFileRoute("/")({
 
 const CHECKOUT = "https://ggcheckout.app/checkout/v5/1c6ij2l23k83p0zS2xaa";
 
-function CTA({ children = "QUERO MEU ACESSO AGORA", block = false }: { children?: React.ReactNode; block?: boolean }) {
+function CTA({ children = "QUERO A RECEITA AGORA", block = false }: { children?: React.ReactNode; block?: boolean }) {
   return (
     <a
       href={CHECKOUT}
@@ -262,13 +262,13 @@ function Landing() {
             </div>
           </div>
 
-          <div className="mt-3 flex flex-col items-start gap-2 md:mt-4">
+          <div className="mt-3 flex flex-col items-center gap-2 md:mt-4">
             <CTA block />
             <div className="flex items-center gap-2">
               <Stars />
               <span className="text-xs text-muted-foreground">4.9 · 3.284 avaliações</span>
             </div>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
               <div className="flex items-center gap-1.5"><Lock className="h-3.5 w-3.5" /> Pagamento seguro</div>
               <div className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> Garantia de 30 dias</div>
               <div className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Acesso imediato</div>
@@ -516,7 +516,7 @@ function Landing() {
                     rel="noopener noreferrer"
                     className="group relative flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-cta-gradient px-4 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)] animate-pulse-soft sm:text-sm"
                   >
-                    <span>QUERO ACESSAR AGORA</span>
+                    <span>QUERO ME LIVRAR DAS RUGAS</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
                   <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
@@ -580,7 +580,7 @@ function Landing() {
             <p className="mt-2.5 text-lg text-muted-foreground">
               Comece o Método Rugas Nunca Mais hoje. Acesso imediato, garantia de 30 dias, resultado que aparece no espelho.
             </p>
-            <div className="mt-4"><CTA>QUERO COMEÇAR AGORA</CTA></div>
+            <div className="mt-4"><CTA>QUERO COMEÇAR MINHA TRANSFORMAÇÃO</CTA></div>
           </div>
         </div>
       </section>
