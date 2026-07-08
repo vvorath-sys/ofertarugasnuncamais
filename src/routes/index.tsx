@@ -317,7 +317,7 @@ function Landing() {
       </section>
 
       {/* INGREDIENTES */}
-      <section className="bg-ink-gradient px-4 py-8 text-white md:py-10">
+      <section className="bg-ink-gradient px-4 py-8 text-ink md:py-10">
         <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <img src={n1.url} alt="Feito com ingredientes naturais" className="w-full" />
@@ -328,7 +328,7 @@ function Landing() {
               3 ingredientes.<br />
               <em className="text-copper">Resultado profissional em casa.</em>
             </h2>
-            <p className="mt-3 text-lg leading-relaxed text-white/70">
+            <p className="mt-3 text-lg leading-relaxed text-ink/70">
               Uma máscara caseira rica em antioxidantes, vitaminas A, B, C e potássio que estimula renovação celular e devolve firmeza à pele.
             </p>
             <div className="mt-4 space-y-2.5">
@@ -337,11 +337,11 @@ function Landing() {
                 { n: "02", t: "Hidratação profunda", d: "Nutre a derme já nas primeiras aplicações, devolvendo maciez e viço." },
                 { n: "03", t: "Proteção antioxidante", d: "Reduz danos causados pelos raios UV e pela poluição diária." },
               ].map(({ n, t, d }) => (
-                <div key={n} className="flex gap-5 border-t border-white/10 pt-4">
+                <div key={n} className="flex gap-5 border-t border-ink/10 pt-4">
                   <span className="font-display text-2xl text-copper">{n}</span>
                   <div>
-                    <h3 className="font-display text-xl text-white">{t}</h3>
-                    <p className="mt-1 text-sm text-white/60">{d}</p>
+                    <h3 className="font-display text-xl text-ink">{t}</h3>
+                    <p className="mt-1 text-sm text-ink/60">{d}</p>
                   </div>
                 </div>
               ))}
@@ -392,19 +392,19 @@ function Landing() {
       </section>
 
       {/* TEXTURA */}
-      <section className="bg-ink-gradient px-4 py-8 text-white md:py-10">
+      <section className="bg-ink-gradient px-4 py-8 text-ink md:py-10">
         <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">A fórmula</p>
             <h2 className="mt-2.5 font-display text-4xl leading-tight md:text-5xl">
               Textura sedosa,<br /><em className="text-copper">absorção profunda.</em>
             </h2>
-            <p className="mt-2.5 text-lg leading-relaxed text-white/70">
+            <p className="mt-2.5 text-lg leading-relaxed text-ink/70">
               Nada de sensação pesada ou pegajosa. A máscara penetra rápido, hidrata em profundidade e deixa a pele visivelmente mais firme e luminosa.
             </p>
             <div className="mt-4 grid grid-cols-2 gap-3">
               {["Absorção rápida", "Sem parabenos", "Sem oleosidade", "Fragrância natural"].map((t) => (
-                <div key={t} className="flex items-center gap-2 text-sm text-white/80">
+                <div key={t} className="flex items-center gap-2 text-sm text-ink/80">
                   <Check className="h-4 w-4 text-copper" /> {t}
                 </div>
               ))}
@@ -466,7 +466,7 @@ function Landing() {
       </section>
 
       {/* OFERTA */}
-      <section id="oferta" className="bg-ink-gradient px-4 py-8 text-white md:py-10">
+      <section id="oferta" className="bg-ink-gradient px-4 py-8 text-ink md:py-10">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
@@ -586,7 +586,7 @@ function Landing() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border bg-ink px-4 py-6 text-center text-xs text-white/60">
+      <footer className="border-t border-border bg-ink px-4 py-6 text-center text-xs text-ink/60">
         <p>© Método Rugas Nunca Mais · Todos os direitos reservados</p>
         <p className="mt-2 max-w-2xl mx-auto">Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Resultados podem variar de pessoa para pessoa.</p>
       </footer>
