@@ -317,7 +317,7 @@ function Landing() {
       </section>
 
       {/* INGREDIENTES */}
-      <section className="bg-ink-gradient px-4 py-8 text-white md:py-10">
+      <section className="bg-ink-gradient px-4 py-8 text-ink md:py-10">
         <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <img src={n1.url} alt="Feito com ingredientes naturais" className="w-full" />
@@ -340,7 +340,7 @@ function Landing() {
                 <div key={n} className="flex gap-5 border-t border-ink/10 pt-4">
                   <span className="font-display text-2xl text-copper">{n}</span>
                   <div>
-                    <h3 className="font-display text-xl text-white">{t}</h3>
+                    <h3 className="font-display text-xl text-ink">{t}</h3>
                     <p className="mt-1 text-sm text-ink/60">{d}</p>
                   </div>
                 </div>
@@ -392,7 +392,7 @@ function Landing() {
       </section>
 
       {/* TEXTURA */}
-      <section className="bg-ink-gradient px-4 py-8 text-white md:py-10">
+      <section className="bg-ink-gradient px-4 py-8 text-ink md:py-10">
         <div className="mx-auto grid max-w-6xl items-center gap-6 md:grid-cols-2 md:gap-8">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">A fórmula</p>
@@ -466,7 +466,7 @@ function Landing() {
       </section>
 
       {/* OFERTA */}
-      <section id="oferta" className="bg-ink-gradient px-4 py-8 text-white md:py-10">
+      <section id="oferta" className="bg-ink-gradient px-4 py-8 text-ink md:py-10">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
