@@ -45,6 +45,7 @@ import seloGarantia from "@/assets/selo-garantia-30-dias-removebg-preview.png.as
 import t1 from "@/assets/t-sandra.png.asset.json";
 import t2 from "@/assets/t-marlene.png.asset.json";
 import t3 from "@/assets/t-debora.png.asset.json";
+import comoFuncionaImg from "@/assets/como-funciona.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
