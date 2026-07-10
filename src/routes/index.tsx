@@ -32,7 +32,7 @@ function WistiaPlayer() {
   );
 }
 const n1 = { url: "/images/n1.jpg" };
-const n2 = { url: "/images/n2.jpg" };
+const n2 = { url: "/images/como-funciona.jpg" };
 const n3 = { url: "/images/n3.jpg" };
 const n4 = { url: "/images/n4.jpg" };
 const n5 = { url: "/images/n5.jpg" };
@@ -45,7 +45,7 @@ import seloGarantia from "@/assets/selo-garantia-30-dias-removebg-preview.png.as
 const t1 = { url: "/images/t-sandra.png" };
 const t2 = { url: "/images/t-marlene.png" };
 const t3 = { url: "/images/t-cristiane.png" };
-const comoFuncionaImg = { url: "/images/como-funciona.jpg" };
+const comoFuncionaImg = { url: "/images/n2.jpg" };
 
 export const Route = createFileRoute("/")({
   component: Landing,
