@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles, ChevronsLeftRight } from "lucide-react";
+import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles, ChevronsLeftRight, Coffee } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 declare global {
@@ -42,29 +42,28 @@ import n8 from "@/assets/n8.png.asset.json";
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
 import seloGarantia from "@/assets/selo-garantia-30-dias-removebg-preview.png.asset.json";
-import t1 from "@/assets/t1.png.asset.json";
-import t2 from "@/assets/t2.png.asset.json";
-import t3 from "@/assets/t3.png.asset.json";
-import heroMain from "@/assets/hero-main.png.asset.json";
+import t1 from "@/assets/t-sandra.png.asset.json";
+import t2 from "@/assets/t-marlene.png.asset.json";
+import t3 from "@/assets/t-debora.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { property: "og:image", content: heroMain.url },
-      { name: "twitter:image", content: heroMain.url },
+      { property: "og:image", content: n1.url },
+      { name: "twitter:image", content: n1.url },
     ],
   }),
 });
 
 const CHECKOUT = "https://checkout.ofertadamulher.online/VCCL1O8SD5T6";
 
-function CTA({ children = "QUERO A RECEITA AGORA", block = false }: { children?: React.ReactNode; block?: boolean }) {
+function CTA({ children = "QUERO A RECEITA AGORA", block = false, href = CHECKOUT }: { children?: React.ReactNode; block?: boolean; href?: string }) {
+  const isAnchor = href.startsWith("#");
   return (
     <a
-      href={CHECKOUT}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={href}
+      {...(isAnchor ? {} : { target: "_blank", rel: "noopener noreferrer" })}
       className={`group relative flex w-full items-center justify-center gap-2 rounded-full bg-cta-gradient px-4 py-4 text-center text-[12px] font-bold uppercase leading-none tracking-[0.08em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)] animate-pulse-soft sm:gap-3 sm:px-8 sm:text-sm sm:tracking-[0.12em] ${block ? "" : "sm:inline-flex sm:w-auto"}`}
     >
       <span className="whitespace-nowrap">{children}</span>
@@ -325,24 +324,14 @@ function Landing() {
             Diga <strong className="text-copper">Adeus Às Rugas</strong> Em Apenas 3 Semanas Com Essa <strong className="text-copper">Colher Caseira</strong>
           </h1>
 
-          {/* Imagem principal abaixo do título */}
-          <div className="mt-6 overflow-hidden rounded-2xl bg-cream shadow-lg ring-1 ring-border">
-            <img src={heroMain.url} alt="Método Rugas Nunca Mais" className="w-full object-cover" />
+          {/* Antes e Depois logo abaixo do título */}
+          <div className="mt-6">
+            <BeforeAfter />
           </div>
 
-          {/* Descrição com emojis */}
-          <ul className="mt-6 space-y-2.5">
-            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>✨</span><span>Amenize rugas com um segredo natural caseiro</span></li>
-            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>🔒</span><span>3 ingredientes secretos que você já tem em casa</span></li>
-            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>🌙</span><span>Pele mais macia e hidratada em semanas</span></li>
-          </ul>
-
-          {/* Como Funciona — colapsável */}
-          <ComoFunciona />
-
-          {/* CTA */}
+          {/* CTA — rola até o card de oferta */}
           <div className="mt-6">
-            <CTA block>QUERO A RECEITA AGORA</CTA>
+            <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
             <div className="mt-4 grid grid-cols-3 gap-2 text-center">
               <div className="rounded-lg border border-border bg-cream/50 p-2">
                 <Lock className="mx-auto h-4 w-4 text-copper" />
