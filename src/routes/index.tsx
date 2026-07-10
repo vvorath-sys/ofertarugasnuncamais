@@ -324,24 +324,14 @@ function Landing() {
             Diga <strong className="text-copper">Adeus Às Rugas</strong> Em Apenas 3 Semanas Com Essa <strong className="text-copper">Colher Caseira</strong>
           </h1>
 
-          {/* Imagem principal abaixo do título */}
-          <div className="mt-6 overflow-hidden rounded-2xl bg-cream shadow-lg ring-1 ring-border">
-            <img src={heroMain.url} alt="Método Rugas Nunca Mais" className="w-full object-cover" />
+          {/* Antes e Depois logo abaixo do título */}
+          <div className="mt-6">
+            <BeforeAfter />
           </div>
 
-          {/* Descrição com emojis */}
-          <ul className="mt-6 space-y-2.5">
-            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>✨</span><span>Amenize rugas com um segredo natural caseiro</span></li>
-            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>🔒</span><span>3 ingredientes secretos que você já tem em casa</span></li>
-            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>🌙</span><span>Pele mais macia e hidratada em semanas</span></li>
-          </ul>
-
-          {/* Como Funciona — colapsável */}
-          <ComoFunciona />
-
-          {/* CTA */}
+          {/* CTA — rola até o card de oferta */}
           <div className="mt-6">
-            <CTA block>QUERO A RECEITA AGORA</CTA>
+            <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
             <div className="mt-4 grid grid-cols-3 gap-2 text-center">
               <div className="rounded-lg border border-border bg-cream/50 p-2">
                 <Lock className="mx-auto h-4 w-4 text-copper" />
