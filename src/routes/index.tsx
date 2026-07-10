@@ -320,9 +320,12 @@ function Landing() {
             <strong className="text-copper">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-copper">Apagam Rugas</strong> Em Apenas 3 Semanas
           </h1>
 
-          {/* Antes e Depois logo abaixo do título */}
-          <div className="mt-6">
-            <BeforeAfter />
+          {/* Vídeo logo abaixo do título */}
+          <div className="mt-6 relative">
+            <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
+            <div className="relative">
+              <WistiaPlayer />
+            </div>
           </div>
 
           {/* Subheadline */}
@@ -341,7 +344,7 @@ function Landing() {
       <section className={`bg-cream/50 ${SECTION}`}>
         <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
           <div className="overflow-hidden rounded-3xl shadow-xl ring-1 ring-copper/15">
-            <img src={comoFuncionaImg.url} alt="Aplicação da máscara natural no rosto" className="w-full" />
+            <BeforeAfter />
           </div>
           <div>
             <Eyebrow>Como funciona</Eyebrow>
@@ -358,20 +361,7 @@ function Landing() {
         </div>
       </section>
 
-      {/* VÍDEO */}
-      <section className="bg-warm-gradient px-4 py-10 md:py-14">
-        <div className="mx-auto max-w-3xl">
-          <div className="mb-4 text-center">
-            <Eyebrow>Assista antes de decidir</Eyebrow>
-          </div>
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
-            <div className="relative">
-              <WistiaPlayer />
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* PROBLEMA */}
       <section className={SECTION}>
