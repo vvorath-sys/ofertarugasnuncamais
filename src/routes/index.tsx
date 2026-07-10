@@ -42,10 +42,9 @@ import n8 from "@/assets/n8.png.asset.json";
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
 import seloGarantia from "@/assets/selo-garantia-30-dias-removebg-preview.png.asset.json";
-import t1 from "@/assets/t1.png.asset.json";
-import t2 from "@/assets/t2.png.asset.json";
-import t3 from "@/assets/t3.png.asset.json";
-import heroMain from "@/assets/hero-main.png.asset.json";
+import t1 from "@/assets/t-sandra.png.asset.json";
+import t2 from "@/assets/t-marlene.png.asset.json";
+import t3 from "@/assets/t-debora.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
