@@ -31,21 +31,21 @@ function WistiaPlayer() {
     />
   );
 }
-import n1 from "@/assets/n1.png.asset.json";
-import n2 from "@/assets/n2.png.asset.json";
-import n3 from "@/assets/n3.png.asset.json";
-import n4 from "@/assets/n4.png.asset.json";
-import n5 from "@/assets/n5.png.asset.json";
-import n6 from "@/assets/n6.png.asset.json";
-import n7 from "@/assets/n7.png.asset.json";
-import n8 from "@/assets/n8.png.asset.json";
+const n1 = { url: "/images/n1.jpg" };
+const n2 = { url: "/images/n2.jpg" };
+const n3 = { url: "/images/n3.jpg" };
+const n4 = { url: "/images/n4.jpg" };
+const n5 = { url: "/images/n5.jpg" };
+const n6 = { url: "/images/n6.jpg" };
+const n7 = { url: "/images/n7.jpg" };
+const n8 = { url: "/images/n8.jpg" };
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
 import seloGarantia from "@/assets/selo-garantia-30-dias-removebg-preview.png.asset.json";
-import t1 from "@/assets/t-sandra.png.asset.json";
-import t2 from "@/assets/t-marlene.png.asset.json";
-import t3 from "@/assets/t-debora.png.asset.json";
-import comoFuncionaImg from "@/assets/como-funciona.png.asset.json";
+const t1 = { url: "/images/t-sandra.png" };
+const t2 = { url: "/images/t-marlene.png" };
+const t3 = { url: "/images/t-cristiane.png" };
+const comoFuncionaImg = { url: "/images/como-funciona.jpg" };
 
 export const Route = createFileRoute("/")({
   component: Landing,
