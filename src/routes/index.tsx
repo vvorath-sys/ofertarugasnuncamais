@@ -45,6 +45,7 @@ import seloGarantia from "@/assets/selo-garantia-30-dias-removebg-preview.png.as
 import t1 from "@/assets/t-sandra.png.asset.json";
 import t2 from "@/assets/t-marlene.png.asset.json";
 import t3 from "@/assets/t-debora.png.asset.json";
+import comoFuncionaImg from "@/assets/como-funciona.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -316,7 +317,7 @@ function Landing() {
       <section className="bg-background">
         <div className="mx-auto max-w-2xl px-4 py-6 md:py-12">
           <h1 className="font-display text-[1.85rem] leading-[1.1] text-ink sm:text-[2.2rem] md:text-[2.6rem]">
-            Diga <strong className="text-copper">Adeus Às Rugas</strong> Em Apenas 3 Semanas Com Essa <strong className="text-copper">Colher Caseira</strong>
+            Diga <strong className="text-copper">Adeus Às Rugas</strong> Em Apenas 3 Semanas Com Essa <strong className="text-copper">Colher De Caramelo Caseira</strong>
           </h1>
 
           {/* Antes e Depois logo abaixo do título */}
@@ -331,12 +332,30 @@ function Landing() {
             <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>🌙</span><span>Pele mais macia e hidratada em semanas</span></li>
           </ul>
 
-          {/* Como Funciona — colapsável */}
-          <ComoFunciona />
-
           {/* CTA — rola até o card de oferta */}
           <div className="mt-6">
             <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
+          </div>
+        </div>
+      </section>
+
+      {/* COMO FUNCIONA — seção aberta */}
+      <section className={`bg-cream/50 ${SECTION}`}>
+        <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
+          <div className="overflow-hidden rounded-3xl shadow-xl ring-1 ring-copper/15">
+            <img src={comoFuncionaImg.url} alt="Aplicação da máscara natural no rosto" className="w-full" />
+          </div>
+          <div>
+            <Eyebrow>Como funciona</Eyebrow>
+            <h2 className={`mt-3 ${H2}`}>
+              Uma máscara natural feita com <em className="text-copper">3 ingredientes secretos</em>
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
+              O método usa uma máscara skin care natural feita com <strong className="text-ink">3 ingredientes secretos</strong> que você provavelmente já tem em casa. Juntos, eles criam uma combinação rica em antioxidantes, vitaminas e fibras que ajudam a pele a absorver nutrientes e se renovar de dentro pra fora.
+            </p>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
+              A máscara é aplicada no rosto e deixada agir por até <strong className="text-ink">15 minutos, 2 a 3 vezes por semana</strong> — e os primeiros resultados costumam aparecer já nas primeiras semanas de uso constante.
+            </p>
           </div>
         </div>
       </section>
