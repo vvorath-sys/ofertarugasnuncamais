@@ -59,12 +59,12 @@ export const Route = createFileRoute("/")({
 
 const CHECKOUT = "https://checkout.ofertadamulher.online/VCCL1O8SD5T6";
 
-function CTA({ children = "QUERO A RECEITA AGORA", block = false }: { children?: React.ReactNode; block?: boolean }) {
+function CTA({ children = "QUERO A RECEITA AGORA", block = false, href = CHECKOUT }: { children?: React.ReactNode; block?: boolean; href?: string }) {
+  const isAnchor = href.startsWith("#");
   return (
     <a
-      href={CHECKOUT}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={href}
+      {...(isAnchor ? {} : { target: "_blank", rel: "noopener noreferrer" })}
       className={`group relative flex w-full items-center justify-center gap-2 rounded-full bg-cta-gradient px-4 py-4 text-center text-[12px] font-bold uppercase leading-none tracking-[0.08em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)] animate-pulse-soft sm:gap-3 sm:px-8 sm:text-sm sm:tracking-[0.12em] ${block ? "" : "sm:inline-flex sm:w-auto"}`}
     >
       <span className="whitespace-nowrap">{children}</span>
