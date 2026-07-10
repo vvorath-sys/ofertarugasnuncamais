@@ -356,18 +356,6 @@ function Landing() {
         </div>
       </section>
 
-      {/* ANTES E DEPOIS */}
-      <section className={SECTION} style={{ backgroundColor: "#fdf5ef" }}>
-        <div className={`${CONTAINER} text-center`}>
-          <Eyebrow>Antes & depois</Eyebrow>
-          <h2 className={`mt-3 ${H2}`}>Resultado Visível</h2>
-          <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground md:text-base">Arraste o controle e veja a transformação da pele.</p>
-        </div>
-        <div className="mt-8">
-          <BeforeAfter />
-        </div>
-      </section>
-
       {/* PROBLEMA */}
       <section className={SECTION}>
         <div className={`${CONTAINER} text-center`}>
