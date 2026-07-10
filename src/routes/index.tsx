@@ -50,8 +50,8 @@ export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { property: "og:image", content: heroMain.url },
-      { name: "twitter:image", content: heroMain.url },
+      { property: "og:image", content: n1.url },
+      { name: "twitter:image", content: n1.url },
     ],
   }),
 });
