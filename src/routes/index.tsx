@@ -317,7 +317,7 @@ function Landing() {
       <section className="bg-background">
         <div className="mx-auto max-w-2xl px-4 py-6 md:py-12">
           <h1 className="font-display text-[1.85rem] leading-[1.1] text-ink sm:text-[2.2rem] md:text-[2.6rem]">
-            Diga <strong className="text-copper">Adeus Às Rugas</strong> Em Apenas 3 Semanas Com Essa <strong className="text-copper">Colher De Caramelo Caseira</strong>
+            <strong className="text-copper">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-copper">Apagam Rugas</strong> Em Apenas 3 Semanas
           </h1>
 
           {/* Antes e Depois logo abaixo do título */}
@@ -325,12 +325,10 @@ function Landing() {
             <BeforeAfter />
           </div>
 
-          {/* Descrição com emojis */}
-          <ul className="mt-6 space-y-2.5">
-            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>✨</span><span>Amenize rugas com um segredo natural caseiro</span></li>
-            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>🔒</span><span>3 ingredientes secretos que você já tem em casa</span></li>
-            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>🌙</span><span>Pele mais macia e hidratada em semanas</span></li>
-          </ul>
+          {/* Subheadline */}
+          <p className="mt-6 text-[15px] sm:text-[17px] leading-relaxed text-ink/80 font-medium">
+            Cansada De Cremes Caros Que Não Fazem Nada? Essa Colher De Caramelo Caseira Está Surpreendendo Mulheres Em Todo Brasil
+          </p>
 
           {/* CTA — rola até o card de oferta */}
           <div className="mt-6">
@@ -578,9 +576,9 @@ function Landing() {
             </p>
           </div>
           <div className="mx-auto mt-8 grid max-w-4xl gap-x-10 gap-y-6 md:grid-cols-2">
-            <StatRing pct={94} label="disse Sandra M. — notou a pele mais macia e hidratada ao toque" />
-            <StatRing pct={97} label="disse Marlene R. — percebeu amenização nas linhas de expressão" />
-            <StatRing pct={96} label="disse Cristiane A. — continuaria o protocolo mesmo após o teste inicial" />
+            <StatRing pct={94} label="disseram — notaram a pele mais macia e hidratada ao toque" />
+            <StatRing pct={97} label="disseram — perceberam amenização nas linhas de expressão" />
+            <StatRing pct={96} label="disseram — continuariam o protocolo mesmo após o teste inicial" />
             <StatRing pct={92} label="das usuárias recomendariam o método para uma amiga ou familiar" />
           </div>
         </div>
