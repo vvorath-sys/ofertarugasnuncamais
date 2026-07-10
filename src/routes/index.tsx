@@ -315,12 +315,7 @@ function Landing() {
       {/* HERO */}
       <section className="bg-background">
         <div className="mx-auto max-w-2xl px-4 py-6 md:py-12">
-          <div className="flex items-center gap-2">
-            <Stars size="h-4 w-4" />
-            <span className="text-[12px] font-medium text-ink">Avaliado em 4,9/5 · +3.284 mulheres transformadas</span>
-          </div>
-
-          <h1 className="mt-4 font-display text-[1.85rem] leading-[1.1] text-ink sm:text-[2.2rem] md:text-[2.6rem]">
+          <h1 className="font-display text-[1.85rem] leading-[1.1] text-ink sm:text-[2.2rem] md:text-[2.6rem]">
             Diga <strong className="text-copper">Adeus Às Rugas</strong> Em Apenas 3 Semanas Com Essa <strong className="text-copper">Colher Caseira</strong>
           </h1>
 
@@ -329,23 +324,19 @@ function Landing() {
             <BeforeAfter />
           </div>
 
+          {/* Descrição com emojis */}
+          <ul className="mt-6 space-y-2.5">
+            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>✨</span><span>Amenize rugas com um segredo natural caseiro</span></li>
+            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>🔒</span><span>3 ingredientes secretos que você já tem em casa</span></li>
+            <li className="flex items-start gap-2 text-[15px] text-ink"><span aria-hidden>🌙</span><span>Pele mais macia e hidratada em semanas</span></li>
+          </ul>
+
+          {/* Como Funciona — colapsável */}
+          <ComoFunciona />
+
           {/* CTA — rola até o card de oferta */}
           <div className="mt-6">
             <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
-            <div className="mt-4 grid grid-cols-3 gap-2 text-center">
-              <div className="rounded-lg border border-border bg-cream/50 p-2">
-                <Lock className="mx-auto h-4 w-4 text-copper" />
-                <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-ink">Compra segura</p>
-              </div>
-              <div className="rounded-lg border border-border bg-cream/50 p-2">
-                <ShieldCheck className="mx-auto h-4 w-4 text-copper" />
-                <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-ink">Garantia 30d</p>
-              </div>
-              <div className="rounded-lg border border-border bg-cream/50 p-2">
-                <Clock className="mx-auto h-4 w-4 text-copper" />
-                <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-ink">Acesso imediato</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -362,18 +353,6 @@ function Landing() {
               <WistiaPlayer />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ANTES E DEPOIS */}
-      <section className={SECTION} style={{ backgroundColor: "#fdf5ef" }}>
-        <div className={`${CONTAINER} text-center`}>
-          <Eyebrow>Antes & depois</Eyebrow>
-          <h2 className={`mt-3 ${H2}`}>Resultado Visível</h2>
-          <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground md:text-base">Arraste o controle e veja a transformação da pele.</p>
-        </div>
-        <div className="mt-8">
-          <BeforeAfter />
         </div>
       </section>
 
