@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles, ChevronsLeftRight, Coffee } from "lucide-react";
+import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, ChevronsLeftRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 declare global {
@@ -51,8 +51,12 @@ export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { property: "og:image", content: n1.url },
-      { name: "twitter:image", content: n1.url },
+      { title: "Método Rugas Nunca Mais | Receita Caseira" },
+      { name: "description", content: "Conheça o método caseiro com 3 ingredientes para uma rotina simples de cuidado com rugas e linhas de expressão." },
+      { property: "og:title", content: "Método Rugas Nunca Mais" },
+      { property: "og:description", content: "Uma rotina caseira de 15 minutos para cuidar da pele com ingredientes simples." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
 });
@@ -65,7 +69,7 @@ function CTA({ children = "QUERO A RECEITA AGORA", block = false, href = CHECKOU
     <a
       href={href}
       {...(isAnchor ? {} : { target: "_blank", rel: "noopener noreferrer" })}
-      className={`group relative flex w-full items-center justify-center gap-2 rounded-full bg-cta-gradient px-4 py-4 text-center text-[12px] font-bold uppercase leading-none tracking-[0.08em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)] animate-pulse-soft sm:gap-3 sm:px-8 sm:text-sm sm:tracking-[0.12em] ${block ? "" : "sm:inline-flex sm:w-auto"}`}
+      className={`group relative flex min-h-14 w-full items-center justify-center gap-2 rounded-lg bg-cta-gradient px-3 py-4 text-center text-[11px] font-bold uppercase leading-none tracking-[0.04em] text-primary-foreground shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl animate-pulse-soft min-[380px]:text-[12px] sm:gap-3 sm:px-8 sm:text-sm sm:tracking-[0.08em] ${block ? "" : "sm:inline-flex sm:w-auto"}`}
     >
       <span className="whitespace-nowrap">{children}</span>
       <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
@@ -261,9 +265,9 @@ function BeforeAfter() {
 }
 
 /* Tokens de ritmo consistentes */
-const SECTION = "px-4 py-14 md:py-20";
+const SECTION = "px-5 py-14 md:py-24";
 const CONTAINER = "mx-auto max-w-6xl";
-const H2 = "font-display text-[2rem] leading-[1.1] text-ink sm:text-4xl md:text-5xl";
+const H2 = "font-display text-[2rem] leading-[1.08] text-ink sm:text-4xl md:text-5xl";
 
 function TopMarquee() {
   const items = [
@@ -310,41 +314,44 @@ function BrandBar() {
 
 function Landing() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-hidden">
       <TopMarquee />
 
       {/* HERO */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-2xl px-4 py-6 md:py-12">
-          <h1 className="font-display text-[1.85rem] leading-[1.1] text-ink sm:text-[2.2rem] md:text-[2.6rem]">
-            <strong className="text-copper">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-copper">Apagam Rugas</strong> Em Apenas 3 Semanas
-          </h1>
-
-          {/* Vídeo logo abaixo do título */}
-          <div className="mt-6 relative">
-            <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
-            <div className="relative">
-              <WistiaPlayer />
+      <section className="relative bg-background px-5 pb-14 pt-10 md:pb-24 md:pt-16">
+        <div className={`${CONTAINER} grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16`}>
+          <div className="text-center lg:text-left">
+            <Eyebrow>O segredo que virou ritual</Eyebrow>
+            <h1 className="mt-5 font-display text-[2.35rem] leading-[1.02] text-ink sm:text-5xl md:text-6xl">
+              <strong className="text-copper">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-copper">Apagam Rugas</strong> Em Apenas 3 Semanas
+            </h1>
+            <p className="mx-auto mt-5 max-w-xl text-[15px] font-medium leading-relaxed text-ink/75 sm:text-lg lg:mx-0">
+              Cansada De Cremes Caros Que Não Fazem Nada? Essa Colher De Caramelo Caseira Está Surpreendendo Mulheres Em Todo Brasil
+            </p>
+            <div className="mx-auto mt-7 max-w-md lg:mx-0">
+              <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
             </div>
+            <p className="mt-4 text-xs text-muted-foreground">Acesso imediato · Pagamento seguro · Garantia de 30 dias</p>
           </div>
+          <BeforeAfter />
+        </div>
+      </section>
 
-          {/* Subheadline */}
-          <p className="mt-6 text-[15px] sm:text-[17px] leading-relaxed text-ink/80 font-medium">
-            Cansada De Cremes Caros Que Não Fazem Nada? Essa Colher De Caramelo Caseira Está Surpreendendo Mulheres Em Todo Brasil
-          </p>
-
-          {/* CTA — rola até o card de oferta */}
-          <div className="mt-6">
-            <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
+      <section className="border-y border-border bg-cream/50 px-5 py-12 md:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-6 text-center">
+            <Eyebrow>Assista e entenda</Eyebrow>
+            <h2 className="mt-3 font-display text-2xl leading-tight text-ink sm:text-4xl">Descubra por que esse ritual chamou tanta atenção</h2>
           </div>
+          <WistiaPlayer />
         </div>
       </section>
 
       {/* COMO FUNCIONA — seção aberta */}
       <section className={`bg-cream/50 ${SECTION}`}>
-        <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
-          <div className="overflow-hidden rounded-3xl shadow-xl ring-1 ring-copper/15">
-            <BeforeAfter />
+        <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-14`}>
+          <div className="overflow-hidden rounded-lg shadow-xl ring-1 ring-copper/15">
+            <img src={comoFuncionaImg.url} alt="Aplicação da máscara de cuidados com a pele" className="aspect-[4/5] w-full object-cover" />
           </div>
           <div>
             <Eyebrow>Como funciona</Eyebrow>
@@ -365,25 +372,25 @@ function Landing() {
 
       {/* PROBLEMA */}
       <section className={SECTION}>
-        <div className={`${CONTAINER} text-center`}>
+        <div className={`${CONTAINER} grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end`}>
+          <div className="text-left">
           <Eyebrow>O problema real</Eyebrow>
           <h2 className={`mt-3 ${H2}`}>
-            Talvez o problema não seja a sua idade.<br />
+            Talvez o problema não seja a sua idade. <br />
             <em className="text-copper">Nem a falta de cremes.</em>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
             Muitas mulheres passam anos investindo em cosméticos caros, séruns importados e procedimentos — sem entender o que realmente influencia a pele ao longo do tempo. O mercado ensina você a comprar. Aqui, você aprende a cuidar.
           </p>
-        </div>
-
-        <div className={`${CONTAINER} mt-8 grid gap-3 md:grid-cols-2`}>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
           {[
             "Compra um creme novo cheia de esperança e quase nada muda",
             "Passa maquiagem só para esconder o que não queria enxergar",
             "Evita fotos de perto e aumenta o espelho procurando defeitos",
             "Sente que a pele perdeu o brilho de alguns anos atrás",
           ].map((t) => (
-            <div key={t} className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+            <div key={t} className="flex items-start gap-3 border-l-2 border-copper bg-card p-5 shadow-sm">
               <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-copper" />
               <p className="text-[15px] text-ink">{t}</p>
             </div>
@@ -420,7 +427,7 @@ function Landing() {
                 </div>
               ))}
             </div>
-          </div>
+          </div></div>
         </div>
       </section>
 
