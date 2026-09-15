@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, Sparkles, ChevronsLeftRight, Coffee } from "lucide-react";
+import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, ChevronsLeftRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 declare global {
@@ -51,8 +51,12 @@ export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { property: "og:image", content: n1.url },
-      { name: "twitter:image", content: n1.url },
+      { title: "Método Rugas Nunca Mais | Receita Caseira" },
+      { name: "description", content: "Conheça o método caseiro com 3 ingredientes para uma rotina simples de cuidado com rugas e linhas de expressão." },
+      { property: "og:title", content: "Método Rugas Nunca Mais" },
+      { property: "og:description", content: "Uma rotina caseira de 15 minutos para cuidar da pele com ingredientes simples." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
 });
@@ -65,7 +69,7 @@ function CTA({ children = "QUERO A RECEITA AGORA", block = false, href = CHECKOU
     <a
       href={href}
       {...(isAnchor ? {} : { target: "_blank", rel: "noopener noreferrer" })}
-      className={`group relative flex w-full items-center justify-center gap-2 rounded-full bg-cta-gradient px-4 py-4 text-center text-[12px] font-bold uppercase leading-none tracking-[0.08em] text-white shadow-[0_12px_30px_-8px_rgba(120,50,20,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-8px_rgba(120,50,20,0.6)] animate-pulse-soft sm:gap-3 sm:px-8 sm:text-sm sm:tracking-[0.12em] ${block ? "" : "sm:inline-flex sm:w-auto"}`}
+      className={`group relative flex min-h-14 w-full items-center justify-center gap-2 rounded-lg bg-cta-gradient px-3 py-4 text-center text-[11px] font-bold uppercase leading-none tracking-[0.04em] text-primary-foreground shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl animate-pulse-soft min-[380px]:text-[12px] sm:gap-3 sm:px-8 sm:text-sm sm:tracking-[0.08em] ${block ? "" : "sm:inline-flex sm:w-auto"}`}
     >
       <span className="whitespace-nowrap">{children}</span>
       <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
@@ -100,58 +104,6 @@ function FAQ({ q, a }: { q: string; a: string }) {
         <ChevronDown className={`h-5 w-5 shrink-0 text-copper transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && <p className="pb-5 pr-6 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">{a}</p>}
-    </div>
-  );
-}
-
-function ComoFunciona() {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="mt-5 overflow-hidden rounded-xl border border-border bg-cream/50">
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left"
-      >
-        <span className="text-[13px] font-semibold uppercase tracking-[0.18em] text-ink">Como funciona</span>
-        <ChevronDown className={`h-4 w-4 shrink-0 text-copper transition-transform ${open ? "rotate-180" : ""}`} />
-      </button>
-      {open && (
-        <div className="border-t border-border/70 bg-background px-4 py-4 text-[14px] leading-relaxed text-muted-foreground">
-          O método usa uma máscara skin care natural feita com <strong className="text-ink">3 ingredientes secretos</strong> que você provavelmente já tem em casa. Juntos, eles criam uma combinação rica em antioxidantes, vitaminas e fibras que ajudam a pele a absorver nutrientes e se renovar de dentro pra fora. A máscara é aplicada no rosto e deixada agir por até <strong className="text-ink">15 minutos, 2 a 3 vezes por semana</strong> — e os primeiros resultados costumam aparecer já nas primeiras semanas de uso constante.
-        </div>
-      )}
-    </div>
-  );
-}
-
-function Countdown() {
-  const [t, setT] = useState({ h: 0, m: 15, s: 0 });
-  useEffect(() => {
-    const id = setInterval(() => {
-      setT((p) => {
-        let s = p.s - 1, m = p.m, h = p.h;
-        if (s < 0) { s = 59; m -= 1; }
-        if (m < 0) { m = 59; h -= 1; }
-        if (h < 0) return { h: 0, m: 15, s: 0 };
-        return { h, m, s };
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  const Box = ({ n, l }: { n: string; l: string }) => (
-    <div className="flex flex-col items-center">
-      <span className="rounded-lg bg-ink px-3 py-2 font-mono text-xl tabular-nums text-white shadow-lg sm:text-2xl">{n}</span>
-      <span className="mt-1 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/60">{l}</span>
-    </div>
-  );
-  return (
-    <div className="flex items-start gap-2 sm:gap-3">
-      <Box n={pad(t.h)} l="hrs" />
-      <span className="pt-2 font-mono text-xl text-white/40 sm:text-2xl">:</span>
-      <Box n={pad(t.m)} l="min" />
-      <span className="pt-2 font-mono text-xl text-white/40 sm:text-2xl">:</span>
-      <Box n={pad(t.s)} l="seg" />
     </div>
   );
 }
@@ -261,9 +213,9 @@ function BeforeAfter() {
 }
 
 /* Tokens de ritmo consistentes */
-const SECTION = "px-4 py-14 md:py-20";
+const SECTION = "px-5 py-14 md:py-24";
 const CONTAINER = "mx-auto max-w-6xl";
-const H2 = "font-display text-[2rem] leading-[1.1] text-ink sm:text-4xl md:text-5xl";
+const H2 = "font-display text-[2rem] leading-[1.08] text-ink sm:text-4xl md:text-5xl";
 
 function TopMarquee() {
   const items = [
@@ -287,64 +239,46 @@ function TopMarquee() {
   );
 }
 
-function BrandBar() {
-  return (
-    <div className="border-b border-border bg-background">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <a href="#" className="font-display text-xl tracking-[0.02em] text-ink sm:text-2xl">
-          Rugas <em className="text-copper">Nunca Mais</em>
-        </a>
-        <div className="hidden items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:flex">
-          <Sparkles className="h-3.5 w-3.5 text-copper" /> Método oficial
-        </div>
-      </div>
-      <div className="border-t border-border/70 bg-cream/60">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-2 px-4 py-2 text-center sm:flex-row sm:gap-4">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-ink sm:text-[11px]">A oferta termina em:</span>
-          <Countdown />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function Landing() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-hidden">
       <TopMarquee />
 
       {/* HERO */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-2xl px-4 py-6 md:py-12">
-          <h1 className="font-display text-[1.85rem] leading-[1.1] text-ink sm:text-[2.2rem] md:text-[2.6rem]">
-            <strong className="text-copper">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-copper">Apagam Rugas</strong> Em Apenas 3 Semanas
-          </h1>
-
-          {/* Vídeo logo abaixo do título */}
-          <div className="mt-6 relative">
-            <div className="absolute -inset-4 rounded-[2rem] bg-copper/10 blur-2xl" />
-            <div className="relative">
-              <WistiaPlayer />
+      <section className="relative bg-background px-5 pb-14 pt-10 md:pb-24 md:pt-16">
+        <div className={`${CONTAINER} grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16`}>
+          <div className="text-center lg:text-left">
+            <Eyebrow>O segredo que virou ritual</Eyebrow>
+            <h1 className="mt-5 font-display text-[2.35rem] leading-[1.02] text-ink sm:text-5xl md:text-6xl">
+              <strong className="text-copper">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-copper">Apagam Rugas</strong> Em Apenas 3 Semanas
+            </h1>
+            <p className="mx-auto mt-5 max-w-xl text-[15px] font-medium leading-relaxed text-ink/75 sm:text-lg lg:mx-0">
+              Cansada De Cremes Caros Que Não Fazem Nada? Essa Colher De Caramelo Caseira Está Surpreendendo Mulheres Em Todo Brasil
+            </p>
+            <div className="mx-auto mt-7 max-w-md lg:mx-0">
+              <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
             </div>
+            <p className="mt-4 text-xs text-muted-foreground">Acesso imediato · Pagamento seguro · Garantia de 30 dias</p>
           </div>
+          <BeforeAfter />
+        </div>
+      </section>
 
-          {/* Subheadline */}
-          <p className="mt-6 text-[15px] sm:text-[17px] leading-relaxed text-ink/80 font-medium">
-            Cansada De Cremes Caros Que Não Fazem Nada? Essa Colher De Caramelo Caseira Está Surpreendendo Mulheres Em Todo Brasil
-          </p>
-
-          {/* CTA — rola até o card de oferta */}
-          <div className="mt-6">
-            <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
+      <section className="border-y border-border bg-cream/50 px-5 py-12 md:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-6 text-center">
+            <Eyebrow>Assista e entenda</Eyebrow>
+            <h2 className="mt-3 font-display text-2xl leading-tight text-ink sm:text-4xl">Descubra por que esse ritual chamou tanta atenção</h2>
           </div>
+          <WistiaPlayer />
         </div>
       </section>
 
       {/* COMO FUNCIONA — seção aberta */}
       <section className={`bg-cream/50 ${SECTION}`}>
-        <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
-          <div className="overflow-hidden rounded-3xl shadow-xl ring-1 ring-copper/15">
-            <BeforeAfter />
+        <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-14`}>
+          <div className="overflow-hidden rounded-lg shadow-xl ring-1 ring-copper/15">
+            <img src={comoFuncionaImg.url} alt="Aplicação da máscara de cuidados com a pele" className="aspect-[4/5] w-full object-cover" />
           </div>
           <div>
             <Eyebrow>Como funciona</Eyebrow>
@@ -365,29 +299,30 @@ function Landing() {
 
       {/* PROBLEMA */}
       <section className={SECTION}>
-        <div className={`${CONTAINER} text-center`}>
+        <div className={`${CONTAINER} grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end`}>
+          <div className="text-left">
           <Eyebrow>O problema real</Eyebrow>
           <h2 className={`mt-3 ${H2}`}>
-            Talvez o problema não seja a sua idade.<br />
+            Talvez o problema não seja a sua idade. <br />
             <em className="text-copper">Nem a falta de cremes.</em>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
             Muitas mulheres passam anos investindo em cosméticos caros, séruns importados e procedimentos — sem entender o que realmente influencia a pele ao longo do tempo. O mercado ensina você a comprar. Aqui, você aprende a cuidar.
           </p>
-        </div>
-
-        <div className={`${CONTAINER} mt-8 grid gap-3 md:grid-cols-2`}>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
           {[
             "Compra um creme novo cheia de esperança e quase nada muda",
             "Passa maquiagem só para esconder o que não queria enxergar",
             "Evita fotos de perto e aumenta o espelho procurando defeitos",
             "Sente que a pele perdeu o brilho de alguns anos atrás",
           ].map((t) => (
-            <div key={t} className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+            <div key={t} className="flex items-start gap-3 border-l-2 border-copper bg-card p-5 shadow-sm">
               <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-copper" />
               <p className="text-[15px] text-ink">{t}</p>
             </div>
           ))}
+          </div>
         </div>
       </section>
 
@@ -594,60 +529,44 @@ function Landing() {
 
       {/* OFERTA */}
       <section id="oferta" className={`bg-ink-gradient text-white ${SECTION} scroll-mt-4`}>
-        <div className={`${CONTAINER} max-w-3xl mx-auto`}>
-          <div className="text-center">
-            <Eyebrow>Oferta por tempo limitado</Eyebrow>
-          </div>
-
-
-          <div className="mt-8 overflow-hidden rounded-3xl bg-white text-ink shadow-2xl">
-            <div className="bg-copper/10 px-5 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-copper">
-              Oferta especial de lançamento
-            </div>
-            <div className="p-6 sm:p-8">
-              <p className="text-center text-[11px] font-semibold uppercase tracking-[0.3em] text-copper">O que você recebe hoje</p>
-
-              <ul className="mt-4 space-y-3">
+        <div className={`${CONTAINER} grid items-center gap-10 lg:grid-cols-[1fr_0.75fr] lg:gap-16`}>
+          <div>
+            <Eyebrow>Comece hoje</Eyebrow>
+            <h2 className="mt-4 font-display text-4xl leading-[1.05] sm:text-5xl">Tudo o que você precisa para começar seu ritual.</h2>
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-primary-foreground/70 sm:text-lg">Receba o passo a passo completo, os bônus e todas as futuras atualizações em um único acesso.</p>
+            <ul className="mt-8 divide-y divide-primary-foreground/10 border-y border-primary-foreground/10">
                 {[
                   { t: "Método Rugas Nunca Mais — guia completo passo a passo", v: "R$ 197" },
                   { t: "BÔNUS: Corpo dos Sonhos — plano alimentar prático", v: "R$ 67" },
                   { t: "BÔNUS: Ritual Matinal Anti-Idade de 5 minutos", v: "R$ 47" },
                   { t: "Atualizações vitalícias sem custo adicional", v: "R$ 97" },
                 ].map(({ t, v }) => (
-                  <li key={t} className="flex items-start justify-between gap-3 border-b border-border/60 pb-3 last:border-0 last:pb-0">
+                  <li key={t} className="flex items-start justify-between gap-3 py-4">
                     <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-copper text-white">
+                      <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-copper text-primary-foreground">
                         <Check className="h-3 w-3" />
                       </div>
-                      <span className="text-[14px] text-ink sm:text-[15px]">{t}</span>
+                      <span className="text-[14px] text-primary-foreground sm:text-[15px]">{t}</span>
                     </div>
-                    <span className="shrink-0 text-xs text-muted-foreground line-through sm:text-sm">{v}</span>
+                    <span className="shrink-0 text-xs text-primary-foreground/45 line-through sm:text-sm">{v}</span>
                   </li>
                 ))}
-              </ul>
-
-              <div className="mt-6 rounded-2xl bg-cream/60 p-5 text-center">
-                <div className="text-sm text-muted-foreground">Valor total: <span className="line-through">R$ 408</span></div>
-                <div className="mt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-copper">Hoje por apenas</div>
-                <div className="mt-1 flex items-baseline justify-center gap-2">
-                  <span className="text-2xl text-ink/60">R$</span>
-                  <span className="font-display text-6xl leading-none text-ink sm:text-7xl">27</span>
-                </div>
-                <p className="mt-3 inline-flex items-center gap-1.5 text-[12px] text-ink/70">
-                  <Coffee className="h-3.5 w-3.5 text-copper" /> menos que um café por semana
-                </p>
-                <p className="mt-2 text-[13px] text-ink/70">
-                  Pagamento único · sem mensalidades · acesso vitalício
-                </p>
-              </div>
-
-              <div className="mt-5">
-                <CTA block>QUERO A RECEITA AGORA</CTA>
-                <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground">
+            </ul>
+          </div>
+          <div className="border border-copper/40 bg-background p-6 text-center text-ink shadow-2xl sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">Oferta especial</p>
+            <p className="mt-5 text-sm text-muted-foreground">De <span className="line-through">R$ 408</span> por apenas</p>
+            <div className="mt-2 flex items-start justify-center gap-1">
+              <span className="mt-3 text-xl text-ink/60">R$</span>
+              <span className="font-display text-8xl leading-none text-ink">27</span>
+            </div>
+            <p className="mt-3 text-[13px] text-muted-foreground">Pagamento único · sem mensalidades</p>
+            <div className="mt-7">
+              <CTA block>QUERO A RECEITA AGORA</CTA>
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] text-muted-foreground">
                   <span className="flex items-center gap-1"><Lock className="h-3 w-3" /> Compra 100% segura</span>
                   <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3" /> 30 dias de garantia</span>
                   <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> Acesso imediato</span>
-                </div>
               </div>
             </div>
           </div>
