@@ -42,10 +42,10 @@ const n8 = { url: "/images/n8.jpg" };
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
 import seloGarantia from "@/assets/selo-garantia-30-dias-removebg-preview.png.asset.json";
+import resultadoVisivelImg from "@/assets/resultado-visivel.png.asset.json";
 const t1 = { url: "/images/t-sandra.png" };
 const t2 = { url: "/images/t-marlene.png" };
 const t3 = { url: "/images/t-cristiane.png" };
-const comoFuncionaImg = { url: "/images/n2.jpg" };
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -69,7 +69,7 @@ function CTA({ children = "QUERO A RECEITA AGORA", block = false, href = CHECKOU
     <a
       href={href}
       {...(isAnchor ? {} : { target: "_blank", rel: "noopener noreferrer" })}
-      className={`group relative flex min-h-14 w-full items-center justify-center gap-2 rounded-lg bg-cta-gradient px-3 py-4 text-center text-[11px] font-bold uppercase leading-none tracking-[0.04em] text-primary-foreground shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl animate-pulse-soft min-[380px]:text-[12px] sm:gap-3 sm:px-8 sm:text-sm sm:tracking-[0.08em] ${block ? "" : "sm:inline-flex sm:w-auto"}`}
+      className={`group relative flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-cta-gradient px-3 py-4 text-center text-[11px] font-bold uppercase leading-none tracking-[0.04em] text-primary-foreground shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl animate-pulse-soft min-[380px]:text-[12px] sm:gap-3 sm:px-8 sm:text-sm sm:tracking-[0.08em] ${block ? "" : "sm:inline-flex sm:w-auto"}`}
     >
       <span className="whitespace-nowrap">{children}</span>
       <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
@@ -181,8 +181,8 @@ function BeforeAfter() {
           <img src={antesImg.url} alt="Antes" className="absolute inset-0 h-full w-full object-cover" draggable={false} />
         </div>
 
-        <span className="absolute left-3 top-3 rounded-full bg-black/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur">Antes</span>
-        <span className="absolute right-3 top-3 rounded-full bg-copper px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-lg">Depois</span>
+        <span className="absolute left-3 top-3 rounded-full bg-ink/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary-foreground backdrop-blur">Antes</span>
+        <span className="absolute right-3 top-3 rounded-full bg-rose px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary-foreground shadow-lg">Depois</span>
 
         <div className="pointer-events-none absolute inset-y-0" style={{ left: `${pos}%`, transform: "translateX(-50%)" }}>
           <div className="h-full w-0.5 bg-white shadow-[0_0_12px_rgba(0,0,0,0.4)]" />
@@ -190,7 +190,7 @@ function BeforeAfter() {
         <button
           type="button"
           aria-label="Arraste para comparar"
-          className="absolute top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 cursor-grab items-center justify-center rounded-full border-2 border-white bg-copper text-white shadow-xl active:cursor-grabbing"
+          className="absolute top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 cursor-grab items-center justify-center rounded-full border-2 border-primary-foreground bg-rose text-primary-foreground shadow-xl active:cursor-grabbing"
           style={{ left: `${pos}%` }}
           onMouseDown={(e) => { e.stopPropagation(); start(e.clientX); }}
           onTouchStart={(e) => { e.stopPropagation(); start(e.touches[0].clientX); }}
@@ -213,7 +213,7 @@ function BeforeAfter() {
 }
 
 /* Tokens de ritmo consistentes */
-const SECTION = "px-5 py-14 md:py-24";
+const SECTION = "px-5 py-16 md:py-24";
 const CONTAINER = "mx-auto max-w-6xl";
 const H2 = "font-display text-[2rem] leading-[1.08] text-ink sm:text-4xl md:text-5xl";
 
@@ -226,7 +226,7 @@ function TopMarquee() {
   ];
   const loop = [...items, ...items, ...items, ...items];
   return (
-    <div className="overflow-hidden bg-ink py-2.5 text-white">
+    <div className="overflow-hidden bg-ink py-2.5 text-primary-foreground">
       <div className="flex w-max animate-marquee gap-10 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.22em] sm:text-[12px]">
         {loop.map((t, i) => (
           <span key={i} className="flex items-center gap-10">
@@ -245,12 +245,12 @@ function Landing() {
       <TopMarquee />
 
       {/* HERO */}
-      <section className="relative bg-background px-5 pb-14 pt-10 md:pb-24 md:pt-16">
+      <section className="relative bg-warm-gradient px-5 pb-16 pt-10 md:pb-24 md:pt-16">
         <div className={`${CONTAINER} grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16`}>
           <div className="text-center lg:text-left">
             <Eyebrow>O segredo que virou ritual</Eyebrow>
-            <h1 className="mt-5 font-display text-[2.35rem] leading-[1.02] text-ink sm:text-5xl md:text-6xl">
-              <strong className="text-copper">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-copper">Apagam Rugas</strong> Em Apenas 3 Semanas
+            <h1 className="mt-5 font-display text-[2.35rem] font-bold leading-[1.02] text-ink sm:text-5xl md:text-6xl">
+              <strong className="text-rose">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-rose">Apagam Rugas</strong> Em Apenas 3 Semanas
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-[15px] font-medium leading-relaxed text-ink/75 sm:text-lg lg:mx-0">
               Cansada De Cremes Caros Que Não Fazem Nada? Essa Colher De Caramelo Caseira Está Surpreendendo Mulheres Em Todo Brasil
@@ -264,7 +264,7 @@ function Landing() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-cream/50 px-5 py-12 md:py-16">
+      <section className="border-y border-border bg-background px-5 py-14 md:py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-6 text-center">
             <Eyebrow>Assista e entenda</Eyebrow>
@@ -275,10 +275,10 @@ function Landing() {
       </section>
 
       {/* COMO FUNCIONA — seção aberta */}
-      <section className={`bg-cream/50 ${SECTION}`}>
+      <section className={`bg-secondary/50 ${SECTION}`}>
         <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-14`}>
-          <div className="overflow-hidden rounded-lg shadow-xl ring-1 ring-copper/15">
-            <img src={comoFuncionaImg.url} alt="Aplicação da máscara de cuidados com a pele" className="aspect-[4/5] w-full object-cover" />
+          <div className="overflow-hidden rounded-2xl bg-card p-2 shadow-xl ring-1 ring-rose/15">
+            <img src={resultadoVisivelImg.url} alt="Resultado visível antes e depois, com os benefícios para a pele" className="h-auto w-full rounded-xl object-contain" />
           </div>
           <div>
             <Eyebrow>Como funciona</Eyebrow>
@@ -304,7 +304,7 @@ function Landing() {
           <Eyebrow>O problema real</Eyebrow>
           <h2 className={`mt-3 ${H2}`}>
             Talvez o problema não seja a sua idade. <br />
-            <em className="text-copper">Nem a falta de cremes.</em>
+               <em className="text-rose">Nem a falta de cremes.</em>
           </h2>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
             Muitas mulheres passam anos investindo em cosméticos caros, séruns importados e procedimentos — sem entender o que realmente influencia a pele ao longo do tempo. O mercado ensina você a comprar. Aqui, você aprende a cuidar.
@@ -317,8 +317,8 @@ function Landing() {
             "Evita fotos de perto e aumenta o espelho procurando defeitos",
             "Sente que a pele perdeu o brilho de alguns anos atrás",
           ].map((t) => (
-            <div key={t} className="flex items-start gap-3 border-l-2 border-copper bg-card p-5 shadow-sm">
-              <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-copper" />
+             <div key={t} className="flex items-start gap-3 rounded-r-xl border-l-4 border-rose bg-card p-5 shadow-sm">
+               <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-copper" />
               <p className="text-[15px] text-ink">{t}</p>
             </div>
           ))}
@@ -327,9 +327,9 @@ function Landing() {
       </section>
 
       {/* INGREDIENTES */}
-      <section className={`bg-ink-gradient text-white ${SECTION}`}>
+      <section className={`bg-ink-gradient text-primary-foreground ${SECTION}`}>
         <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
-          <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <img src={n1.url} alt="Feito com ingredientes naturais" className="w-full" />
           </div>
           <div>
@@ -337,8 +337,8 @@ function Landing() {
             <h2 className={`mt-3 font-display text-[2rem] leading-[1.1] sm:text-4xl md:text-5xl`}>
               O Segredo Natural Que Ajuda a <em className="text-copper">Amenizar Rugas</em> e Linhas de Expressão
             </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-white/70 sm:text-lg">
-              O Método Rugas Nunca Mais foi criado a partir de uma combinação exclusiva de <strong className="text-white">3 ingredientes naturais</strong> que aumentam a absorção de nutrientes pela pele. Diferente de cremes industrializados com nutrientes sintéticos, essa fórmula caseira ajuda a pele a se renovar com o que ela já reconhece.
+             <p className="mt-4 text-[15px] leading-relaxed text-primary-foreground/70 sm:text-lg">
+               O Método Rugas Nunca Mais foi criado a partir de uma combinação exclusiva de <strong className="text-primary-foreground">3 ingredientes naturais</strong> que aumentam a absorção de nutrientes pela pele. Diferente de cremes industrializados com nutrientes sintéticos, essa fórmula caseira ajuda a pele a se renovar com o que ela já reconhece.
             </p>
             <div className="mt-6 space-y-4">
               {[
@@ -346,11 +346,11 @@ function Landing() {
                 { n: "02", t: "Hidratação e maciez da pele", d: "Um dos ingredientes é rico em potássio, fibras e vitaminas A, B e C. Esses nutrientes hidratam e dão maciez à derme já nas primeiras aplicações." },
                 { n: "03", t: "Proteção antioxidante extra", d: "Os ingredientes ajudam a reduzir os efeitos nocivos dos raios ultravioleta. Isso soma força à proteção solar que você já usa no dia a dia." },
               ].map(({ n, t, d }) => (
-                <div key={n} className="flex gap-5 border-t border-white/10 pt-4">
+                 <div key={n} className="flex gap-5 border-t border-primary-foreground/10 pt-4">
                   <span className="font-display text-2xl text-copper">{n}</span>
                   <div>
-                    <h3 className="font-display text-xl text-white">{t}</h3>
-                    <p className="mt-1 text-sm text-white/60">{d}</p>
+                     <h3 className="font-display text-xl text-primary-foreground">{t}</h3>
+                     <p className="mt-1 text-sm text-primary-foreground/60">{d}</p>
                   </div>
                 </div>
               ))}
@@ -362,7 +362,7 @@ function Landing() {
       {/* APLIQUE E RELAXE */}
       <section className={`bg-cream/50 ${SECTION}`}>
         <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-[1.15fr_1fr] md:gap-12`}>
-          <div className="overflow-hidden rounded-3xl shadow-xl">
+          <div className="overflow-hidden rounded-2xl shadow-xl">
             <img src={n2.url} alt="Aplique e relaxe" className="w-full" />
           </div>
           <div>
@@ -392,7 +392,7 @@ function Landing() {
           </div>
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
             {[n3, n4, n5].map((img, i) => (
-              <div key={i} className="overflow-hidden rounded-2xl border border-border shadow-xl transition hover:-translate-y-1 hover:shadow-2xl">
+                <div key={i} className="overflow-hidden rounded-xl border border-border bg-card p-2 shadow-xl transition hover:-translate-y-1 hover:shadow-2xl">
                 <img src={img.url} alt={`Passo ${i + 1}`} className="w-full" />
               </div>
             ))}
@@ -401,25 +401,25 @@ function Landing() {
       </section>
 
       {/* TEXTURA */}
-      <section className={`bg-ink-gradient text-white ${SECTION}`}>
+      <section className={`bg-ink-gradient text-primary-foreground ${SECTION}`}>
         <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
           <div>
             <Eyebrow>A fórmula</Eyebrow>
             <h2 className={`mt-3 font-display text-[2rem] leading-[1.1] sm:text-4xl md:text-5xl`}>
               Textura sedosa,<br /><em className="text-copper">absorção profunda.</em>
             </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-white/70 sm:text-lg">
+             <p className="mt-4 text-[15px] leading-relaxed text-primary-foreground/70 sm:text-lg">
               Nada de sensação pesada ou pegajosa. A máscara penetra rápido, hidrata em profundidade e deixa a pele visivelmente mais firme e luminosa.
             </p>
             <div className="mt-6 grid grid-cols-2 gap-3">
               {["Absorção rápida", "Sem parabenos", "Sem oleosidade", "Fragrância natural"].map((t) => (
-                <div key={t} className="flex items-center gap-2 text-sm text-white/85">
+                 <div key={t} className="flex items-center gap-2 text-sm text-primary-foreground/85">
                   <Check className="h-4 w-4 shrink-0 text-copper" /> {t}
                 </div>
               ))}
             </div>
           </div>
-          <div className="overflow-hidden rounded-3xl shadow-2xl">
+           <div className="overflow-hidden rounded-2xl shadow-2xl">
             <img src={n6.url} alt="Textura sedosa e nutritiva" className="w-full" />
           </div>
         </div>
@@ -460,7 +460,7 @@ function Landing() {
           ].map((d) => (
             <figure
               key={d.nome}
-              className="flex h-full flex-col rounded-2xl border border-copper/15 bg-background p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
+               className="flex h-full flex-col rounded-xl border border-rose/15 bg-background p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
             >
               <div className="flex items-center gap-1 text-copper" aria-label="5 estrelas">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -521,14 +521,14 @@ function Landing() {
               Não é só sobre pele. É sobre reservar 15 minutos duas vezes por semana para você. E ver, semana após semana, uma versão mais luminosa no espelho.
             </p>
           </div>
-          <div className="overflow-hidden rounded-3xl shadow-xl">
+          <div className="overflow-hidden rounded-2xl shadow-xl">
             <img src={n7.url} alt="Ritual de autocuidado" className="w-full" />
           </div>
         </div>
       </section>
 
       {/* OFERTA */}
-      <section id="oferta" className={`bg-ink-gradient text-white ${SECTION} scroll-mt-4`}>
+      <section id="oferta" className={`bg-ink-gradient text-primary-foreground ${SECTION} scroll-mt-4`}>
         <div className={`${CONTAINER} grid items-center gap-10 lg:grid-cols-[1fr_0.75fr] lg:gap-16`}>
           <div>
             <Eyebrow>Comece hoje</Eyebrow>
@@ -553,7 +553,7 @@ function Landing() {
                 ))}
             </ul>
           </div>
-          <div className="border border-copper/40 bg-background p-6 text-center text-ink shadow-2xl sm:p-8">
+           <div className="rounded-2xl border border-copper/40 bg-background p-6 text-center text-ink shadow-2xl sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">Oferta especial</p>
             <p className="mt-5 text-sm text-muted-foreground">De <span className="line-through">R$ 408</span> por apenas</p>
             <div className="mt-2 flex items-start justify-center gap-1">
@@ -612,8 +612,8 @@ function Landing() {
       {/* CTA FINAL */}
       <section className={`bg-warm-gradient ${SECTION}`}>
         <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
-          <div className="overflow-hidden rounded-3xl shadow-2xl">
-            <img src={n8.url} alt="Método Rugas Nunca Mais — ebook" className="w-full" />
+          <div className="overflow-hidden rounded-2xl shadow-2xl">
+            <img src={n8.url} alt="Método Rugas Nunca Mais" className="w-full" />
           </div>
           <div className="text-center md:text-left">
             <Eyebrow>Última chamada</Eyebrow>
@@ -634,7 +634,7 @@ function Landing() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border bg-ink px-4 py-8 text-center text-xs text-white/60">
+      <footer className="border-t border-border bg-ink px-4 py-8 text-center text-xs text-primary-foreground/60">
         <p>© Método Rugas Nunca Mais · Todos os direitos reservados</p>
         <p className="mx-auto mt-2 max-w-2xl">Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Resultados podem variar de pessoa para pessoa.</p>
       </footer>
