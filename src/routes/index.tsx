@@ -239,32 +239,84 @@ function TopMarquee() {
   );
 }
 
+function Tab({ title, children }: { title: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-border">
+      <button onClick={() => setOpen(!open)} className="flex w-full items-center justify-between gap-4 py-4 text-left">
+        <span className="font-display text-[15px] font-semibold text-ink sm:text-base">{title}</span>
+        <ChevronDown className={`h-5 w-5 shrink-0 text-copper transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && <div className="pb-4 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">{children}</div>}
+    </div>
+  );
+}
+
+const REVIEWS = [
+  { nome: "Sandra M.", local: "Ariquemes, RO", foto: t1.url, texto: "Fiquei surpresa que os ingredientes já estavam na minha cozinha. Em poucas semanas minha pele ficou muito mais macia e hidratada." },
+  { nome: "Marlene R.", local: "Porto Velho, RO", foto: t2.url, texto: "Uso 3 vezes por semana como o método ensina. É simples de fazer em casa e o resultado na textura da pele é visível." },
+  { nome: "Cristiane A.", local: "Ji-Paraná, RO", foto: t3.url, texto: "Nunca imaginei que algo tão simples pudesse fazer diferença assim. Minhas linhas de expressão ficaram bem mais suaves." },
+];
+
 function Landing() {
   return (
     <main className="min-h-screen overflow-hidden">
       <TopMarquee />
 
-      {/* HERO */}
-      <section className="relative bg-warm-gradient px-5 pb-16 pt-10 md:pb-24 md:pt-16">
-        <div className={`${CONTAINER} text-center`}>
-          <Eyebrow>O segredo que virou ritual</Eyebrow>
-          <h1 className="mx-auto mt-5 max-w-3xl font-display text-[2.35rem] font-bold leading-[1.02] text-ink sm:text-5xl md:text-6xl">
-            <strong className="text-rose">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-rose">Apagam Rugas</strong> Em Apenas 3 Semanas
-          </h1>
-          <div className="mt-8">
+      {/* PRODUTO PRINCIPAL */}
+      <section className="bg-warm-gradient px-5 pb-14 pt-8 md:pb-20 md:pt-14">
+        <div className={`${CONTAINER} grid items-start gap-8 md:grid-cols-2 md:gap-12`}>
+          <div className="md:sticky md:top-6">
             <BeforeAfter />
           </div>
-          <p className="mx-auto mt-8 max-w-xl text-[15px] font-medium leading-relaxed text-ink/75 sm:text-lg">
-            Cansada De Cremes Caros Que Não Fazem Nada? Essa Colher De Caramelo Caseira Está Surpreendendo Mulheres Em Todo Brasil
-          </p>
-          <div className="mx-auto mt-7 max-w-md">
-            <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
+          <div>
+            <div className="flex items-center gap-2">
+              <Stars size="h-3.5 w-3.5" />
+              <span className="text-xs text-muted-foreground">Nota 4.8/5 (+27 mil clientes verificadas)</span>
+            </div>
+            <h1 className="mt-3 font-display text-[2.1rem] font-bold leading-[1.05] text-ink sm:text-5xl">
+              <strong className="text-rose">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-rose">Apagam Rugas</strong> Em Apenas 3 Semanas
+            </h1>
+            <p className="mt-4 text-[15px] leading-relaxed text-ink/75 sm:text-lg">
+              Cansada De Cremes Caros Que Não Fazem Nada? Essa Colher De Caramelo Caseira Está Surpreendendo Mulheres Em Todo Brasil
+            </p>
+            <ul className="mt-5 space-y-2 text-[15px] text-ink sm:text-base">
+              <li>🍯 Pele visivelmente mais firme e lisinha</li>
+              <li>🌸 Viço natural de volta ao rosto</li>
+              <li>💛 Mais confiança sem maquiagem pesada</li>
+            </ul>
+            <div className="mt-5 flex items-end gap-3">
+              <span className="font-display text-4xl font-bold text-ink">R$ 27</span>
+              <span className="pb-1 text-base text-muted-foreground line-through">R$ 408</span>
+            </div>
+            <div className="mt-4"><CTA block>QUERO A RECEITA AGORA</CTA></div>
+            <div className="mt-4 grid grid-cols-3 gap-2 text-center text-[11px] text-muted-foreground">
+              <span className="flex flex-col items-center gap-1"><Lock className="h-4 w-4 text-copper" /> Compra segura</span>
+              <span className="flex flex-col items-center gap-1"><ShieldCheck className="h-4 w-4 text-copper" /> 30 dias de garantia</span>
+              <span className="flex flex-col items-center gap-1"><Clock className="h-4 w-4 text-copper" /> Acesso imediato</span>
+            </div>
+            <div className="mt-6 space-y-3">
+              {REVIEWS.slice(0, 2).map((r) => (
+                <div key={r.nome} className="flex gap-3 rounded-xl bg-card p-4 shadow-sm ring-1 ring-rose/10">
+                  <img src={r.foto} alt={r.nome} className="h-10 w-10 shrink-0 rounded-full object-cover" />
+                  <div>
+                    <Stars size="h-3 w-3" />
+                    <p className="mt-1 text-[13px] leading-snug text-ink">“{r.texto}”</p>
+                    <p className="mt-1 text-[11px] text-muted-foreground">{r.nome} · Compra verificada</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 border-t border-border">
+              <Tab title="Como funciona">A máscara natural é feita com 3 ingredientes secretos que você provavelmente já tem em casa. Aplique no rosto limpo, deixe agir por até 15 minutos e enxágue, de 2 a 3 vezes por semana.</Tab>
+              <Tab title="O que você recebe">Método Rugas Nunca Mais com o passo a passo completo, bônus Corpo dos Sonhos, bônus Ritual Matinal Anti-Idade e atualizações vitalícias.</Tab>
+              <Tab title="Garantia">Você tem 30 dias de garantia. Se não notar diferença, devolvemos 100% do seu dinheiro.</Tab>
+            </div>
           </div>
-          <p className="mt-4 text-xs text-muted-foreground">Acesso imediato · Pagamento seguro · Garantia de 30 dias</p>
         </div>
       </section>
 
-
+      {/* VÍDEO */}
       <section className="border-y border-border bg-background px-5 py-14 md:py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-6 text-center">
@@ -275,256 +327,91 @@ function Landing() {
         </div>
       </section>
 
-      {/* COMO FUNCIONA — seção aberta */}
+      {/* BENEFÍCIO PRINCIPAL (imagem + texto) */}
       <section className={`bg-secondary/50 ${SECTION}`}>
         <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-14`}>
           <div className="overflow-hidden rounded-2xl bg-card p-2 shadow-xl ring-1 ring-rose/15">
-            <img src={resultadoVisivelImg.url} alt="Resultado visível antes e depois, com os benefícios para a pele" className="h-auto w-full rounded-xl object-contain" />
-          </div>
-          <div>
-            <Eyebrow>Como funciona</Eyebrow>
-            <h2 className={`mt-3 ${H2}`}>
-              Uma máscara natural feita com <em className="text-copper">3 ingredientes secretos</em>
-            </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
-              O método usa uma máscara skin care natural feita com <strong className="text-ink">3 ingredientes secretos</strong> que você provavelmente já tem em casa. Juntos, eles criam uma combinação rica em antioxidantes, vitaminas e fibras que ajudam a pele a absorver nutrientes e se renovar de dentro pra fora.
-            </p>
-            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
-              A máscara é aplicada no rosto e deixada agir por até <strong className="text-ink">15 minutos, 2 a 3 vezes por semana</strong> — e os primeiros resultados costumam aparecer já nas primeiras semanas de uso constante.
-            </p>
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* PROBLEMA */}
-      <section className={SECTION}>
-        <div className={`${CONTAINER} grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end`}>
-          <div className="text-left">
-          <Eyebrow>O problema real</Eyebrow>
-          <h2 className={`mt-3 ${H2}`}>
-            Talvez o problema não seja a sua idade. <br />
-               <em className="text-rose">Nem a falta de cremes.</em>
-          </h2>
-          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
-            Muitas mulheres passam anos investindo em cosméticos caros, séruns importados e procedimentos — sem entender o que realmente influencia a pele ao longo do tempo. O mercado ensina você a comprar. Aqui, você aprende a cuidar.
-          </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-          {[
-            "Compra um creme novo cheia de esperança e quase nada muda",
-            "Passa maquiagem só para esconder o que não queria enxergar",
-            "Evita fotos de perto e aumenta o espelho procurando defeitos",
-            "Sente que a pele perdeu o brilho de alguns anos atrás",
-          ].map((t) => (
-             <div key={t} className="flex items-start gap-3 rounded-r-xl border-l-4 border-rose bg-card p-5 shadow-sm">
-               <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-copper" />
-              <p className="text-[15px] text-ink">{t}</p>
-            </div>
-          ))}
-          </div>
-        </div>
-      </section>
-
-      {/* INGREDIENTES */}
-      <section className={`bg-ink-gradient text-primary-foreground ${SECTION}`}>
-        <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-            <img src={n1.url} alt="Feito com ingredientes naturais" className="w-full" />
+            <img src={resultadoVisivelImg.url} alt="Resultado visível antes e depois" className="h-auto w-full rounded-xl object-contain" />
           </div>
           <div>
             <Eyebrow>Benefício principal</Eyebrow>
-            <h2 className={`mt-3 font-display text-[2rem] leading-[1.1] sm:text-4xl md:text-5xl`}>
-              O Segredo Natural Que Ajuda a <em className="text-copper">Amenizar Rugas</em> e Linhas de Expressão
-            </h2>
-             <p className="mt-4 text-[15px] leading-relaxed text-primary-foreground/70 sm:text-lg">
-               O Método Rugas Nunca Mais foi criado a partir de uma combinação exclusiva de <strong className="text-primary-foreground">3 ingredientes naturais</strong> que aumentam a absorção de nutrientes pela pele. Diferente de cremes industrializados com nutrientes sintéticos, essa fórmula caseira ajuda a pele a se renovar com o que ela já reconhece.
-            </p>
-            <div className="mt-6 space-y-4">
-              {[
-                { n: "01", t: "Amenização de rugas e linhas de expressão", d: "A combinação de antioxidantes dos ingredientes protege contra radicais livres. Isso permite que novas células saudáveis se formem com mais intensidade." },
-                { n: "02", t: "Hidratação e maciez da pele", d: "Um dos ingredientes é rico em potássio, fibras e vitaminas A, B e C. Esses nutrientes hidratam e dão maciez à derme já nas primeiras aplicações." },
-                { n: "03", t: "Proteção antioxidante extra", d: "Os ingredientes ajudam a reduzir os efeitos nocivos dos raios ultravioleta. Isso soma força à proteção solar que você já usa no dia a dia." },
-              ].map(({ n, t, d }) => (
-                 <div key={n} className="flex gap-5 border-t border-primary-foreground/10 pt-4">
-                  <span className="font-display text-2xl text-copper">{n}</span>
-                  <div>
-                     <h3 className="font-display text-xl text-primary-foreground">{t}</h3>
-                     <p className="mt-1 text-sm text-primary-foreground/60">{d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* APLIQUE E RELAXE */}
-      <section className={`bg-cream/50 ${SECTION}`}>
-        <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-[1.15fr_1fr] md:gap-12`}>
-          <div className="overflow-hidden rounded-2xl shadow-xl">
-            <img src={n2.url} alt="Aplique e relaxe" className="w-full" />
-          </div>
-          <div>
-            <Eyebrow>Como usar</Eyebrow>
-            <h2 className={`mt-3 ${H2}`}>
-              Simples de Preparar, <em className="text-copper">Fácil de Aplicar</em>
-            </h2>
+            <h2 className={`mt-3 ${H2}`}>O Segredo Natural Que Ajuda a <em className="text-copper">Amenizar Rugas</em> e Linhas de Expressão</h2>
             <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
-              A máscara é feita em duas etapas rápidas, usando apenas <strong className="text-ink">3 ingredientes secretos</strong> que se combinam pra potencializar os resultados. Depois é só aplicar no rosto limpo, relaxar por até <strong className="text-ink">15 minutos</strong> e enxaguar — sem complicação, direto da sua cozinha.
+              O método usa uma combinação de <strong className="text-ink">3 ingredientes naturais</strong> ricos em antioxidantes, vitaminas e fibras, que ajudam a pele a absorver nutrientes e se renovar de dentro pra fora.
             </p>
-            <div className="mt-6 flex items-center gap-6 text-sm">
-              <div><div className="font-display text-3xl text-ink">15<span className="text-copper">min</span></div><div className="text-[11px] uppercase tracking-widest text-muted-foreground">de ritual</div></div>
-              <div className="h-10 w-px bg-border" />
-              <div><div className="font-display text-3xl text-ink">2-3×<span className="text-copper">/sem</span></div><div className="text-[11px] uppercase tracking-widest text-muted-foreground">frequência</div></div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* COMO USAR */}
+      {/* 3 COLUNAS */}
       <section className={SECTION}>
-        <div className={CONTAINER}>
-          <div className="text-center">
-            <Eyebrow>Passo a passo</Eyebrow>
-            <h2 className={`mt-3 ${H2}`}>4 passos. 15 minutos.</h2>
-            <p className="mx-auto mt-3 max-w-xl text-[15px] text-muted-foreground sm:text-base">Do lavatório à pele renovada — o ritual completo em uma sequência simples.</p>
-          </div>
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {[n3, n4, n5].map((img, i) => (
-                <div key={i} className="overflow-hidden rounded-xl border border-border bg-card p-2 shadow-xl transition hover:-translate-y-1 hover:shadow-2xl">
-                <img src={img.url} alt={`Passo ${i + 1}`} className="w-full" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TEXTURA */}
-      <section className={`bg-ink-gradient text-primary-foreground ${SECTION}`}>
-        <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
-          <div>
-            <Eyebrow>A fórmula</Eyebrow>
-            <h2 className={`mt-3 font-display text-[2rem] leading-[1.1] sm:text-4xl md:text-5xl`}>
-              Textura sedosa,<br /><em className="text-copper">absorção profunda.</em>
-            </h2>
-             <p className="mt-4 text-[15px] leading-relaxed text-primary-foreground/70 sm:text-lg">
-              Nada de sensação pesada ou pegajosa. A máscara penetra rápido, hidrata em profundidade e deixa a pele visivelmente mais firme e luminosa.
-            </p>
-            <div className="mt-6 grid grid-cols-2 gap-3">
-              {["Absorção rápida", "Sem parabenos", "Sem oleosidade", "Fragrância natural"].map((t) => (
-                 <div key={t} className="flex items-center gap-2 text-sm text-primary-foreground/85">
-                  <Check className="h-4 w-4 shrink-0 text-copper" /> {t}
-                </div>
-              ))}
-            </div>
-          </div>
-           <div className="overflow-hidden rounded-2xl shadow-2xl">
-            <img src={n6.url} alt="Textura sedosa e nutritiva" className="w-full" />
-          </div>
-        </div>
-      </section>
-
-      {/* PROVA SOCIAL */}
-      <section className={`bg-cream ${SECTION}`}>
-        <div className={`${CONTAINER} text-center`}>
-          <Eyebrow>Prova social</Eyebrow>
-          <h2 className={`mt-3 ${H2}`}>Histórias reais de quem já testou</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground">
-            Relatos verificados de mulheres que aplicaram o método por pelo menos 3 semanas.
-          </p>
-        </div>
-        <div className={`${CONTAINER} mt-10 grid gap-5 md:grid-cols-3`}>
+        <div className={`${CONTAINER} grid gap-5 md:grid-cols-3`}>
           {[
-            {
-              nome: "Sandra M.",
-              local: "Ariquemes, RO",
-              foto: t1.url,
-              texto:
-                "Fiquei surpresa que os ingredientes já estavam na minha cozinha. Em poucas semanas minha pele ficou muito mais macia e hidratada.",
-            },
-            {
-              nome: "Marlene R.",
-              local: "Porto Velho, RO",
-              foto: t2.url,
-              texto:
-                "Uso 3 vezes por semana como o método ensina. É simples de fazer em casa e o resultado na textura da pele é visível.",
-            },
-            {
-              nome: "Cristiane A.",
-              local: "Ji-Paraná, RO",
-              foto: t3.url,
-              texto:
-                "Nunca imaginei que algo tão simples pudesse fazer diferença assim. Minhas linhas de expressão ficaram bem mais suaves.",
-            },
-          ].map((d) => (
-            <figure
-              key={d.nome}
-               className="flex h-full flex-col rounded-xl border border-rose/15 bg-background p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
-            >
-              <div className="flex items-center gap-1 text-copper" aria-label="5 estrelas">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <blockquote className="mt-4 flex-1 text-left text-[15px] leading-relaxed text-foreground">
-                “{d.texto}”
-              </blockquote>
-              <figcaption className="mt-5 flex items-center gap-3 border-t border-border pt-4">
-                <img
-                  src={d.foto}
-                  alt={d.nome}
-                  className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-copper/30"
-                />
-                <div className="min-w-0 text-left">
-                  <div className="truncate font-semibold text-foreground">{d.nome}</div>
-                  <div className="truncate text-xs text-muted-foreground">
-                    {d.local} · Compra verificada
-                  </div>
-                </div>
-              </figcaption>
-            </figure>
+            { e: "✨", t: "Amenização de rugas", d: "Os antioxidantes protegem contra radicais livres. Assim, novas células saudáveis se formam com mais intensidade." },
+            { e: "💧", t: "Hidratação e maciez", d: "Um dos ingredientes é rico em potássio e vitaminas A, B e C. A pele fica macia já nas primeiras aplicações." },
+            { e: "🛡️", t: "Proteção extra", d: "Os ingredientes ajudam a reduzir os efeitos dos raios UV. Isso soma força ao protetor que você já usa." },
+          ].map((c) => (
+            <div key={c.t} className="rounded-2xl bg-card p-6 text-center shadow-lg ring-1 ring-rose/10">
+              <div className="text-3xl">{c.e}</div>
+              <h3 className="mt-3 font-display text-xl text-ink">{c.t}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.d}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* ESTATÍSTICAS */}
+      {/* COMO USAR (texto + imagem) */}
+      <section className={`bg-cream/50 ${SECTION}`}>
+        <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
+          <div className="md:order-2 overflow-hidden rounded-2xl shadow-xl">
+            <img src={n2.url} alt="Aplique e relaxe" className="h-auto w-full object-contain" />
+          </div>
+          <div>
+            <Eyebrow>Como usar</Eyebrow>
+            <h2 className={`mt-3 ${H2}`}>Simples de Preparar, <em className="text-copper">Fácil de Aplicar</em></h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
+              Prepare a máscara em duas etapas rápidas, aplique no rosto limpo e relaxe por até <strong className="text-ink">15 minutos</strong>. Depois é só enxaguar, de 2 a 3 vezes por semana.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* RESULTADOS */}
       <section className={`border-y border-border bg-background ${SECTION}`}>
         <div className={CONTAINER}>
           <div className="text-center">
             <Eyebrow>Resultados</Eyebrow>
-            <h2 className={`mt-3 ${H2}`}>
-              Mulheres Que Seguiram o Protocolo <em className="text-copper">Notaram Diferença Real</em>
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-[15px] text-muted-foreground sm:text-base">
-              Os resultados variam de pessoa pra pessoa, mas a maioria percebe diferença já nas primeiras semanas de aplicação recorrente:
-            </p>
+            <h2 className={`mt-3 ${H2}`}>Mulheres Que Seguiram o Protocolo <em className="text-copper">Notaram Diferença Real</em></h2>
+            <p className="mx-auto mt-3 max-w-2xl text-[15px] text-muted-foreground sm:text-base">Os resultados variam de pessoa pra pessoa, mas a maioria percebe diferença já nas primeiras semanas:</p>
           </div>
-          <div className="mx-auto mt-8 grid max-w-4xl gap-x-10 gap-y-6 md:grid-cols-2">
-            <StatRing pct={94} label="disseram — notaram a pele mais macia e hidratada ao toque" />
-            <StatRing pct={97} label="disseram — perceberam amenização nas linhas de expressão" />
-            <StatRing pct={96} label="disseram — continuariam o protocolo mesmo após o teste inicial" />
-            <StatRing pct={92} label="das usuárias recomendariam o método para uma amiga ou familiar" />
+          <div className="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-3">
+            <StatRing pct={94} label="disseram que a pele ficou mais macia e hidratada" />
+            <StatRing pct={97} label="disseram que as linhas de expressão suavizaram" />
+            <StatRing pct={96} label="disseram que vão continuar o ritual" />
           </div>
         </div>
       </section>
 
-      {/* AUTOCUIDADO */}
-      <section className={SECTION}>
-        <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
-          <div>
-            <Eyebrow>Ritual de autocuidado</Eyebrow>
-            <h2 className={`mt-3 ${H2}`}>
-              Um momento seu.<br /><em className="text-copper">Um resultado para a vida.</em>
-            </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
-              Não é só sobre pele. É sobre reservar 15 minutos duas vezes por semana para você. E ver, semana após semana, uma versão mais luminosa no espelho.
-            </p>
-          </div>
-          <div className="overflow-hidden rounded-2xl shadow-xl">
-            <img src={n7.url} alt="Ritual de autocuidado" className="w-full" />
-          </div>
+      {/* DEPOIMENTOS */}
+      <section className={`bg-cream ${SECTION}`}>
+        <div className={`${CONTAINER} text-center`}>
+          <Eyebrow>Prova social</Eyebrow>
+          <h2 className={`mt-3 ${H2}`}>Histórias reais de quem já testou</h2>
+        </div>
+        <div className={`${CONTAINER} mt-10 grid gap-5 md:grid-cols-3`}>
+          {REVIEWS.map((d) => (
+            <figure key={d.nome} className="flex h-full flex-col rounded-xl border border-rose/15 bg-background p-6 shadow-lg">
+              <Stars />
+              <blockquote className="mt-4 flex-1 text-left text-[15px] leading-relaxed text-foreground">“{d.texto}”</blockquote>
+              <figcaption className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+                <img src={d.foto} alt={d.nome} className="h-12 w-12 shrink-0 rounded-full object-cover ring-2 ring-copper/30" />
+                <div className="min-w-0 text-left">
+                  <div className="truncate font-semibold text-foreground">{d.nome}</div>
+                  <div className="truncate text-xs text-muted-foreground">{d.local} · Compra verificada</div>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
@@ -613,30 +500,6 @@ function Landing() {
             <FAQ q="Quanto tempo leva pra ver resultado?" a="A maioria das pessoas nota diferença já nas primeiras semanas de uso recorrente. O resultado varia de pessoa pra pessoa por fatores genéticos, então o importante é acompanhar sua própria evolução." />
             <FAQ q="Substitui protetor solar ou outros cuidados com a pele?" a="Não. O método reforça a proteção antioxidante da pele, mas não substitui o protetor solar nem compensa hábitos como tabagismo ou má alimentação — ele funciona melhor combinado com esses cuidados." />
             <FAQ q="E se eu não notar diferença?" a="Você tem 30 dias de garantia total. Se não perceber resultado seguindo o protocolo corretamente, devolvemos seu investimento integralmente." />
-          </div>
-        </div>
-      </section>
-
-      {/* CTA FINAL */}
-      <section className={`bg-warm-gradient ${SECTION}`}>
-        <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-12`}>
-          <div className="overflow-hidden rounded-2xl shadow-2xl">
-            <img src={n8.url} alt="Método Rugas Nunca Mais" className="w-full" />
-          </div>
-          <div className="text-center md:text-left">
-            <Eyebrow>Última chamada</Eyebrow>
-            <h2 className={`mt-3 ${H2}`}>
-              Sua pele merece <em className="text-copper">o cuidado certo.</em>
-            </h2>
-            <p className="mt-4 text-[15px] text-muted-foreground sm:text-lg">
-              Reserve 15 minutos da sua semana para você. Acesso imediato, garantia de 30 dias e um ritual simples para reencontrar sua confiança no espelho.
-            </p>
-            <div className="mt-6"><CTA block>QUERO ME LIVRAR DAS RUGAS</CTA></div>
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground md:justify-start">
-              <span className="flex items-center gap-1"><Lock className="h-3 w-3" /> Pagamento seguro</span>
-              <span className="flex items-center gap-1"><ShieldCheck className="h-3 w-3" /> 30 dias garantia</span>
-              <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> Acesso imediato</span>
-            </div>
           </div>
         </div>
       </section>
