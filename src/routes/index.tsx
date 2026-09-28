@@ -31,14 +31,7 @@ function WistiaPlayer() {
     />
   );
 }
-const n1 = { url: "/images/n1.jpg" };
 const n2 = { url: "/images/como-funciona.jpg" };
-const n3 = { url: "/images/n3.jpg" };
-const n4 = { url: "/images/n4.jpg" };
-const n5 = { url: "/images/n5.jpg" };
-const n6 = { url: "/images/n6.jpg" };
-const n7 = { url: "/images/n7.jpg" };
-const n8 = { url: "/images/n8.jpg" };
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
 import seloGarantia from "@/assets/selo-garantia-30-dias-removebg-preview.png.asset.json";
