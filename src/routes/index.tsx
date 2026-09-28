@@ -533,8 +533,14 @@ function Landing() {
         <div className={`${CONTAINER} grid items-center gap-10 lg:grid-cols-[1fr_0.75fr] lg:gap-16`}>
           <div>
             <Eyebrow>Comece hoje</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl leading-[1.05] sm:text-5xl">Tudo o que você precisa para começar seu ritual.</h2>
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-primary-foreground/70 sm:text-lg">Receba o passo a passo completo, os bônus e todas as futuras atualizações em um único acesso.</p>
+            <h2 className="mt-4 font-display text-4xl leading-[1.05] sm:text-5xl">Daqui a 3 semanas, você vai se olhar no espelho e sorrir.</h2>
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-primary-foreground/70 sm:text-lg">Pele mais firme, viçosa e com as linhas suavizadas, usando o que você já tem na cozinha. Sem procedimentos caros, sem cremes que prometem e não entregam.</p>
+            <ul className="mt-6 space-y-2 text-[15px] text-primary-foreground sm:text-base">
+              <li>🍯 Pele visivelmente mais firme e lisinha</li>
+              <li>🌸 Viço natural de volta ao rosto</li>
+              <li>💛 Mais confiança sem maquiagem pesada</li>
+            </ul>
+            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.2em] text-copper">O que você recebe hoje</p>
             <ul className="mt-8 divide-y divide-primary-foreground/10 border-y border-primary-foreground/10">
                 {[
                   { t: "Método Rugas Nunca Mais — guia completo passo a passo", v: "R$ 197" },
@@ -555,13 +561,14 @@ function Landing() {
             </ul>
           </div>
            <div className="rounded-2xl border border-copper/40 bg-background p-6 text-center text-ink shadow-2xl sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">Oferta especial</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">Oferta especial de hoje</p>
+            <p className="mt-3 font-display text-xl leading-tight text-ink">Sua nova pele começa agora</p>
             <p className="mt-5 text-sm text-muted-foreground">De <span className="line-through">R$ 408</span> por apenas</p>
             <div className="mt-2 flex items-start justify-center gap-1">
               <span className="mt-3 text-xl text-ink/60">R$</span>
               <span className="font-display text-8xl leading-none text-ink">27</span>
             </div>
-            <p className="mt-3 text-[13px] text-muted-foreground">Pagamento único · sem mensalidades</p>
+            <p className="mt-3 text-[13px] text-muted-foreground">Pagamento único · menos que um creme de farmácia</p>
             <div className="mt-7">
               <CTA block>QUERO A RECEITA AGORA</CTA>
               <div className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] text-muted-foreground">
