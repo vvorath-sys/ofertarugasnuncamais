@@ -246,23 +246,24 @@ function Landing() {
 
       {/* HERO */}
       <section className="relative bg-warm-gradient px-5 pb-16 pt-10 md:pb-24 md:pt-16">
-        <div className={`${CONTAINER} grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16`}>
-          <div className="text-center lg:text-left">
-            <Eyebrow>O segredo que virou ritual</Eyebrow>
-            <h1 className="mt-5 font-display text-[2.35rem] font-bold leading-[1.02] text-ink sm:text-5xl md:text-6xl">
-              <strong className="text-rose">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-rose">Apagam Rugas</strong> Em Apenas 3 Semanas
-            </h1>
-            <p className="mx-auto mt-5 max-w-xl text-[15px] font-medium leading-relaxed text-ink/75 sm:text-lg lg:mx-0">
-              Cansada De Cremes Caros Que Não Fazem Nada? Essa Colher De Caramelo Caseira Está Surpreendendo Mulheres Em Todo Brasil
-            </p>
-            <div className="mx-auto mt-7 max-w-md lg:mx-0">
-              <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
-            </div>
-            <p className="mt-4 text-xs text-muted-foreground">Acesso imediato · Pagamento seguro · Garantia de 30 dias</p>
+        <div className={`${CONTAINER} text-center`}>
+          <Eyebrow>O segredo que virou ritual</Eyebrow>
+          <h1 className="mx-auto mt-5 max-w-3xl font-display text-[2.35rem] font-bold leading-[1.02] text-ink sm:text-5xl md:text-6xl">
+            <strong className="text-rose">3 Ingredientes</strong> Que Já Estão Na Sua Cozinha <strong className="text-rose">Apagam Rugas</strong> Em Apenas 3 Semanas
+          </h1>
+          <div className="mt-8">
+            <BeforeAfter />
           </div>
-          <BeforeAfter />
+          <p className="mx-auto mt-8 max-w-xl text-[15px] font-medium leading-relaxed text-ink/75 sm:text-lg">
+            Cansada De Cremes Caros Que Não Fazem Nada? Essa Colher De Caramelo Caseira Está Surpreendendo Mulheres Em Todo Brasil
+          </p>
+          <div className="mx-auto mt-7 max-w-md">
+            <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">Acesso imediato · Pagamento seguro · Garantia de 30 dias</p>
         </div>
       </section>
+
 
       <section className="border-y border-border bg-background px-5 py-14 md:py-20">
         <div className="mx-auto max-w-4xl">
