@@ -278,11 +278,7 @@ function Landing() {
               <li>🌸 Viço natural de volta ao rosto</li>
               <li>💛 Mais confiança sem maquiagem pesada</li>
             </ul>
-            <div className="mt-5 flex items-end gap-3">
-              <span className="font-display text-4xl font-bold text-ink">R$ 27</span>
-              <span className="pb-1 text-base text-muted-foreground line-through">R$ 408</span>
-            </div>
-            <div className="mt-4"><CTA block>QUERO A RECEITA AGORA</CTA></div>
+            <div className="mt-5"><CTA block href="#oferta">QUERO A RECEITA AGORA</CTA></div>
             <div className="mt-4 grid grid-cols-3 gap-2 text-center text-[11px] text-muted-foreground">
               <span className="flex flex-col items-center gap-1"><Lock className="h-4 w-4 text-copper" /> Compra segura</span>
               <span className="flex flex-col items-center gap-1"><ShieldCheck className="h-4 w-4 text-copper" /> 30 dias de garantia</span>
@@ -408,6 +404,43 @@ function Landing() {
         </div>
       </section>
 
+
+      {/* GARANTIA */}
+      <section className={`bg-cream ${SECTION}`}>
+        <div className="mx-auto grid max-w-4xl items-center gap-6 md:grid-cols-[auto_1fr] md:gap-10">
+          <img
+            src={seloGarantia.url}
+            alt="Selo Garantia 30 Dias — Satisfação Garantida"
+            className="mx-auto w-40 sm:w-48 md:w-56"
+          />
+          <div className="text-center md:text-left">
+            <Eyebrow>Garantia incondicional</Eyebrow>
+            <h2 className={`mt-3 font-display text-3xl leading-tight text-ink sm:text-4xl`}>30 dias de garantia total</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground sm:text-base">
+              Experimente por 30 dias. Se você não notar diferença seguindo o protocolo, devolvemos <strong className="text-ink">100% do seu dinheiro</strong>, sem perguntas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className={SECTION}>
+        <div className="mx-auto max-w-3xl">
+          <div className="text-center">
+            <Eyebrow>Dúvidas frequentes</Eyebrow>
+            <h2 className={`mt-3 ${H2}`}>Tudo o que você precisa saber</h2>
+          </div>
+          <div className="mt-8">
+            <FAQ q="O método funciona pra qualquer tipo de ruga?" a="O método é indicado para rugas de grau leve e linhas de expressão. Ele ameniza rugas de graus maiores e ajuda a evitar ou retardar o surgimento de novas, mas não substitui tratamento dermatológico para rugas de médio a alto grau." />
+            <FAQ q="Preciso comprar produtos caros pra fazer a máscara?" a="Não. Os 3 ingredientes usados são simples, naturais e fáceis de encontrar — muito provavelmente você já tem tudo em casa." />
+            <FAQ q="Com que frequência devo aplicar?" a="O ideal é de 2 a 3 vezes por semana. Aplicação exagerada pode reduzir a eficácia e causar oleosidade ou acne, então é importante respeitar a frequência indicada." />
+            <FAQ q="Quanto tempo leva pra ver resultado?" a="A maioria das pessoas nota diferença já nas primeiras semanas de uso recorrente. O resultado varia de pessoa pra pessoa por fatores genéticos, então o importante é acompanhar sua própria evolução." />
+            <FAQ q="Substitui protetor solar ou outros cuidados com a pele?" a="Não. O método reforça a proteção antioxidante da pele, mas não substitui o protetor solar nem compensa hábitos como tabagismo ou má alimentação — ele funciona melhor combinado com esses cuidados." />
+            <FAQ q="E se eu não notar diferença?" a="Você tem 30 dias de garantia total. Se não perceber resultado seguindo o protocolo corretamente, devolvemos seu investimento integralmente." />
+          </div>
+        </div>
+      </section>
+
       {/* OFERTA */}
       <section id="oferta" className={`bg-ink-gradient text-primary-foreground ${SECTION} scroll-mt-4`}>
         <div className={`${CONTAINER} grid items-center gap-10 lg:grid-cols-[1fr_0.75fr] lg:gap-16`}>
@@ -457,42 +490,6 @@ function Landing() {
                   <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> Acesso imediato</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* GARANTIA */}
-      <section className={`bg-cream ${SECTION}`}>
-        <div className="mx-auto grid max-w-4xl items-center gap-6 md:grid-cols-[auto_1fr] md:gap-10">
-          <img
-            src={seloGarantia.url}
-            alt="Selo Garantia 30 Dias — Satisfação Garantida"
-            className="mx-auto w-40 sm:w-48 md:w-56"
-          />
-          <div className="text-center md:text-left">
-            <Eyebrow>Garantia incondicional</Eyebrow>
-            <h2 className={`mt-3 font-display text-3xl leading-tight text-ink sm:text-4xl`}>30 dias de garantia total</h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground sm:text-base">
-              Experimente por 30 dias. Se você não notar diferença seguindo o protocolo, devolvemos <strong className="text-ink">100% do seu dinheiro</strong>, sem perguntas.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className={SECTION}>
-        <div className="mx-auto max-w-3xl">
-          <div className="text-center">
-            <Eyebrow>Dúvidas frequentes</Eyebrow>
-            <h2 className={`mt-3 ${H2}`}>Tudo o que você precisa saber</h2>
-          </div>
-          <div className="mt-8">
-            <FAQ q="O método funciona pra qualquer tipo de ruga?" a="O método é indicado para rugas de grau leve e linhas de expressão. Ele ameniza rugas de graus maiores e ajuda a evitar ou retardar o surgimento de novas, mas não substitui tratamento dermatológico para rugas de médio a alto grau." />
-            <FAQ q="Preciso comprar produtos caros pra fazer a máscara?" a="Não. Os 3 ingredientes usados são simples, naturais e fáceis de encontrar — muito provavelmente você já tem tudo em casa." />
-            <FAQ q="Com que frequência devo aplicar?" a="O ideal é de 2 a 3 vezes por semana. Aplicação exagerada pode reduzir a eficácia e causar oleosidade ou acne, então é importante respeitar a frequência indicada." />
-            <FAQ q="Quanto tempo leva pra ver resultado?" a="A maioria das pessoas nota diferença já nas primeiras semanas de uso recorrente. O resultado varia de pessoa pra pessoa por fatores genéticos, então o importante é acompanhar sua própria evolução." />
-            <FAQ q="Substitui protetor solar ou outros cuidados com a pele?" a="Não. O método reforça a proteção antioxidante da pele, mas não substitui o protetor solar nem compensa hábitos como tabagismo ou má alimentação — ele funciona melhor combinado com esses cuidados." />
-            <FAQ q="E se eu não notar diferença?" a="Você tem 30 dias de garantia total. Se não perceber resultado seguindo o protocolo corretamente, devolvemos seu investimento integralmente." />
           </div>
         </div>
       </section>
