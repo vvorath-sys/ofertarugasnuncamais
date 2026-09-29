@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ArrowRight, ChevronsLeftRight } from "lucide-react";
+import { Check, ShieldCheck, Star, Clock, Lock, ChevronDown, ChevronsLeftRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 declare global {
@@ -65,7 +65,6 @@ function CTA({ children = "QUERO A RECEITA AGORA", block = false, href = CHECKOU
       className={`group relative flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-cta-gradient px-3 py-4 text-center text-[11px] font-bold uppercase leading-none tracking-[0.04em] text-primary-foreground shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl animate-pulse-soft min-[380px]:text-[12px] sm:gap-3 sm:px-8 sm:text-sm sm:tracking-[0.08em] ${block ? "" : "sm:inline-flex sm:w-auto"}`}
     >
       <span className="whitespace-nowrap">{children}</span>
-      <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
     </a>
   );
 }
@@ -518,15 +517,10 @@ function Landing() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border bg-ink px-4 pb-24 pt-8 text-center text-xs text-primary-foreground/60 md:pb-8">
+      <footer className="border-t border-border bg-ink px-4 pb-8 pt-8 text-center text-xs text-primary-foreground/60">
         <p>© Método Rugas Nunca Mais · Todos os direitos reservados</p>
         <p className="mx-auto mt-2 max-w-2xl">Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Resultados podem variar de pessoa para pessoa.</p>
       </footer>
-
-      {/* BARRA FIXA MOBILE */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 p-3 shadow-2xl backdrop-blur md:hidden">
-        <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
-      </div>
     </main>
   );
 }
