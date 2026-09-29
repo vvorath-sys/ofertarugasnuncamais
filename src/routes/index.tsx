@@ -35,7 +35,7 @@ const n2 = { url: "/images/como-funciona.jpg" };
 import antesImg from "@/assets/antes.png.asset.json";
 import depoisImg from "@/assets/depois.png.asset.json";
 import seloGarantia from "@/assets/selo-garantia-30-dias-removebg-preview.png.asset.json";
-import resultadoVisivelImg from "@/assets/resultado-visivel.png.asset.json";
+import beneficioImg from "@/assets/beneficio-natural.jpg";
 const t1 = { url: "/images/t-sandra.png" };
 const t2 = { url: "/images/t-marlene.png" };
 const t3 = { url: "/images/t-cristiane.png" };
@@ -54,7 +54,7 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const CHECKOUT = "https://checkout.ofertadamulher.online/VCCL1O8SD5T6";
+const CHECKOUT = "https://ggcheckout.app/checkout/v5/1c6ij2l23k83p0zS2xaa";
 
 function CTA({ children = "QUERO A RECEITA AGORA", block = false, href = CHECKOUT }: { children?: React.ReactNode; block?: boolean; href?: string }) {
   const isAnchor = href.startsWith("#");
@@ -316,11 +316,33 @@ function Landing() {
         </div>
       </section>
 
+      {/* IDENTIFICAÇÃO / DOR */}
+      <section className={SECTION}>
+        <div className="mx-auto max-w-3xl text-center">
+          <Eyebrow>Você se identifica?</Eyebrow>
+          <h2 className={`mt-3 ${H2}`}>Se você sente isso, <em className="text-rose">essa receita é pra você</em></h2>
+          <ul className="mx-auto mt-8 grid max-w-2xl gap-3 text-left">
+            {[
+              "Se olha no espelho e sente que envelheceu mais rápido do que deveria",
+              "Já gastou com cremes caros que prometeram e não entregaram",
+              "Evita fotos de perto por causa das linhas de expressão",
+              "Quer um resultado natural, sem agulhas e sem procedimentos caros",
+            ].map((t) => (
+              <li key={t} className="flex items-start gap-3 rounded-xl bg-card p-4 shadow-sm ring-1 ring-rose/10">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-rose" />
+                <span className="text-[15px] text-ink">{t}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mx-auto mt-8 max-w-md"><CTA block href="#oferta">QUERO ME LIVRAR DAS RUGAS</CTA></div>
+        </div>
+      </section>
+
       {/* BENEFÍCIO PRINCIPAL (imagem + texto) */}
       <section className={`bg-secondary/50 ${SECTION}`}>
         <div className={`${CONTAINER} grid items-center gap-8 md:grid-cols-2 md:gap-14`}>
-          <div className="overflow-hidden rounded-2xl bg-card p-2 shadow-xl ring-1 ring-rose/15">
-            <img src={resultadoVisivelImg.url} alt="Resultado visível antes e depois" className="h-auto w-full rounded-xl object-contain" />
+          <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-rose/15">
+            <img src={beneficioImg} alt="Mulher sorrindo preparando a receita caseira" width={1024} height={1280} loading="lazy" className="h-auto w-full" />
           </div>
           <div>
             <Eyebrow>Benefício principal</Eyebrow>
@@ -402,6 +424,7 @@ function Landing() {
             </figure>
           ))}
         </div>
+        <div className="mx-auto mt-10 max-w-md px-5"><CTA block href="#oferta">QUERO A RECEITA AGORA</CTA></div>
       </section>
 
 
@@ -495,10 +518,15 @@ function Landing() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border bg-ink px-4 py-8 text-center text-xs text-primary-foreground/60">
+      <footer className="border-t border-border bg-ink px-4 pb-24 pt-8 text-center text-xs text-primary-foreground/60 md:pb-8">
         <p>© Método Rugas Nunca Mais · Todos os direitos reservados</p>
         <p className="mx-auto mt-2 max-w-2xl">Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Resultados podem variar de pessoa para pessoa.</p>
       </footer>
+
+      {/* BARRA FIXA MOBILE */}
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 p-3 shadow-2xl backdrop-blur md:hidden">
+        <CTA block href="#oferta">QUERO A RECEITA AGORA</CTA>
+      </div>
     </main>
   );
 }
